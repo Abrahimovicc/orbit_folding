@@ -1,0 +1,759 @@
+{
+  "format": "orbit_folding.mesh_implementation_audit.v1",
+  "date": "2026-10-26",
+  "scope": "Original mesh implementation trace, checkpoint lineage and observed-cloud fidelity reevaluation. No additional model training.",
+  "checkpoint_lineage": {
+    "paper_full_shape": {
+      "filename": "epoch=07-loss_epoch=52.3688.ckpt",
+      "epoch": 7,
+      "global_step": 23472,
+      "sha256": "1803f1214ded5d50a2aa4874033559248bdf5359809aaacb1c15539e2a0f6bc1"
+    },
+    "continued_explicit": {
+      "filename": "epoch=105-loss_epoch=29.1107.ckpt",
+      "epoch": 105,
+      "global_step": 311004,
+      "sha256": "80f55c3d52a46f0203170c329e0525068a9d4c806b048bbb81e1c7cf86a87545"
+    },
+    "continued_last": {
+      "filename": "last.ckpt",
+      "epoch": 11,
+      "global_step": 35208,
+      "sha256": "8d328e1c3f04311d3ad7ea570d71d8157fb98773c420c660fafa880739724f8f"
+    },
+    "continued_last_v1": {
+      "filename": "last-v1.ckpt",
+      "epoch": 105,
+      "global_step": 311004,
+      "sha256": "80f55c3d52a46f0203170c329e0525068a9d4c806b048bbb81e1c7cf86a87545"
+    }
+  },
+  "checkpoint_scope": "The full-shape pair is frozen at checkpoint epoch=07. The separate matched tokenizer underlying Table 2 and primary completion uses a 12-epoch budget. Epoch numbering in original Lightning files is zero-based.",
+  "original_source_sha256": {
+    "generate_stage2_orbit_v1_meshes.py": "3c8878036c7a33817f0ef77148775eaabd36aa6083c988613dd10dab8aa4769e",
+    "eval/eval_stage1_orbit_tokenizer_tables.py": "ddb4cedacfe1ea1267fe4b3ea797dcad33deef3ad4982555c953ae891a8862f8",
+    "tools/export_orbit_stage1_canonical_meshes.py": "34515cb4e6d6c27e619bfb13f86f8392650db6aea8a8a10972c6b89dc2a43a27",
+    "config/export/stage1_paper_mesh_preset.yaml": "3feaf4fd045f9486230eac2bd77d63dd34039a49abc359b38db733bb58dc9ffe",
+    "utils/visual_mesh.py": "bb88903d959ff681b84a0869409ebbafc3ff63e7e150c96aeaa96ca95edc6d14",
+    "tools/paper_experiments/run_stage1_epoch_refresh_compare_20260527.sh": "505e090dada0ec8b52dcc027eb96f0b2177d93c9033696e9ecbab33a10efca56"
+  },
+  "release_source_sha256": {
+    "src/orbit_folding/__init__.py": "d6098f923fc18be29e92641e7164f291f96983818aea54c07cbd0c97e831ef68",
+    "src/orbit_folding/__main__.py": "88cbcad8b4739d400ed77819c172e7d8010b9a14e7167210ac958be927c728c7",
+    "src/orbit_folding/benchmark_decode.py": "e5af1850ef1d5722a09cacc028152bc1155f75e733bf07fde165eac93c4d671b",
+    "src/orbit_folding/checkpoints.py": "928f88f46c6b29b84ea57ae091eaed3fa0cfbdf683b38e01d19915143c854ea2",
+    "src/orbit_folding/cli.py": "50a92d5decdb54b99cc184f7f032793d43dca1ed283ab4cff63501dddcbc7978",
+    "src/orbit_folding/data.py": "e2e8745d542be3bff01e9ddc4c8b90404f568969db8473b5b0406abaf34bc942",
+    "src/orbit_folding/evaluation.py": "e6b93c7234d579bb8987ce6ddfcdcf62e32398bb9349532a74f8b2c6c884ec85",
+    "src/orbit_folding/fidelity_benchmark.py": "f79b430097411b7562177e7cf72848ee9f671ff07083375d1046e482f64d72ad",
+    "src/orbit_folding/geometry.py": "168ec00024c0ff5b7fca4f1dbed16ec6574632b15bbdac38c567f33b78218858",
+    "src/orbit_folding/inference.py": "f82fedf7993b7276098f8fda2498eb8c66baeaa0b0acdb56b76c5caa7d54aee8",
+    "src/orbit_folding/mesh_benchmark.py": "865f9141f881e685bc29e69a0b3ac0a9075906524b2377f97de81b1f2206c0ae",
+    "src/orbit_folding/meshing.py": "13df6a537ae8b1ac2b11521014d4739f3952000005f6603f2f13e75cdc32cf3a",
+    "src/orbit_folding/metrics.py": "77327be40fd23a424c90030869f795bfc3875a3a69f812f92fa29a23ca83aa45",
+    "src/orbit_folding/models/__init__.py": "7bcaf111e1bbb4f83abf33d4af9b4528d0faa50341cac99946c2163bdc80eae0",
+    "src/orbit_folding/models/categorical.py": "aebb2d0dfbe84586222ef35d4465dbff72b18c04ab8bcf57b61112e1c498aaa1",
+    "src/orbit_folding/models/encoder.py": "afa48987438c38d48afef9af0e90aa95de1410c071f6fdef2ef5c69147779301",
+    "src/orbit_folding/models/field.py": "474637a2dbe1e64951083944a465cb3585ed11436b009afb2e26100af107f337",
+    "src/orbit_folding/models/prior.py": "f8ac480acb9f5f5ffd44f10fe79ae096598b917b71084fccc0bc7cb78f2254ec",
+    "src/orbit_folding/models/quantization.py": "955b725e8a80c2adad4beab778d75a2d2e1f7fb13d542427801e97dd3fc7c5b6",
+    "src/orbit_folding/models/tokenizer.py": "dba1b4bd9bcb3a9530298203cd6795a455a93865cb27a9aed0551a8652628a74",
+    "src/orbit_folding/monitoring.py": "2459798ac27e852dccec4492c57202cff0a32c95e05e3faae2018d123c24c33d",
+    "src/orbit_folding/objectives.py": "92a49b1c7791fac0e161816eed1875aeb8aae19d3f4a08975c404e499c0c1318",
+    "src/orbit_folding/paper_evaluation.py": "d471d96866c20b87f40b447bccd75645b59ba4ceece944368b1069e03a39501b",
+    "src/orbit_folding/preprocessing.py": "6e9dc54185f1e937c195f4f0075f52b5cc79c2d64501bd65993c94355e6f47bb",
+    "src/orbit_folding/provenance.py": "3f2d722c89a015b4fb15c948720a4352dd9f64c811717d67b45900f8092a0c45",
+    "src/orbit_folding/stress_benchmark.py": "f2e7615f73f7f83b8761e9f8b1ce34cccb773b9e4e45061af242be5688f8495c",
+    "src/orbit_folding/token_cache.py": "3ec5c026eaee290ecb4f9321f6dceccb994ec6110d89c9951ec00d45ec73c37b",
+    "src/orbit_folding/token_support.py": "61cc56711fe120f0410886ce18d0315f3d15389cbbc8360695f17ed4753cb26a",
+    "src/orbit_folding/training.py": "f59febd760d61e0a799a7f4eae3fe68093cf644bcfc996c4c14660b7994f9e1c",
+    "src/orbit_folding/validation.py": "fec2ea3601cc9cf1f4193d4b183243f428c7baada128f8cd48913c824ce2217f",
+    "src/orbit_folding/visualization.py": "0bab538ff34b2e7d43511491bd8430cb6dbfdf29d2c0c19bcf5ef4c74a3ae535",
+    "src/orbit_folding/weights.py": "ca4524b14e02305f611329e37f3695b397d576dd3fe620de736d169975e30bd0"
+  },
+  "same_tensor_source_comparison": {
+    "report_sha256": "7cb19b5f4792d0fc823cd30dbc0bd83d823b0b308ea5fe76f1028ccd07976394",
+    "torch": "2.7.0+cu128",
+    "active_tensors_equal": 153,
+    "tf32": false,
+    "object_indices": [
+      0,
+      1,
+      127,
+      255,
+      363,
+      511
+    ],
+    "comparisons": 36,
+    "caches": [
+      "archived",
+      "fresh"
+    ],
+    "states": [
+      "oracle",
+      "soft",
+      "hard"
+    ],
+    "resolution": 56,
+    "bounds": [
+      -0.5,
+      0.5
+    ],
+    "max_plane_abs_difference": 0.0,
+    "max_sdf_abs_difference": 0.0,
+    "sdf_sign_disagreements": 0,
+    "max_same_field_vertex_distance": 1.4901161193847656e-08,
+    "matching_mesh_validity_and_counts": true,
+    "fresh_hard_missing_surface_indices": [
+      363
+    ],
+    "observed_token_exact_fractions": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "limitation": "Six identical input observations and 36 field states, not a guarantee of bitwise GPU encoding for every input or environment."
+  },
+  "archived_ground_truth": {
+    "observations": 512,
+    "bit_elements": 100663296,
+    "bit_disagreements": 0,
+    "indices_sha256": "d2c165042c1f3dd44f3780f024f84cc81222428d262400fad8eef8d6bb41bf65",
+    "ground_truth_sha256": "7aaa10f4bae09d270757a3785b83e92f4b2260506fae62cdc5471e69174722b3"
+  },
+  "mesh_export_changes": {
+    "general_and_inference_bounds_before": [
+      -0.6,
+      0.6
+    ],
+    "bounds_after": [
+      -0.5,
+      0.5
+    ],
+    "boundary_benchmark_bounds_unchanged": [
+      -0.5,
+      0.5
+    ],
+    "old_general_reports_replay_flag": "--bounds -0.6 0.6",
+    "gallery_preset": {
+      "resolution": 160,
+      "query_chunk_size": 65536,
+      "component_min_fraction": 0.02,
+      "component_min_triangles": 128,
+      "component_min_extent_fraction": 0.08,
+      "vertex_smoothing": false
+    },
+    "extent_rule": "Retain a component if its triangle count meets max(ceil(0.02*largest_count),128), OR its bbox diagonal is at least 0.08*largest_component_diagonal. Preserve largest component if no test passes.",
+    "boundary_filter_unchanged": {
+      "min_fraction": 0.02,
+      "min_triangles": 64,
+      "min_extent_fraction": 0
+    },
+    "real_cli_exports": {
+      "scope": "Two deterministic first test objects; functional export validation, not a quality estimate.",
+      "samples": [
+        {
+          "sample_id": "02691156__448b45ac858784e9b020e22bd5fe2e73",
+          "category": "02691156",
+          "encoded": {
+            "format": "orbit_folding.encoded.v1",
+            "source_name": "02691156__448b45ac858784e9b020e22bd5fe2e73.npz",
+            "source_sha256": "5fe94351a24277ee6c17415ed7fd685f8bc653ab507a3b83839dc3f17ff05ea9",
+            "tokenizer_hash": "1511df4f17dcbf59a58bbb29e1bd7cff19aa590ba8188258ec3468f745b7c40f",
+            "observed_points": 30000,
+            "encoder_points": 8192,
+            "seed": 2026,
+            "normalization": "model-space",
+            "sampling_frame": "observation",
+            "model_space_input": true,
+            "quantizer_type": "lfq",
+            "bit_shape": [
+              12,
+              128,
+              128
+            ],
+            "scope": "Encoding of an observed point set; no SDF labels or semantic pose are used"
+          },
+          "decoded": {
+            "state": "oracle",
+            "space": "representative",
+            "resolution": 160,
+            "tokenizer_hash": "1511df4f17dcbf59a58bbb29e1bd7cff19aa590ba8188258ec3468f745b7c40f",
+            "prior_binding_verified": null,
+            "mask_ratio": null,
+            "hidden_accuracy": null,
+            "mesh": {
+              "valid": true,
+              "status": "ok",
+              "support": {
+                "count": 4096000,
+                "finite_count": 4096000,
+                "nonfinite_count": 0,
+                "negative_count": 28482,
+                "zero_count": 0,
+                "positive_count": 4067518,
+                "min": -0.054302316159009933,
+                "max": 0.11303883045911789,
+                "strict_zero_crossing": true
+              },
+              "vertices": 15394,
+              "triangles": 30788,
+              "watertight": true,
+              "boundary_edges": 0,
+              "nonmanifold_edges": 0,
+              "grid_boundary_negative_fraction": 0.0
+            },
+            "protocol": {
+              "bounds": [
+                -0.5,
+                0.5
+              ],
+              "level": 0.0,
+              "query_chunk_size": 65536,
+              "component_min_fraction": 0.02,
+              "component_min_triangles": 128,
+              "component_min_extent_fraction": 0.08,
+              "smoothing": false
+            },
+            "mesh_before_cleanup": {
+              "valid": true,
+              "status": "ok",
+              "support": {
+                "count": 4096000,
+                "finite_count": 4096000,
+                "nonfinite_count": 0,
+                "negative_count": 28482,
+                "zero_count": 0,
+                "positive_count": 4067518,
+                "min": -0.054302316159009933,
+                "max": 0.11303883045911789,
+                "strict_zero_crossing": true
+              },
+              "vertices": 15474,
+              "triangles": 30944,
+              "watertight": true,
+              "boundary_edges": 0,
+              "nonmanifold_edges": 0,
+              "grid_boundary_negative_fraction": 0.0
+            }
+          },
+          "ply_sha256": "f6a6356a0c8da86bcdcc51ada6cf563e47b99e0c92d3188204321ae94b917978"
+        },
+        {
+          "sample_id": "04379243__a05d8e55e329df41ca2ed12df13a916a",
+          "category": "04379243",
+          "encoded": {
+            "format": "orbit_folding.encoded.v1",
+            "source_name": "04379243__a05d8e55e329df41ca2ed12df13a916a.npz",
+            "source_sha256": "04c55149b43703fbf9008a93b7b36b0e7f64f0d09ad0b59d6f1259761e81f908",
+            "tokenizer_hash": "1511df4f17dcbf59a58bbb29e1bd7cff19aa590ba8188258ec3468f745b7c40f",
+            "observed_points": 30000,
+            "encoder_points": 8192,
+            "seed": 2026,
+            "normalization": "model-space",
+            "sampling_frame": "observation",
+            "model_space_input": true,
+            "quantizer_type": "lfq",
+            "bit_shape": [
+              12,
+              128,
+              128
+            ],
+            "scope": "Encoding of an observed point set; no SDF labels or semantic pose are used"
+          },
+          "decoded": {
+            "state": "oracle",
+            "space": "representative",
+            "resolution": 160,
+            "tokenizer_hash": "1511df4f17dcbf59a58bbb29e1bd7cff19aa590ba8188258ec3468f745b7c40f",
+            "prior_binding_verified": null,
+            "mask_ratio": null,
+            "hidden_accuracy": null,
+            "mesh": {
+              "valid": true,
+              "status": "ok",
+              "support": {
+                "count": 4096000,
+                "finite_count": 4096000,
+                "nonfinite_count": 0,
+                "negative_count": 82694,
+                "zero_count": 0,
+                "positive_count": 4013306,
+                "min": -0.05235259607434273,
+                "max": 0.11491292715072632,
+                "strict_zero_crossing": true
+              },
+              "vertices": 37077,
+              "triangles": 74194,
+              "watertight": true,
+              "boundary_edges": 0,
+              "nonmanifold_edges": 0,
+              "grid_boundary_negative_fraction": 0.0
+            },
+            "protocol": {
+              "bounds": [
+                -0.5,
+                0.5
+              ],
+              "level": 0.0,
+              "query_chunk_size": 65536,
+              "component_min_fraction": 0.02,
+              "component_min_triangles": 128,
+              "component_min_extent_fraction": 0.08,
+              "smoothing": false
+            },
+            "mesh_before_cleanup": {
+              "valid": true,
+              "status": "ok",
+              "support": {
+                "count": 4096000,
+                "finite_count": 4096000,
+                "nonfinite_count": 0,
+                "negative_count": 82694,
+                "zero_count": 0,
+                "positive_count": 4013306,
+                "min": -0.05235259607434273,
+                "max": 0.11491292715072632,
+                "strict_zero_crossing": true
+              },
+              "vertices": 37137,
+              "triangles": 74294,
+              "watertight": true,
+              "boundary_edges": 0,
+              "nonmanifold_edges": 0,
+              "grid_boundary_negative_fraction": 0.0
+            }
+          },
+          "ply_sha256": "8e606704be8c3b1ac15588f300dc5449fbd7a0a79cf78f56f58561b55184483e"
+        }
+      ]
+    }
+  },
+  "fidelity_protocol": "Draw observation using original per-cell sampling algorithm, retain 2048 points before frame estimation and encoding, compare mesh to that same representative cloud, res64, bounds +/-0.5, CD half-sum squared NN x1000, first512 Hungarian EMD x100, zero-SDF targets count as outside. Recorded draws differ from the unrecorded original RNG stream.",
+  "paper_table2": {
+    "summary_sha256": "8380b7242e43fd9af00a9ef4c54a2beecf41cac899a4a594e8f0a7235632aec9",
+    "rows": {
+      "raw": {
+        "branch": "raw",
+        "n": 512,
+        "valid": "512/512",
+        "empty_rate": 0.0,
+        "inside_gap_pp": 7.037162780761719,
+        "sign_acc_percent": 79.3020248413086,
+        "sampled_cd_x1e3": 0.5347237668356684,
+        "emd_x100": 5.3128486921921905,
+        "target_inside_ratio": 0.42579078674316406,
+        "pred_inside_ratio": 0.45241546630859375
+      },
+      "continuous": {
+        "branch": "continuous",
+        "n": 512,
+        "valid": "512/512",
+        "empty_rate": 0.0,
+        "inside_gap_pp": 6.53839111328125,
+        "sign_acc_percent": 80.33103942871094,
+        "sampled_cd_x1e3": 0.5184478328883415,
+        "emd_x100": 5.192083155864323,
+        "target_inside_ratio": 0.42579078674316406,
+        "pred_inside_ratio": 0.4783916473388672
+      },
+      "quantized": {
+        "branch": "quantized",
+        "n": 512,
+        "valid": "512/512",
+        "empty_rate": 0.0,
+        "inside_gap_pp": 6.764411926269531,
+        "sign_acc_percent": 80.00431060791016,
+        "sampled_cd_x1e3": 0.5343421018369554,
+        "emd_x100": 5.2240098005307445,
+        "target_inside_ratio": 0.42579078674316406,
+        "pred_inside_ratio": 0.4818687438964844
+      }
+    }
+  },
+  "fidelity_reevaluation": {
+    "reference": {
+      "report_sha256": "a520aebf86ddb4ec8f26bb7654d1ac5e5988607867c02eadb169c0a04fc76e4c",
+      "checkpoint_sha256": "ea243f5b419b3bd8951338c82893728ad83f4482df4e4f77751b2680a6630f7f",
+      "data_fingerprint": "a0fa5e6ab5afb164279a9bb4a35cdbd29412784d8c39e02832c2f07e977f545f",
+      "summary": {
+        "raw": {
+          "samples": 512,
+          "valid": 512,
+          "valid_fraction": 1.0,
+          "cd_x1e3": {
+            "count": 512,
+            "missing": 0,
+            "mean": 0.5606151071548451,
+            "median": 0.4449031516351798,
+            "p95": 1.3617868012945518
+          },
+          "emd_x100": {
+            "count": 512,
+            "missing": 0,
+            "mean": 5.427630182855001,
+            "median": 5.310103656861155,
+            "p95": 8.39399102753807
+          },
+          "sign_accuracy": {
+            "count": 512,
+            "missing": 0,
+            "mean": 0.8117411136627197,
+            "median": 0.82122802734375,
+            "p95": 0.89111328125
+          },
+          "inside_gap_pp": {
+            "count": 512,
+            "missing": 0,
+            "mean": 6.608939170837402,
+            "median": 5.99365234375,
+            "p95": 14.959716796874998
+          }
+        },
+        "continuous": {
+          "samples": 512,
+          "valid": 512,
+          "valid_fraction": 1.0,
+          "cd_x1e3": {
+            "count": 512,
+            "missing": 0,
+            "mean": 0.5170497124664479,
+            "median": 0.3982852471706604,
+            "p95": 1.27878709444931
+          },
+          "emd_x100": {
+            "count": 512,
+            "missing": 0,
+            "mean": 5.307142502574699,
+            "median": 5.220130886544563,
+            "p95": 8.063372962892485
+          },
+          "sign_accuracy": {
+            "count": 512,
+            "missing": 0,
+            "mean": 0.8197050094604492,
+            "median": 0.834716796875,
+            "p95": 0.8989990234375
+          },
+          "inside_gap_pp": {
+            "count": 512,
+            "missing": 0,
+            "mean": 5.787420272827148,
+            "median": 5.255126953125,
+            "p95": 13.12255859375
+          }
+        },
+        "quantized": {
+          "samples": 512,
+          "valid": 512,
+          "valid_fraction": 1.0,
+          "cd_x1e3": {
+            "count": 512,
+            "missing": 0,
+            "mean": 0.5292286819483183,
+            "median": 0.41600967884544354,
+            "p95": 1.3273266610439372
+          },
+          "emd_x100": {
+            "count": 512,
+            "missing": 0,
+            "mean": 5.282414284261817,
+            "median": 5.192212258055255,
+            "p95": 8.15235561446176
+          },
+          "sign_accuracy": {
+            "count": 512,
+            "missing": 0,
+            "mean": 0.8171923160552979,
+            "median": 0.8304443359375,
+            "p95": 0.8959716796875
+          },
+          "inside_gap_pp": {
+            "count": 512,
+            "missing": 0,
+            "mean": 5.953049659729004,
+            "median": 5.50537109375,
+            "p95": 13.414916992187498
+          }
+        }
+      },
+      "protocol": {
+        "bounds": [
+          -0.5,
+          0.5
+        ],
+        "resolution": 64,
+        "seed": 20260513,
+        "metric_points": 2048,
+        "emd_points": 512,
+        "sampling_protocol": "reference",
+        "encoder_draw_points": 8192,
+        "frame_source": "subsampled_observation",
+        "reference_surface": "same_subsampled_observation",
+        "surface_sampling": "Open3D, seeded per object",
+        "point_sampling": {
+          "seed": 20260513,
+          "pc_size": 8192,
+          "samples_per_mesh": 8192,
+          "uniform_samples": 2048,
+          "point_strategy": "spatial_mixed",
+          "point_bins": 28,
+          "point_random_ratio": 0.25,
+          "query_strategy": "spatial_sdf_value_balanced",
+          "query_bins": 24,
+          "query_ratios": [
+            0.1,
+            0.2,
+            0.2,
+            0.25,
+            0.25
+          ],
+          "surface_eps": 0.0005,
+          "near_eps": 0.02,
+          "orient_normals": true,
+          "point_sampling_frame": "observation",
+          "sampling_protocol": "reference",
+          "axis_lock": true,
+          "frame_source": "cache"
+        },
+        "query_sampling": {
+          "seed": 20260513,
+          "pc_size": 8192,
+          "samples_per_mesh": 8192,
+          "uniform_samples": 2048,
+          "point_strategy": "spatial_mixed",
+          "point_bins": 28,
+          "point_random_ratio": 0.25,
+          "query_strategy": "spatial_sdf_value_balanced",
+          "query_bins": 24,
+          "query_ratios": [
+            0.1,
+            0.2,
+            0.2,
+            0.25,
+            0.25
+          ],
+          "surface_eps": 0.0005,
+          "near_eps": 0.02,
+          "orient_normals": true,
+          "point_sampling_frame": "observation",
+          "sampling_protocol": "portable",
+          "axis_lock": true,
+          "frame_source": "cache"
+        }
+      }
+    },
+    "retrained": {
+      "report_sha256": "5b6183171747997c3d25518f9153b410782adf6a078b27010a2214aae1bca115",
+      "checkpoint_sha256": "72d73766c2f7fb23474c5f9449d3bfc1921db381a07296d096ee4827d60622f2",
+      "data_fingerprint": "a0fa5e6ab5afb164279a9bb4a35cdbd29412784d8c39e02832c2f07e977f545f",
+      "summary": {
+        "raw": {
+          "samples": 512,
+          "valid": 512,
+          "valid_fraction": 1.0,
+          "cd_x1e3": {
+            "count": 512,
+            "missing": 0,
+            "mean": 0.5291802103636554,
+            "median": 0.43618478811280326,
+            "p95": 1.379844570911666
+          },
+          "emd_x100": {
+            "count": 512,
+            "missing": 0,
+            "mean": 5.3838417405111505,
+            "median": 5.467634828300919,
+            "p95": 8.022877445836151
+          },
+          "sign_accuracy": {
+            "count": 512,
+            "missing": 0,
+            "mean": 0.8152766227722168,
+            "median": 0.8232421875,
+            "p95": 0.877471923828125
+          },
+          "inside_gap_pp": {
+            "count": 512,
+            "missing": 0,
+            "mean": 8.023262023925781,
+            "median": 7.830810546875,
+            "p95": 15.454711914062498
+          }
+        },
+        "continuous": {
+          "samples": 512,
+          "valid": 512,
+          "valid_fraction": 1.0,
+          "cd_x1e3": {
+            "count": 512,
+            "missing": 0,
+            "mean": 0.54715805800327,
+            "median": 0.45826200935160644,
+            "p95": 1.3834091358868152
+          },
+          "emd_x100": {
+            "count": 512,
+            "missing": 0,
+            "mean": 5.351695321724824,
+            "median": 5.342889236020766,
+            "p95": 8.049200089591526
+          },
+          "sign_accuracy": {
+            "count": 512,
+            "missing": 0,
+            "mean": 0.8006980419158936,
+            "median": 0.8079833984375,
+            "p95": 0.871148681640625
+          },
+          "inside_gap_pp": {
+            "count": 512,
+            "missing": 0,
+            "mean": 9.4163179397583,
+            "median": 9.564208984375,
+            "p95": 16.8597412109375
+          }
+        },
+        "quantized": {
+          "samples": 512,
+          "valid": 512,
+          "valid_fraction": 1.0,
+          "cd_x1e3": {
+            "count": 512,
+            "missing": 0,
+            "mean": 0.5616609001334304,
+            "median": 0.48427128524588325,
+            "p95": 1.3944094055136615
+          },
+          "emd_x100": {
+            "count": 512,
+            "missing": 0,
+            "mean": 5.326178573040378,
+            "median": 5.3289679424221745,
+            "p95": 7.959477074087955
+          },
+          "sign_accuracy": {
+            "count": 512,
+            "missing": 0,
+            "mean": 0.799654483795166,
+            "median": 0.80877685546875,
+            "p95": 0.86998291015625
+          },
+          "inside_gap_pp": {
+            "count": 512,
+            "missing": 0,
+            "mean": 9.421014785766602,
+            "median": 9.686279296875,
+            "p95": 16.46728515625
+          }
+        }
+      },
+      "protocol": {
+        "bounds": [
+          -0.5,
+          0.5
+        ],
+        "resolution": 64,
+        "seed": 20260513,
+        "metric_points": 2048,
+        "emd_points": 512,
+        "sampling_protocol": "reference",
+        "encoder_draw_points": 8192,
+        "frame_source": "subsampled_observation",
+        "reference_surface": "same_subsampled_observation",
+        "surface_sampling": "Open3D, seeded per object",
+        "point_sampling": {
+          "seed": 20260513,
+          "pc_size": 8192,
+          "samples_per_mesh": 8192,
+          "uniform_samples": 2048,
+          "point_strategy": "spatial_mixed",
+          "point_bins": 28,
+          "point_random_ratio": 0.25,
+          "query_strategy": "spatial_sdf_value_balanced",
+          "query_bins": 24,
+          "query_ratios": [
+            0.1,
+            0.2,
+            0.2,
+            0.25,
+            0.25
+          ],
+          "surface_eps": 0.0005,
+          "near_eps": 0.02,
+          "orient_normals": true,
+          "point_sampling_frame": "observation",
+          "sampling_protocol": "reference",
+          "axis_lock": true,
+          "frame_source": "cache"
+        },
+        "query_sampling": {
+          "seed": 20260513,
+          "pc_size": 8192,
+          "samples_per_mesh": 8192,
+          "uniform_samples": 2048,
+          "point_strategy": "spatial_mixed",
+          "point_bins": 28,
+          "point_random_ratio": 0.25,
+          "query_strategy": "spatial_sdf_value_balanced",
+          "query_bins": 24,
+          "query_ratios": [
+            0.1,
+            0.2,
+            0.2,
+            0.25,
+            0.25
+          ],
+          "surface_eps": 0.0005,
+          "near_eps": 0.02,
+          "orient_normals": true,
+          "point_sampling_frame": "observation",
+          "sampling_protocol": "portable",
+          "axis_lock": true,
+          "frame_source": "cache"
+        }
+      }
+    }
+  },
+  "retrained_quantized_minus_paper": {
+    "cd_relative_percent": 5.112604491122585,
+    "emd_relative_percent": 1.955753844475061,
+    "sign_accuracy_pp": -0.03886222839355469,
+    "inside_gap_pp": 2.6566028594970703
+  },
+  "historical_epoch07_vs105": {
+    "source_sha256": "fd12033b0ef59f95da4e2802f07be739543db10ffda0c16d1ccb997128e43ad2",
+    "scope": "Historical 64-object downstream diagnostic, not this audit's fresh 512-object fidelity experiment.",
+    "epoch07": {
+      "recon_cd_x1e3": 0.3091,
+      "recon_emd_x100": 4.533,
+      "effective_support_percent": 14.79,
+      "bit_accuracy_50_percent": 95.46,
+      "token_exact_50_percent": 69.25,
+      "valid": 64
+    },
+    "epoch105": {
+      "recon_cd_x1e3": 0.274,
+      "recon_emd_x100": 4.412,
+      "effective_support_percent": 46.18,
+      "bit_accuracy_50_percent": 91.09,
+      "token_exact_50_percent": 57.83,
+      "valid": 64
+    }
+  },
+  "training_decision": "Do not launch ~100-epoch training to fix a measurement/export mismatch. The existing fixed-budget 12-epoch tokenizer already gives close quantized reconstruction under the source-compatible fidelity protocol.",
+  "unresolved": [
+    "Fresh-token relaxed-vs-hard mean-edge advantage remains unverified; correcting inference bounds does not fix the boundary benchmark, which already used +/-0.5.",
+    "Retrained per-observation inside-fraction gap is larger than the paper value.",
+    "K=8192 full-category support training and CUDA/NCCL multi-GPU execution remain separate unverified claims."
+  ],
+  "tests": {
+    "isolated_passed": 443,
+    "isolated_exit_code": 0,
+    "isolated_modules_loaded_from_public_copy": true,
+    "evidence_sha256": "b28938f7906401f137ec208144934f43900da40c8718acf475d60fc83554c992"
+  }
+}

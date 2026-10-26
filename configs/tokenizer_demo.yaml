@@ -1,0 +1,150 @@
+# Geometric Orbit Representatives for Unaligned 3D Tokenization
+# Chair of Multimodal Machine Learning, ScaDS.AI Dresden/Leipzig
+# Contact: Xiang Chen <xiang.chen@uni-leipzig.de>
+# SPDX-License-Identifier: MIT
+Task: tokenizer
+Description: Small CPU reconstructive tokenizer
+DataSource: data/samples/processed
+TrainSplit: data/samples/processed/split.json
+TestSplit: data/samples/processed/split.json
+AxisConvention: shapenet_normalized_y_up
+InputScaleFactor: 2.0
+Canonicalizer: pca_representative
+AutoOrientNormalsByCentroid: true
+TrainCleanBranchReconstruction: true
+CleanBranchLossWeight: 1.0
+TrainTargetBranchReconstruction: false
+ShareTokenFieldHead: true
+SdfModelSpecs:
+  latent_dim: 8
+  pn_hidden_dim: 16
+Encoder:
+  type: pointnext_triplane
+  hidden_dim: 16
+  num_blocks: 3
+  knn_k: 8
+  knn_chunk_size: 64
+  knn_reference_size: 32
+  plane_refine_blocks: 3
+  output_scale: 0.025
+  padding: 0.1
+  grid_sample_align_corners: false
+plane_res: 8
+PCsize: 64
+SampPerMesh: 64
+UniformFieldSamples: 32
+num_epochs: 1
+batch_size: 2
+sdf_lr: 0.0001
+Tokenizer:
+  token_dim: 16
+  hidden_channels: 16
+  codebook_size: 16
+  num_res_blocks: 2
+  detach_input: true
+  entropy_loss_weight: 0.5
+  commitment_loss_weight: 0.1
+  diversity_gamma: 2.0
+  soft_clamp_input_value: 5.0
+FieldDecoder:
+  type: pointnext_plane_aware
+  plane_feature_aggregation: concat
+  hidden_dim: 32
+  plane_state_dim: 16
+  num_layers: 4
+  beta: 20.0
+  output_scale: 0.1
+  output_bias: 0.02
+  residual_concat: true
+SdfTruncation: 0.1
+SdfLossBeta: 0.003
+NearSurfaceWeight: 2.0
+NearSurfaceWeightSigma: 0.01
+BalanceInsideOutsideSdfWeights: true
+SurfaceSdfWeight: 0.35
+SurfaceSignEps: 0.00025
+SignLossType: bce
+SignLossTemperature: 0.005
+FarSignThreshold: 0.03
+SurfaceShell:
+  enabled: true
+  points: 32
+  eps: 0.004
+  zero_weight: 1.0
+  signed_weight: 1.0
+FreeSpace:
+  enabled: true
+  eps: 0.001
+  margin: 0.004
+  near_band: 0.04
+  near_weight: 2.0
+PointSamplingStrategy: spatial_mixed
+PointSpatialBins: 28
+PointRandomRatio: 0.25
+QuerySamplingStrategy: spatial_sdf_value_balanced
+QuerySpatialBins: 24
+QuerySamplingRatios:
+  surface: 0.1
+  near_inside: 0.2
+  near_outside: 0.2
+  far_inside: 0.25
+  far_outside: 0.25
+QuerySamplingBins:
+  surface_eps: 0.0005
+  near_eps: 0.02
+EnableSymmetryAwarePose: true
+EnableAxisRepresentativeLock: true
+SymmetryOrders:
+  "04379243": 4
+  "03636649": 8
+Optimizer:
+  lr: 0.0001
+  weight_decay: 0.0001
+  eta_min: 0.000001
+LossWeights:
+  raw_sdf: 150.0
+  continuous_sdf: 75.0
+  token_sdf: 150.0
+  raw_sign: 150.0
+  continuous_sign: 75.0
+  token_sign: 150.0
+  raw_free_space: 20.0
+  continuous_free_space: 10.0
+  token_free_space: 20.0
+  feature_continuous: 5.0
+  feature_token: 5.0
+  field_distill: 2.0
+  aux: 1.0
+  pose: 10.0
+  pca: 0.02
+  canonical_pc: 20.0
+  raw_feature_l2: 0.0001
+  raw_surface_shell: 25.0
+  continuous_surface_shell: 12.5
+  token_surface_shell: 25.0
+  raw_uniform_sdf: 30.0
+  continuous_uniform_sdf: 15.0
+  token_uniform_sdf: 30.0
+  raw_uniform_sign: 30.0
+  continuous_uniform_sign: 15.0
+  token_uniform_sign: 30.0
+  raw_uniform_free_space: 10.0
+  continuous_uniform_free_space: 5.0
+  token_uniform_free_space: 10.0
+TrainingSchedule:
+  continuous_sdf_start_step: 0
+  continuous_sdf_ramp_steps: 0
+  feature_start_step: 0
+  feature_ramp_steps: 0
+  token_sdf_start_step: 0
+  token_sdf_ramp_steps: 0
+  field_distill_start_step: 0
+  field_distill_ramp_steps: 0
+  aux_start_step: 0
+  aux_ramp_steps: 0
+Trainer:
+  precision: 32-true
+  gradient_clip_val: 1.0
+  accumulate_grad_batches: 1
+  log_every_n_steps: 1
+  max_steps: 2

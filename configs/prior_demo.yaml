@@ -1,0 +1,30 @@
+# Geometric Orbit Representatives for Unaligned 3D Tokenization
+# Chair of Multimodal Machine Learning, ScaDS.AI Dresden/Leipzig
+# Contact: Xiang Chen <xiang.chen@uni-leipzig.de>
+# SPDX-License-Identifier: MIT
+Task: prior
+Description: Tiny masked-completion pipeline demonstration, not a quality result
+seed: 20260511
+num_bits: 4
+plane_res: 8
+Tokenizer:
+  codebook_size: 16
+batch_size: 2
+num_workers: 0
+epochs: 2
+data:
+  crop_size: 8
+  val_ratio: 0.05
+model:
+  hidden_channels: 16
+  num_blocks: 2
+  dilations: [1, 2]
+  dropout: 0.0
+  mask_ratio_min: 0.15
+  mask_ratio_max: 0.60
+  uncond_prob: 0.0
+  spatial_mask: true
+optimizer:
+  lr: 2.0e-4
+  weight_decay: 0.01
+  eta_min: 1.0e-5

@@ -1,0 +1,39 @@
+# Geometric Orbit Representatives for Unaligned 3D Tokenization
+# Chair of Multimodal Machine Learning, ScaDS.AI Dresden/Leipzig
+# Contact: Xiang Chen <xiang.chen@uni-leipzig.de>
+# SPDX-License-Identifier: MIT
+Task: prior
+Description: Masked categorical-index baseline; no semantic labels or relaxed bit
+  states
+Prior:
+  type: categorical
+seed: 20260511
+vocab_size: 4096
+max_resolution: 128
+num_classes: 0
+Tokenizer:
+  codebook_size: 4096
+batch_size: 2
+epochs: 80
+model:
+  hidden_channels: 160
+  num_blocks: 10
+  dilations:
+  - 1
+  - 2
+  - 4
+  - 8
+  - 16
+  - 32
+  dropout: 0.06
+  mask_ratio_min: 0.05
+  mask_ratio_max: 0.6
+optimizer:
+  lr: 0.0002
+  weight_decay: 0.01
+  eta_min: 1.0e-05
+Trainer:
+  lr_scheduler_interval: epoch
+Validation:
+  mask_ratios: [0.1, 0.25, 0.5, 0.75, 0.9]
+  selection_metric: mean_hidden_ce

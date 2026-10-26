@@ -1,0 +1,3893 @@
+{
+  "format": "orbit_folding.reproduction_recovery.v1",
+  "date": "2026-10-25",
+  "scope": "Fixed-budget checkpoint correction, prior mask-coverage controls, and paired warm-start adaptation to fresh full-shape tokens.",
+  "source_sha256": {
+    "src/orbit_folding/__init__.py": "d6098f923fc18be29e92641e7164f291f96983818aea54c07cbd0c97e831ef68",
+    "src/orbit_folding/__main__.py": "88cbcad8b4739d400ed77819c172e7d8010b9a14e7167210ac958be927c728c7",
+    "src/orbit_folding/benchmark_decode.py": "5afdf06313bf11a1368335b108939e506e8e794f6c3009136885ce0076258b7a",
+    "src/orbit_folding/checkpoints.py": "928f88f46c6b29b84ea57ae091eaed3fa0cfbdf683b38e01d19915143c854ea2",
+    "src/orbit_folding/cli.py": "3c76e0ef85bc7f7eabc085ae574f7ad7e9ce5c114d03a08e67fca011787bee61",
+    "src/orbit_folding/data.py": "e2e8745d542be3bff01e9ddc4c8b90404f568969db8473b5b0406abaf34bc942",
+    "src/orbit_folding/evaluation.py": "63a68f0ac808a67f1b66e514a3ac90b7dbb5934023e17091000c1c55443b1581",
+    "src/orbit_folding/geometry.py": "168ec00024c0ff5b7fca4f1dbed16ec6574632b15bbdac38c567f33b78218858",
+    "src/orbit_folding/inference.py": "50d38f619f4c33ced5707ce823be083acf1f21573423e690ecc53978eecea9a8",
+    "src/orbit_folding/mesh_benchmark.py": "865f9141f881e685bc29e69a0b3ac0a9075906524b2377f97de81b1f2206c0ae",
+    "src/orbit_folding/metrics.py": "f85c50a66894d1315dd39d19ee4afa895d181c5e37923e04de846cee4fa2e092",
+    "src/orbit_folding/models/__init__.py": "7bcaf111e1bbb4f83abf33d4af9b4528d0faa50341cac99946c2163bdc80eae0",
+    "src/orbit_folding/models/categorical.py": "aebb2d0dfbe84586222ef35d4465dbff72b18c04ab8bcf57b61112e1c498aaa1",
+    "src/orbit_folding/models/encoder.py": "afa48987438c38d48afef9af0e90aa95de1410c071f6fdef2ef5c69147779301",
+    "src/orbit_folding/models/field.py": "474637a2dbe1e64951083944a465cb3585ed11436b009afb2e26100af107f337",
+    "src/orbit_folding/models/prior.py": "f8ac480acb9f5f5ffd44f10fe79ae096598b917b71084fccc0bc7cb78f2254ec",
+    "src/orbit_folding/models/quantization.py": "955b725e8a80c2adad4beab778d75a2d2e1f7fb13d542427801e97dd3fc7c5b6",
+    "src/orbit_folding/models/tokenizer.py": "dba1b4bd9bcb3a9530298203cd6795a455a93865cb27a9aed0551a8652628a74",
+    "src/orbit_folding/monitoring.py": "2459798ac27e852dccec4492c57202cff0a32c95e05e3faae2018d123c24c33d",
+    "src/orbit_folding/objectives.py": "92a49b1c7791fac0e161816eed1875aeb8aae19d3f4a08975c404e499c0c1318",
+    "src/orbit_folding/paper_evaluation.py": "d471d96866c20b87f40b447bccd75645b59ba4ceece944368b1069e03a39501b",
+    "src/orbit_folding/preprocessing.py": "6e9dc54185f1e937c195f4f0075f52b5cc79c2d64501bd65993c94355e6f47bb",
+    "src/orbit_folding/provenance.py": "3f2d722c89a015b4fb15c948720a4352dd9f64c811717d67b45900f8092a0c45",
+    "src/orbit_folding/stress_benchmark.py": "f2e7615f73f7f83b8761e9f8b1ce34cccb773b9e4e45061af242be5688f8495c",
+    "src/orbit_folding/token_cache.py": "3ec5c026eaee290ecb4f9321f6dceccb994ec6110d89c9951ec00d45ec73c37b",
+    "src/orbit_folding/token_support.py": "61cc56711fe120f0410886ce18d0315f3d15389cbbc8360695f17ed4753cb26a",
+    "src/orbit_folding/training.py": "f59febd760d61e0a799a7f4eae3fe68093cf644bcfc996c4c14660b7994f9e1c",
+    "src/orbit_folding/validation.py": "fec2ea3601cc9cf1f4193d4b183243f428c7baada128f8cd48913c824ce2217f",
+    "src/orbit_folding/visualization.py": "0bab538ff34b2e7d43511491bd8430cb6dbfdf29d2c0c19bcf5ef4c74a3ae535",
+    "src/orbit_folding/weights.py": "ca4524b14e02305f611329e37f3695b397d576dd3fe620de736d169975e30bd0"
+  },
+  "selection": "Prespecified last checkpoints, never selected by test metrics. Old experiments retained.",
+  "matched_data": {
+    "samples": 4608,
+    "split_counts": {
+      "train": 3891,
+      "val": 205,
+      "test": 512
+    },
+    "geometry_fingerprint": "a0fa5e6ab5afb164279a9bb4a35cdbd29412784d8c39e02832c2f07e977f545f",
+    "original_test_ids_preserved": true,
+    "original_train_ids_equal_train_union_validation": true,
+    "codebook_size": 4096,
+    "categories": 8
+  },
+  "validation_diagnosis": {
+    "tokenizers": {
+      "initial_best": {
+        "checkpoint_sha256": "8dcd4f2111ed60ae66212026596c11f19b779f8608f3802f832701047c34e91c",
+        "validation": {
+          "absolute_error_sum": 63845.091439842145,
+          "query_count": 419840.0,
+          "sign_correct": 414173.0,
+          "sign_count": 419382.0,
+          "truncated_absolute_error_sum": 3172.3300231833528,
+          "uniform_sdf_mae": 0.1520700539249289,
+          "truncated_uniform_sdf_mae": 0.0075560452152804705,
+          "uniform_sign_accuracy": 0.987579342937942,
+          "token_nominal_usage": 0.583251953125,
+          "token_effective_support": 0.04325899354648956,
+          "token_codes_for_50": 21,
+          "samples": 205,
+          "selection_metric": "truncated_uniform_sdf_mae",
+          "selection_score": 0.0075560452152804705
+        }
+      },
+      "completed_last": {
+        "checkpoint_sha256": "72d73766c2f7fb23474c5f9449d3bfc1921db381a07296d096ee4827d60622f2",
+        "validation": {
+          "absolute_error_sum": 64411.72855629436,
+          "query_count": 419840.0,
+          "sign_correct": 415046.0,
+          "sign_count": 419382.0,
+          "truncated_absolute_error_sum": 2633.843253050333,
+          "uniform_sdf_mae": 0.15341970406891758,
+          "truncated_uniform_sdf_mae": 0.006273445248309672,
+          "uniform_sign_accuracy": 0.9896609773428521,
+          "token_nominal_usage": 0.669677734375,
+          "token_effective_support": 0.0975225246367345,
+          "token_codes_for_50": 62,
+          "samples": 205,
+          "selection_metric": "truncated_uniform_sdf_mae",
+          "selection_score": 0.006273445248309672
+        }
+      },
+      "reference": {
+        "checkpoint_sha256": "ea243f5b419b3bd8951338c82893728ad83f4482df4e4f77751b2680a6630f7f",
+        "validation": {
+          "absolute_error_sum": 64206.335262814624,
+          "query_count": 419840.0,
+          "sign_correct": 416257.0,
+          "sign_count": 419382.0,
+          "truncated_absolute_error_sum": 2378.6535948311084,
+          "uniform_sdf_mae": 0.15293048604900586,
+          "truncated_uniform_sdf_mae": 0.0056656192712250105,
+          "uniform_sign_accuracy": 0.9925485595471432,
+          "token_nominal_usage": 0.922119140625,
+          "token_effective_support": 0.09339337207816387,
+          "token_codes_for_50": 53,
+          "samples": 205,
+          "selection_metric": "truncated_uniform_sdf_mae",
+          "selection_score": 0.0056656192712250105
+        }
+      }
+    },
+    "prior_baselines": {
+      "initial": {
+        "checkpoint_sha256": "d9802eec62543654ccc5db710304b5a8f1f9b0a498c47178b82699c6f0aa0d02",
+        "validation": {
+          "loss_sum": 886602.8984420901,
+          "bit_count": 20152320.0,
+          "bit_correct": 19774477.0,
+          "token_count": 1679360.0,
+          "token_correct": 1405407.0,
+          "mask_ratio": 0.5,
+          "token_exact": 0.8368705935594513,
+          "hidden_bce": 0.043995078404972236,
+          "bit_accuracy": 0.9812506450870173,
+          "by_mask_ratio": [
+            {
+              "loss_sum": 144597.63012220318,
+              "bit_count": 4029480.0,
+              "bit_correct": 3967469.0,
+              "token_count": 335790.0,
+              "token_correct": 288126.0,
+              "mask_ratio": 0.1,
+              "token_exact": 0.8580541409809702,
+              "hidden_bce": 0.03588493555550671,
+              "bit_accuracy": 0.9846106693667669
+            },
+            {
+              "loss_sum": 382479.87537649676,
+              "bit_count": 10076160.0,
+              "bit_correct": 9912704.0,
+              "token_count": 839680.0,
+              "token_correct": 715870.0,
+              "mask_ratio": 0.25,
+              "token_exact": 0.8525509717987805,
+              "hidden_bce": 0.037958892611520335,
+              "bit_accuracy": 0.9837779471544715
+            },
+            {
+              "loss_sum": 886602.8984420901,
+              "bit_count": 20152320.0,
+              "bit_correct": 19774477.0,
+              "token_count": 1679360.0,
+              "token_correct": 1405407.0,
+              "mask_ratio": 0.5,
+              "token_exact": 0.8368705935594513,
+              "hidden_bce": 0.043995078404972236,
+              "bit_accuracy": 0.9812506450870173
+            },
+            {
+              "loss_sum": 1815977.1780490696,
+              "bit_count": 30228480.0,
+              "bit_correct": 29458947.0,
+              "token_count": 2519040.0,
+              "token_correct": 2011590.0,
+              "mask_ratio": 0.75,
+              "token_exact": 0.7985542111280488,
+              "hidden_bce": 0.06007504108870408,
+              "bit_accuracy": 0.9745427821709858
+            },
+            {
+              "loss_sum": 12047904.61744065,
+              "bit_count": 36275160.0,
+              "bit_correct": 31902861.0,
+              "token_count": 3022930.0,
+              "token_correct": 797555.0,
+              "mask_ratio": 0.9,
+              "token_exact": 0.263835087150546,
+              "hidden_bce": 0.33212547146423754,
+              "bit_accuracy": 0.879468512337368
+            }
+          ],
+          "mean_hidden_bce": 0.10200788382498818,
+          "samples": 205,
+          "selection_metric": "mean_hidden_bce",
+          "selection_score": 0.10200788382498818
+        }
+      },
+      "reference": {
+        "checkpoint_sha256": "34fb1419928c9dd9ce265406a3d90ec27219f6ff9be148cdc97c5a07894cbb37",
+        "validation": {
+          "loss_sum": 1312627.879890112,
+          "bit_count": 20152320.0,
+          "bit_correct": 19586818.0,
+          "token_count": 1679360.0,
+          "token_correct": 1306626.0,
+          "mask_ratio": 0.5,
+          "token_exact": 0.778049971417683,
+          "hidden_bce": 0.06513532337170667,
+          "bit_accuracy": 0.9719386155043191,
+          "by_mask_ratio": [
+            {
+              "loss_sum": 214675.02013501542,
+              "bit_count": 4029480.0,
+              "bit_correct": 3936921.0,
+              "token_count": 335790.0,
+              "token_correct": 270282.0,
+              "mask_ratio": 0.1,
+              "token_exact": 0.8049137854015903,
+              "hidden_bce": 0.053276110102299906,
+              "bit_accuracy": 0.9770295422734447
+            },
+            {
+              "loss_sum": 571377.1896205515,
+              "bit_count": 10076160.0,
+              "bit_correct": 9829834.0,
+              "token_count": 839680.0,
+              "token_correct": 668622.0,
+              "mask_ratio": 0.25,
+              "token_exact": 0.7962819169207317,
+              "hidden_bce": 0.056705847229554865,
+              "bit_accuracy": 0.9755535839049797
+            },
+            {
+              "loss_sum": 1312627.879890112,
+              "bit_count": 20152320.0,
+              "bit_correct": 19586818.0,
+              "token_count": 1679360.0,
+              "token_correct": 1306626.0,
+              "mask_ratio": 0.5,
+              "token_exact": 0.778049971417683,
+              "hidden_bce": 0.06513532337170667,
+              "bit_accuracy": 0.9719386155043191
+            },
+            {
+              "loss_sum": 2606446.287693001,
+              "bit_count": 30228480.0,
+              "bit_correct": 29100979.0,
+              "token_count": 2519040.0,
+              "token_correct": 1853373.0,
+              "mask_ratio": 0.75,
+              "token_exact": 0.7357457602896341,
+              "hidden_bce": 0.08622485443174784,
+              "bit_accuracy": 0.9627007047658367
+            },
+            {
+              "loss_sum": 10133398.451170107,
+              "bit_count": 36275160.0,
+              "bit_correct": 32500706.0,
+              "token_count": 3022930.0,
+              "token_correct": 1136716.0,
+              "mask_ratio": 0.9,
+              "token_exact": 0.37603120151640956,
+              "hidden_bce": 0.2793481393650671,
+              "bit_accuracy": 0.8959493493619325
+            }
+          ],
+          "mean_hidden_bce": 0.10813805490007526,
+          "samples": 205,
+          "selection_metric": "mean_hidden_bce",
+          "selection_score": 0.10813805490007526
+        }
+      }
+    },
+    "lfq_source_identical": true,
+    "lfq_source_sha256": "ee6470b50d1ff34180b2f0f78109fb7a7db0c7a18817d0102a1aaf62d4ff8d17"
+  },
+  "training": {
+    "prior_last_control": {
+      "epochs": 80,
+      "planned_epochs": 80,
+      "updates": 38960,
+      "skipped_updates": 0,
+      "checkpoint_sha256": "e70494ae0a6d6ade038c8f018631ed083f7b01ee28113074f3524fd59164abb3",
+      "config_sha256": "bf0eda6d59ab8cf191e94f2fd5ad2fb24f8bdf56b3200c8323767df74cf3f05c",
+      "metrics_sha256": "d7f7f774aa584d26e528f3330ac3cdcdd9ec9b07e7a35eec5145c88d91d24b1e",
+      "validation_sha256": "208b677c50ca628ea24487c6a7ce6da35885059214e0c2348df6b98b2087e356",
+      "precision": "bf16-mixed",
+      "scheduler_interval": "step",
+      "data_fingerprint": "a2b56702265e034233cb50f866b3e89fb975d0a114f1a06b66a90b520a592c49",
+      "mask_range": [
+        0.05,
+        0.6
+      ],
+      "initialization": null,
+      "validation_history": [
+        {
+          "epoch": 1,
+          "mean_hidden_loss": 0.15770720311492323,
+          "mask50_token_exact": 0.7326779249237805,
+          "mask90_token_exact": 0.2824425309219863,
+          "mask90_bit_accuracy": 0.8479179416438135
+        },
+        {
+          "epoch": 2,
+          "mean_hidden_loss": 0.1376473413797298,
+          "mask50_token_exact": 0.7560552829649391,
+          "mask90_token_exact": 0.2893480828203101,
+          "mask90_bit_accuracy": 0.8573427656831838
+        },
+        {
+          "epoch": 3,
+          "mean_hidden_loss": 0.13363360023254137,
+          "mask50_token_exact": 0.7655422303734756,
+          "mask90_token_exact": 0.2690773521054077,
+          "mask90_bit_accuracy": 0.8508959023199346
+        },
+        {
+          "epoch": 4,
+          "mean_hidden_loss": 0.13025324296453222,
+          "mask50_token_exact": 0.7727181783536585,
+          "mask90_token_exact": 0.2598012524272808,
+          "mask90_bit_accuracy": 0.8497424408327903
+        },
+        {
+          "epoch": 5,
+          "mean_hidden_loss": 0.1224713794411344,
+          "mask50_token_exact": 0.7787204649390244,
+          "mask90_token_exact": 0.3066736576764927,
+          "mask90_bit_accuracy": 0.8657828111578281
+        },
+        {
+          "epoch": 6,
+          "mean_hidden_loss": 0.12920216220381328,
+          "mask50_token_exact": 0.7823641149009146,
+          "mask90_token_exact": 0.2240954967531501,
+          "mask90_bit_accuracy": 0.8380834433259564
+        },
+        {
+          "epoch": 7,
+          "mean_hidden_loss": 0.12464635824063719,
+          "mask50_token_exact": 0.7840230802210366,
+          "mask90_token_exact": 0.240102152547363,
+          "mask90_bit_accuracy": 0.8480637438952716
+        },
+        {
+          "epoch": 8,
+          "mean_hidden_loss": 0.12167346907501841,
+          "mask50_token_exact": 0.788842177972561,
+          "mask90_token_exact": 0.25147357034400397,
+          "mask90_bit_accuracy": 0.8565214874310685
+        },
+        {
+          "epoch": 9,
+          "mean_hidden_loss": 0.12240936924167214,
+          "mask50_token_exact": 0.7917825838414634,
+          "mask90_token_exact": 0.2503915075770858,
+          "mask90_bit_accuracy": 0.8518658222320729
+        },
+        {
+          "epoch": 10,
+          "mean_hidden_loss": 0.12670061946075997,
+          "mask50_token_exact": 0.7930020960365853,
+          "mask90_token_exact": 0.19291647507550622,
+          "mask90_bit_accuracy": 0.8399641242106168
+        },
+        {
+          "epoch": 11,
+          "mean_hidden_loss": 0.1292987019262268,
+          "mask50_token_exact": 0.7953267911585366,
+          "mask90_token_exact": 0.2266516260713943,
+          "mask90_bit_accuracy": 0.8398502170631363
+        },
+        {
+          "epoch": 12,
+          "mean_hidden_loss": 0.12653190369999978,
+          "mask50_token_exact": 0.7968660680259146,
+          "mask90_token_exact": 0.2054536492740487,
+          "mask90_bit_accuracy": 0.8350817198325245
+        },
+        {
+          "epoch": 13,
+          "mean_hidden_loss": 0.12311535887606624,
+          "mask50_token_exact": 0.7991990996570122,
+          "mask90_token_exact": 0.2043041023113337,
+          "mask90_bit_accuracy": 0.8420511997741705
+        },
+        {
+          "epoch": 14,
+          "mean_hidden_loss": 0.12229395751212051,
+          "mask50_token_exact": 0.8006871665396341,
+          "mask90_token_exact": 0.20628992401411875,
+          "mask90_bit_accuracy": 0.8402028274995893
+        },
+        {
+          "epoch": 15,
+          "mean_hidden_loss": 0.12563858260676894,
+          "mask50_token_exact": 0.8012850133384146,
+          "mask90_token_exact": 0.17277938953267194,
+          "mask90_bit_accuracy": 0.8308898706442646
+        },
+        {
+          "epoch": 16,
+          "mean_hidden_loss": 0.1289845611262916,
+          "mask50_token_exact": 0.8021109232088415,
+          "mask90_token_exact": 0.1698319180397826,
+          "mask90_bit_accuracy": 0.8254791708706454
+        },
+        {
+          "epoch": 17,
+          "mean_hidden_loss": 0.12417286845823186,
+          "mask50_token_exact": 0.8021377191310975,
+          "mask90_token_exact": 0.19964471555742277,
+          "mask90_bit_accuracy": 0.8370787613342022
+        },
+        {
+          "epoch": 18,
+          "mean_hidden_loss": 0.11997847266766408,
+          "mask50_token_exact": 0.8050090510670732,
+          "mask90_token_exact": 0.22693512585471712,
+          "mask90_bit_accuracy": 0.8514514339840266
+        },
+        {
+          "epoch": 19,
+          "mean_hidden_loss": 0.1275508457398097,
+          "mask50_token_exact": 0.8059725133384147,
+          "mask90_token_exact": 0.15750083528232542,
+          "mask90_bit_accuracy": 0.8199633578459751
+        },
+        {
+          "epoch": 20,
+          "mean_hidden_loss": 0.12286365533647273,
+          "mask50_token_exact": 0.8071348608993902,
+          "mask90_token_exact": 0.17871005944563717,
+          "mask90_bit_accuracy": 0.8357085123814754
+        },
+        {
+          "epoch": 21,
+          "mean_hidden_loss": 0.12675138917907547,
+          "mask50_token_exact": 0.8071348608993902,
+          "mask90_token_exact": 0.1766593999861062,
+          "mask90_bit_accuracy": 0.8277172037283915
+        },
+        {
+          "epoch": 22,
+          "mean_hidden_loss": 0.12036314438348823,
+          "mask50_token_exact": 0.8078148818597561,
+          "mask90_token_exact": 0.20224252629071796,
+          "mask90_bit_accuracy": 0.8447582863866072
+        },
+        {
+          "epoch": 23,
+          "mean_hidden_loss": 0.12330772149346647,
+          "mask50_token_exact": 0.8084115377286586,
+          "mask90_token_exact": 0.17592335912508725,
+          "mask90_bit_accuracy": 0.8322086243037936
+        },
+        {
+          "epoch": 24,
+          "mean_hidden_loss": 0.12361123585234983,
+          "mask50_token_exact": 0.8097519293064024,
+          "mask90_token_exact": 0.17526902706976344,
+          "mask90_bit_accuracy": 0.8302104525521046
+        },
+        {
+          "epoch": 25,
+          "mean_hidden_loss": 0.12357315487062123,
+          "mask50_token_exact": 0.8103128572789634,
+          "mask90_token_exact": 0.17398848137403117,
+          "mask90_bit_accuracy": 0.8305368742687834
+        },
+        {
+          "epoch": 26,
+          "mean_hidden_loss": 0.12206192717999198,
+          "mask50_token_exact": 0.8109511956935975,
+          "mask90_token_exact": 0.1807312772707274,
+          "mask90_bit_accuracy": 0.8362917213873075
+        },
+        {
+          "epoch": 27,
+          "mean_hidden_loss": 0.12141608766499026,
+          "mask50_token_exact": 0.8113578982469513,
+          "mask90_token_exact": 0.19081487166424627,
+          "mask90_bit_accuracy": 0.8400288241319955
+        },
+        {
+          "epoch": 28,
+          "mean_hidden_loss": 0.12141055364919842,
+          "mask50_token_exact": 0.8119533631859757,
+          "mask90_token_exact": 0.19794007800379101,
+          "mask90_bit_accuracy": 0.8420368924630518
+        },
+        {
+          "epoch": 29,
+          "mean_hidden_loss": 0.12292995069998361,
+          "mask50_token_exact": 0.8118253382240853,
+          "mask90_token_exact": 0.17796409443817754,
+          "mask90_bit_accuracy": 0.8293685541290514
+        },
+        {
+          "epoch": 30,
+          "mean_hidden_loss": 0.1222805517878407,
+          "mask50_token_exact": 0.8122778915777439,
+          "mask90_token_exact": 0.18569798175941885,
+          "mask90_bit_accuracy": 0.8337579213985549
+        },
+        {
+          "epoch": 31,
+          "mean_hidden_loss": 0.12288533961396322,
+          "mask50_token_exact": 0.8129126572027439,
+          "mask90_token_exact": 0.16770715828682767,
+          "mask90_bit_accuracy": 0.8324013181471839
+        },
+        {
+          "epoch": 32,
+          "mean_hidden_loss": 0.12408013585270967,
+          "mask50_token_exact": 0.8137671493902439,
+          "mask90_token_exact": 0.1691590609111028,
+          "mask90_bit_accuracy": 0.8290155853206437
+        },
+        {
+          "epoch": 33,
+          "mean_hidden_loss": 0.12251507007825577,
+          "mask50_token_exact": 0.8140541634908537,
+          "mask90_token_exact": 0.17682017115844562,
+          "mask90_bit_accuracy": 0.8257521124648382
+        },
+        {
+          "epoch": 34,
+          "mean_hidden_loss": 0.12314922893153235,
+          "mask50_token_exact": 0.8140744092987805,
+          "mask90_token_exact": 0.1623246320622707,
+          "mask90_bit_accuracy": 0.8274714157015435
+        },
+        {
+          "epoch": 35,
+          "mean_hidden_loss": 0.1186322849278649,
+          "mask50_token_exact": 0.8149896389100609,
+          "mask90_token_exact": 0.21553558964316077,
+          "mask90_bit_accuracy": 0.8536909830308123
+        },
+        {
+          "epoch": 36,
+          "mean_hidden_loss": 0.11772324849516298,
+          "mask50_token_exact": 0.8154564834222561,
+          "mask90_token_exact": 0.20805344483663202,
+          "mask90_bit_accuracy": 0.845828715848531
+        },
+        {
+          "epoch": 37,
+          "mean_hidden_loss": 0.11883568584775259,
+          "mask50_token_exact": 0.8152891577743903,
+          "mask90_token_exact": 0.19195714091957142,
+          "mask90_bit_accuracy": 0.8432654742253377
+        },
+        {
+          "epoch": 38,
+          "mean_hidden_loss": 0.12023689866409229,
+          "mask50_token_exact": 0.8159971655868903,
+          "mask90_token_exact": 0.1846576004075516,
+          "mask90_bit_accuracy": 0.836195787971714
+        },
+        {
+          "epoch": 39,
+          "mean_hidden_loss": 0.11998573444088367,
+          "mask50_token_exact": 0.8163228849085366,
+          "mask90_token_exact": 0.18594542381067375,
+          "mask90_bit_accuracy": 0.8396249665060057
+        },
+        {
+          "epoch": 40,
+          "mean_hidden_loss": 0.12034889850389263,
+          "mask50_token_exact": 0.8163955316310976,
+          "mask90_token_exact": 0.18791635929379774,
+          "mask90_bit_accuracy": 0.8408313292070938
+        },
+        {
+          "epoch": 41,
+          "mean_hidden_loss": 0.11996130123696144,
+          "mask50_token_exact": 0.8169243044969512,
+          "mask90_token_exact": 0.1918221725279778,
+          "mask90_bit_accuracy": 0.8441822172527977
+        },
+        {
+          "epoch": 42,
+          "mean_hidden_loss": 0.11881220909442007,
+          "mask50_token_exact": 0.8170904392149391,
+          "mask90_token_exact": 0.19921433840677752,
+          "mask90_bit_accuracy": 0.8435942942774064
+        },
+        {
+          "epoch": 43,
+          "mean_hidden_loss": 0.11730706735621813,
+          "mask50_token_exact": 0.8171749952362805,
+          "mask90_token_exact": 0.23020248566787851,
+          "mask90_bit_accuracy": 0.8563219569534635
+        },
+        {
+          "epoch": 44,
+          "mean_hidden_loss": 0.1204895901844879,
+          "mask50_token_exact": 0.8175167921112805,
+          "mask90_token_exact": 0.17680760057295405,
+          "mask90_bit_accuracy": 0.8336197552264415
+        },
+        {
+          "epoch": 45,
+          "mean_hidden_loss": 0.11875506389298933,
+          "mask50_token_exact": 0.8179878048780488,
+          "mask90_token_exact": 0.18737450089813526,
+          "mask90_bit_accuracy": 0.8419698769075037
+        },
+        {
+          "epoch": 46,
+          "mean_hidden_loss": 0.12043689026250799,
+          "mask50_token_exact": 0.8181170207698171,
+          "mask90_token_exact": 0.17664682940061463,
+          "mask90_bit_accuracy": 0.8363428031744037
+        },
+        {
+          "epoch": 47,
+          "mean_hidden_loss": 0.11986079399477693,
+          "mask50_token_exact": 0.8187898961509147,
+          "mask90_token_exact": 0.18257452206964767,
+          "mask90_bit_accuracy": 0.8376988275172321
+        },
+        {
+          "epoch": 48,
+          "mean_hidden_loss": 0.12127564661985808,
+          "mask50_token_exact": 0.818212295160061,
+          "mask90_token_exact": 0.1605630960690456,
+          "mask90_bit_accuracy": 0.8240841391188902
+        },
+        {
+          "epoch": 49,
+          "mean_hidden_loss": 0.11450168594143717,
+          "mask50_token_exact": 0.8191477705792682,
+          "mask90_token_exact": 0.23397763097392266,
+          "mask90_bit_accuracy": 0.8604249574640057
+        },
+        {
+          "epoch": 50,
+          "mean_hidden_loss": 0.11885129198974134,
+          "mask50_token_exact": 0.8185862471417683,
+          "mask90_token_exact": 0.1843337424287033,
+          "mask90_bit_accuracy": 0.8385858532395171
+        },
+        {
+          "epoch": 51,
+          "mean_hidden_loss": 0.11823571872634435,
+          "mask50_token_exact": 0.8189453125,
+          "mask90_token_exact": 0.18144217696076323,
+          "mask90_bit_accuracy": 0.8389342459137327
+        },
+        {
+          "epoch": 52,
+          "mean_hidden_loss": 0.11638098016092997,
+          "mask50_token_exact": 0.8194609851371951,
+          "mask90_token_exact": 0.2118702715577271,
+          "mask90_bit_accuracy": 0.8510507741385566
+        },
+        {
+          "epoch": 53,
+          "mean_hidden_loss": 0.11803547411983514,
+          "mask50_token_exact": 0.8199802305640244,
+          "mask90_token_exact": 0.1816165111332383,
+          "mask90_bit_accuracy": 0.8389799796885803
+        },
+        {
+          "epoch": 54,
+          "mean_hidden_loss": 0.1174494528240558,
+          "mask50_token_exact": 0.820067763910061,
+          "mask90_token_exact": 0.19247385814425078,
+          "mask90_bit_accuracy": 0.84369838754674
+        },
+        {
+          "epoch": 55,
+          "mean_hidden_loss": 0.11707824420163956,
+          "mask50_token_exact": 0.8200201267149391,
+          "mask90_token_exact": 0.1849970062158237,
+          "mask90_bit_accuracy": 0.8415246411042708
+        },
+        {
+          "epoch": 56,
+          "mean_hidden_loss": 0.11461028995790956,
+          "mask50_token_exact": 0.820606064214939,
+          "mask90_token_exact": 0.21923531143625555,
+          "mask90_bit_accuracy": 0.8545841286434023
+        },
+        {
+          "epoch": 57,
+          "mean_hidden_loss": 0.11564225655070608,
+          "mask50_token_exact": 0.8204226610137195,
+          "mask90_token_exact": 0.22027767761741093,
+          "mask90_bit_accuracy": 0.852881613754426
+        },
+        {
+          "epoch": 58,
+          "mean_hidden_loss": 0.11671544209980586,
+          "mask50_token_exact": 0.8208627096036586,
+          "mask90_token_exact": 0.19897715130684468,
+          "mask90_bit_accuracy": 0.8450892842374782
+        },
+        {
+          "epoch": 59,
+          "mean_hidden_loss": 0.11674698824307668,
+          "mask50_token_exact": 0.8208335318216463,
+          "mask90_token_exact": 0.19972146228989754,
+          "mask90_bit_accuracy": 0.8459155245628138
+        },
+        {
+          "epoch": 60,
+          "mean_hidden_loss": 0.11419848637808135,
+          "mask50_token_exact": 0.8210407536204268,
+          "mask90_token_exact": 0.21488291161224374,
+          "mask90_bit_accuracy": 0.8519255325131577
+        },
+        {
+          "epoch": 61,
+          "mean_hidden_loss": 0.11439523368726863,
+          "mask50_token_exact": 0.8209818025914634,
+          "mask90_token_exact": 0.2138871889193597,
+          "mask90_bit_accuracy": 0.8511902910972687
+        },
+        {
+          "epoch": 62,
+          "mean_hidden_loss": 0.11105718633043968,
+          "mask50_token_exact": 0.821096131859756,
+          "mask90_token_exact": 0.24789326911307905,
+          "mask90_bit_accuracy": 0.8650580727969222
+        },
+        {
+          "epoch": 63,
+          "mean_hidden_loss": 0.11341363129130677,
+          "mask50_token_exact": 0.8212789395960366,
+          "mask90_token_exact": 0.22541011535166214,
+          "mask90_bit_accuracy": 0.8564622182231588
+        },
+        {
+          "epoch": 64,
+          "mean_hidden_loss": 0.11457944854938054,
+          "mask50_token_exact": 0.8214343559451219,
+          "mask90_token_exact": 0.20979017046375537,
+          "mask90_bit_accuracy": 0.849133346344992
+        },
+        {
+          "epoch": 65,
+          "mean_hidden_loss": 0.11442248479106758,
+          "mask50_token_exact": 0.8213021627286585,
+          "mask90_token_exact": 0.20516353339309876,
+          "mask90_bit_accuracy": 0.8489954834106865
+        },
+        {
+          "epoch": 66,
+          "mean_hidden_loss": 0.1143960933713211,
+          "mask50_token_exact": 0.8216838557545731,
+          "mask90_token_exact": 0.2086849513551422,
+          "mask90_bit_accuracy": 0.8500072225732429
+        },
+        {
+          "epoch": 67,
+          "mean_hidden_loss": 0.11249782509314774,
+          "mask50_token_exact": 0.8216260956554878,
+          "mask90_token_exact": 0.22977277012699598,
+          "mask90_bit_accuracy": 0.857826126748993
+        },
+        {
+          "epoch": 68,
+          "mean_hidden_loss": 0.11323291996856018,
+          "mask50_token_exact": 0.8217576934070122,
+          "mask90_token_exact": 0.227426371103532,
+          "mask90_bit_accuracy": 0.8570454547960643
+        },
+        {
+          "epoch": 69,
+          "mean_hidden_loss": 0.11429201883673434,
+          "mask50_token_exact": 0.8217642435213415,
+          "mask90_token_exact": 0.21399999338390238,
+          "mask90_bit_accuracy": 0.8502982757346901
+        },
+        {
+          "epoch": 70,
+          "mean_hidden_loss": 0.114162499146481,
+          "mask50_token_exact": 0.8219798018292683,
+          "mask90_token_exact": 0.20945010304572054,
+          "mask90_bit_accuracy": 0.8493935243841791
+        },
+        {
+          "epoch": 71,
+          "mean_hidden_loss": 0.1125199870529174,
+          "mask50_token_exact": 0.8219083460365854,
+          "mask90_token_exact": 0.22925175243885898,
+          "mask90_bit_accuracy": 0.8585198521522717
+        },
+        {
+          "epoch": 72,
+          "mean_hidden_loss": 0.11312034008815378,
+          "mask50_token_exact": 0.8221709460746951,
+          "mask90_token_exact": 0.21911291363015353,
+          "mask90_bit_accuracy": 0.8543516279459553
+        },
+        {
+          "epoch": 73,
+          "mean_hidden_loss": 0.11147236654612835,
+          "mask50_token_exact": 0.8221715415396341,
+          "mask90_token_exact": 0.2330652711111405,
+          "mask90_bit_accuracy": 0.8586153996288369
+        },
+        {
+          "epoch": 74,
+          "mean_hidden_loss": 0.11240688268913193,
+          "mask50_token_exact": 0.8222822980182927,
+          "mask90_token_exact": 0.22786567998597387,
+          "mask90_bit_accuracy": 0.8568387017452163
+        },
+        {
+          "epoch": 75,
+          "mean_hidden_loss": 0.11242711029062522,
+          "mask50_token_exact": 0.8221298589939025,
+          "mask90_token_exact": 0.23001293447086105,
+          "mask90_bit_accuracy": 0.8581381860204063
+        },
+        {
+          "epoch": 76,
+          "mean_hidden_loss": 0.11181297360309757,
+          "mask50_token_exact": 0.8223138576600609,
+          "mask90_token_exact": 0.23120350123886427,
+          "mask90_bit_accuracy": 0.8582706182412427
+        },
+        {
+          "epoch": 77,
+          "mean_hidden_loss": 0.11179987881869494,
+          "mask50_token_exact": 0.8223084984756097,
+          "mask90_token_exact": 0.22898942416794302,
+          "mask90_bit_accuracy": 0.8575731988501223
+        },
+        {
+          "epoch": 78,
+          "mean_hidden_loss": 0.1105029088192874,
+          "mask50_token_exact": 0.8223656631097561,
+          "mask90_token_exact": 0.24221599573923314,
+          "mask90_bit_accuracy": 0.8621985954024738
+        },
+        {
+          "epoch": 79,
+          "mean_hidden_loss": 0.11138306262650392,
+          "mask50_token_exact": 0.8222846798780488,
+          "mask90_token_exact": 0.23187503514801863,
+          "mask90_bit_accuracy": 0.8587979212221255
+        },
+        {
+          "epoch": 80,
+          "mean_hidden_loss": 0.1103155922776871,
+          "mask50_token_exact": 0.822413300304878,
+          "mask90_token_exact": 0.24403906144039061,
+          "mask90_bit_accuracy": 0.8624924604054124
+        }
+      ]
+    },
+    "prior_epoch_fp32": {
+      "epochs": 80,
+      "planned_epochs": 80,
+      "updates": 38960,
+      "skipped_updates": 0,
+      "checkpoint_sha256": "8119bc16ade05c57b85e1bd8acb84459503f98d09fd36b328146fa0b6c3e1764",
+      "config_sha256": "1d2b20691541d42cf4d9841a643557ee7953166d88aa4c22de3248d2f90e570a",
+      "metrics_sha256": "dca34589ecf8a03fa30cfd343617d548de393af9010b96895e1e4b2b05c6caf4",
+      "validation_sha256": "c6ef7fb777f5cbefbfc305c5648870adfec02b91e4623a0475409b6bc216f89a",
+      "precision": "32-true",
+      "scheduler_interval": "epoch",
+      "data_fingerprint": "a2b56702265e034233cb50f866b3e89fb975d0a114f1a06b66a90b520a592c49",
+      "mask_range": [
+        0.05,
+        0.6
+      ],
+      "initialization": null,
+      "validation_history": [
+        {
+          "epoch": 1,
+          "mean_hidden_loss": 0.15775001022134877,
+          "mask50_token_exact": 0.7326183784298781,
+          "mask90_token_exact": 0.28206045128401913,
+          "mask90_bit_accuracy": 0.8477965086852821
+        },
+        {
+          "epoch": 2,
+          "mean_hidden_loss": 0.1377112373746831,
+          "mask50_token_exact": 0.7560725514481708,
+          "mask90_token_exact": 0.2888108556929866,
+          "mask90_bit_accuracy": 0.8572076594562229
+        },
+        {
+          "epoch": 3,
+          "mean_hidden_loss": 0.13366929776559483,
+          "mask50_token_exact": 0.7654922113185976,
+          "mask90_token_exact": 0.2692662416926624,
+          "mask90_bit_accuracy": 0.8509902919794151
+        },
+        {
+          "epoch": 4,
+          "mean_hidden_loss": 0.13026118239085144,
+          "mask50_token_exact": 0.772678877667683,
+          "mask90_token_exact": 0.2596467665476872,
+          "mask90_bit_accuracy": 0.8497485882901689
+        },
+        {
+          "epoch": 5,
+          "mean_hidden_loss": 0.12253449476531782,
+          "mask50_token_exact": 0.7787258241234756,
+          "mask90_token_exact": 0.3063885038687631,
+          "mask90_bit_accuracy": 0.8657066709009692
+        },
+        {
+          "epoch": 6,
+          "mean_hidden_loss": 0.12923623780792964,
+          "mask50_token_exact": 0.7824337842987805,
+          "mask90_token_exact": 0.2240723404114551,
+          "mask90_bit_accuracy": 0.8380229335997416
+        },
+        {
+          "epoch": 7,
+          "mean_hidden_loss": 0.12471504490348455,
+          "mask50_token_exact": 0.7840873904344512,
+          "mask90_token_exact": 0.2396109072985481,
+          "mask90_bit_accuracy": 0.8478836482044463
+        },
+        {
+          "epoch": 8,
+          "mean_hidden_loss": 0.12170987730723874,
+          "mask50_token_exact": 0.788867782964939,
+          "mask90_token_exact": 0.2516419500286146,
+          "mask90_bit_accuracy": 0.8565367595897578
+        },
+        {
+          "epoch": 9,
+          "mean_hidden_loss": 0.12244749657130934,
+          "mask50_token_exact": 0.7918064024390243,
+          "mask90_token_exact": 0.250276718283255,
+          "mask90_bit_accuracy": 0.8518121215729992
+        },
+        {
+          "epoch": 10,
+          "mean_hidden_loss": 0.1267132619349996,
+          "mask50_token_exact": 0.7930282964939024,
+          "mask90_token_exact": 0.19321949234682906,
+          "mask90_bit_accuracy": 0.8400323251503232
+        },
+        {
+          "epoch": 11,
+          "mean_hidden_loss": 0.12934731766739505,
+          "mask50_token_exact": 0.795313095464939,
+          "mask90_token_exact": 0.22686731085403897,
+          "mask90_bit_accuracy": 0.8399145861796337
+        },
+        {
+          "epoch": 12,
+          "mean_hidden_loss": 0.12660325320845742,
+          "mask50_token_exact": 0.7969184689405487,
+          "mask90_token_exact": 0.20503385787960687,
+          "mask90_bit_accuracy": 0.8349387569896315
+        },
+        {
+          "epoch": 13,
+          "mean_hidden_loss": 0.12311399539756787,
+          "mask50_token_exact": 0.7992116044207317,
+          "mask90_token_exact": 0.20463093753411427,
+          "mask90_bit_accuracy": 0.842199069556137
+        },
+        {
+          "epoch": 14,
+          "mean_hidden_loss": 0.12242470785039324,
+          "mask50_token_exact": 0.8006466749237805,
+          "mask90_token_exact": 0.20533389790699752,
+          "mask90_bit_accuracy": 0.8397937872637915
+        },
+        {
+          "epoch": 15,
+          "mean_hidden_loss": 0.12570528411761764,
+          "mask50_token_exact": 0.801218916730183,
+          "mask90_token_exact": 0.17259910087233246,
+          "mask90_bit_accuracy": 0.830764164789349
+        },
+        {
+          "epoch": 16,
+          "mean_hidden_loss": 0.12913701971791308,
+          "mask50_token_exact": 0.8021281916920732,
+          "mask90_token_exact": 0.16905584978811947,
+          "mask90_bit_accuracy": 0.8251603852333111
+        },
+        {
+          "epoch": 17,
+          "mean_hidden_loss": 0.1242944028836672,
+          "mask50_token_exact": 0.802149628429878,
+          "mask90_token_exact": 0.19869232830399644,
+          "mask90_bit_accuracy": 0.8366611201714893
+        },
+        {
+          "epoch": 18,
+          "mean_hidden_loss": 0.1199669562458543,
+          "mask50_token_exact": 0.8050161966463415,
+          "mask90_token_exact": 0.22768572213051574,
+          "mask90_bit_accuracy": 0.8516447343030327
+        },
+        {
+          "epoch": 19,
+          "mean_hidden_loss": 0.12762566337075598,
+          "mask50_token_exact": 0.8059284489329268,
+          "mask90_token_exact": 0.15713198783961257,
+          "mask90_bit_accuracy": 0.8196904989530025
+        },
+        {
+          "epoch": 20,
+          "mean_hidden_loss": 0.12293708069712779,
+          "mask50_token_exact": 0.807130097179878,
+          "mask90_token_exact": 0.17812089595194067,
+          "mask90_bit_accuracy": 0.8354804775499267
+        },
+        {
+          "epoch": 21,
+          "mean_hidden_loss": 0.12688253243187522,
+          "mask50_token_exact": 0.8070520912728658,
+          "mask90_token_exact": 0.17602855507735873,
+          "mask90_bit_accuracy": 0.8273568745113736
+        },
+        {
+          "epoch": 22,
+          "mean_hidden_loss": 0.12044822123636989,
+          "mask50_token_exact": 0.8077809403582317,
+          "mask90_token_exact": 0.20181711121329307,
+          "mask90_bit_accuracy": 0.8445953649825391
+        },
+        {
+          "epoch": 23,
+          "mean_hidden_loss": 0.12344869989177562,
+          "mask50_token_exact": 0.8084043921493902,
+          "mask90_token_exact": 0.17491275021254213,
+          "mask90_bit_accuracy": 0.8317048360365605
+        },
+        {
+          "epoch": 24,
+          "mean_hidden_loss": 0.12368960232647548,
+          "mask50_token_exact": 0.8097781297637195,
+          "mask90_token_exact": 0.17504904182366116,
+          "mask90_bit_accuracy": 0.830110687313302
+        },
+        {
+          "epoch": 25,
+          "mean_hidden_loss": 0.12368636771534294,
+          "mask50_token_exact": 0.8103259575076219,
+          "mask90_token_exact": 0.1731290502922661,
+          "mask90_bit_accuracy": 0.8302254490400593
+        },
+        {
+          "epoch": 26,
+          "mean_hidden_loss": 0.12219027830458593,
+          "mask50_token_exact": 0.8108654487423781,
+          "mask90_token_exact": 0.1803482052181162,
+          "mask90_bit_accuracy": 0.8360676562143351
+        },
+        {
+          "epoch": 27,
+          "mean_hidden_loss": 0.12150524599199679,
+          "mask50_token_exact": 0.8113823123094512,
+          "mask90_token_exact": 0.1904384157092622,
+          "mask90_bit_accuracy": 0.8397879154771475
+        },
+        {
+          "epoch": 28,
+          "mean_hidden_loss": 0.12148152840712749,
+          "mask50_token_exact": 0.8119485994664634,
+          "mask90_token_exact": 0.19766087868392587,
+          "mask90_bit_accuracy": 0.8418846946505543
+        },
+        {
+          "epoch": 29,
+          "mean_hidden_loss": 0.12305906126558155,
+          "mask50_token_exact": 0.8118193835746951,
+          "mask90_token_exact": 0.17744969284766765,
+          "mask90_bit_accuracy": 0.829083345187175
+        },
+        {
+          "epoch": 30,
+          "mean_hidden_loss": 0.12240185416923724,
+          "mask50_token_exact": 0.8122368044969512,
+          "mask90_token_exact": 0.18483425021419617,
+          "mask90_bit_accuracy": 0.8333799768216047
+        },
+        {
+          "epoch": 31,
+          "mean_hidden_loss": 0.1230535627432882,
+          "mask50_token_exact": 0.8129329030106708,
+          "mask90_token_exact": 0.16630752283380693,
+          "mask90_bit_accuracy": 0.8318084330985721
+        },
+        {
+          "epoch": 32,
+          "mean_hidden_loss": 0.12421321715528319,
+          "mask50_token_exact": 0.8137451171875,
+          "mask90_token_exact": 0.1681276112910322,
+          "mask90_bit_accuracy": 0.8285779304626085
+        },
+        {
+          "epoch": 33,
+          "mean_hidden_loss": 0.12262532698196633,
+          "mask50_token_exact": 0.8140065262957317,
+          "mask90_token_exact": 0.17638780917851224,
+          "mask90_bit_accuracy": 0.8254622722546228
+        },
+        {
+          "epoch": 34,
+          "mean_hidden_loss": 0.12332571804450838,
+          "mask50_token_exact": 0.8139517435213415,
+          "mask90_token_exact": 0.16115788324572516,
+          "mask90_bit_accuracy": 0.826918447775282
+        },
+        {
+          "epoch": 35,
+          "mean_hidden_loss": 0.11875899426332862,
+          "mask50_token_exact": 0.8149783250762195,
+          "mask90_token_exact": 0.21462422219502272,
+          "mask90_bit_accuracy": 0.8533233209722576
+        },
+        {
+          "epoch": 36,
+          "mean_hidden_loss": 0.11782371297755453,
+          "mask50_token_exact": 0.8155124571265244,
+          "mask90_token_exact": 0.20723007148693487,
+          "mask90_bit_accuracy": 0.8455211775771629
+        },
+        {
+          "epoch": 37,
+          "mean_hidden_loss": 0.1190567763339128,
+          "mask50_token_exact": 0.8152986852134146,
+          "mask90_token_exact": 0.1902061906825497,
+          "mask90_bit_accuracy": 0.8425744503952567
+        },
+        {
+          "epoch": 38,
+          "mean_hidden_loss": 0.12042856867221699,
+          "mask50_token_exact": 0.8159977610518293,
+          "mask90_token_exact": 0.1834448697124975,
+          "mask90_bit_accuracy": 0.8356726476189216
+        },
+        {
+          "epoch": 39,
+          "mean_hidden_loss": 0.12009131151425986,
+          "mask50_token_exact": 0.816334794207317,
+          "mask90_token_exact": 0.1851283357537224,
+          "mask90_bit_accuracy": 0.8393160774480388
+        },
+        {
+          "epoch": 40,
+          "mean_hidden_loss": 0.1205333980840105,
+          "mask50_token_exact": 0.8164044636051829,
+          "mask90_token_exact": 0.18706189028525305,
+          "mask90_bit_accuracy": 0.840513618685624
+        },
+        {
+          "epoch": 41,
+          "mean_hidden_loss": 0.12019097804326502,
+          "mask50_token_exact": 0.8169284727515244,
+          "mask90_token_exact": 0.1899342690700744,
+          "mask90_bit_accuracy": 0.8435589257221746
+        },
+        {
+          "epoch": 42,
+          "mean_hidden_loss": 0.11899539484141461,
+          "mask50_token_exact": 0.8170213652820122,
+          "mask90_token_exact": 0.19854445852202995,
+          "mask90_bit_accuracy": 0.8432968455549197
+        },
+        {
+          "epoch": 43,
+          "mean_hidden_loss": 0.11762497328627355,
+          "mask50_token_exact": 0.8171071122332317,
+          "mask90_token_exact": 0.2282196412090257,
+          "mask90_bit_accuracy": 0.8556627179590662
+        },
+        {
+          "epoch": 44,
+          "mean_hidden_loss": 0.120733334205873,
+          "mask50_token_exact": 0.8174679639862805,
+          "mask90_token_exact": 0.17535735197308572,
+          "mask90_bit_accuracy": 0.8328949341643151
+        },
+        {
+          "epoch": 45,
+          "mean_hidden_loss": 0.11903349223796092,
+          "mask50_token_exact": 0.8179800638338415,
+          "mask90_token_exact": 0.18519052707141748,
+          "mask90_bit_accuracy": 0.8411436365821681
+        },
+        {
+          "epoch": 46,
+          "mean_hidden_loss": 0.12069302163301165,
+          "mask50_token_exact": 0.8181598942454268,
+          "mask90_token_exact": 0.1747628956012875,
+          "mask90_bit_accuracy": 0.8354492991898589
+        },
+        {
+          "epoch": 47,
+          "mean_hidden_loss": 0.12014736456155455,
+          "mask50_token_exact": 0.8188565882240854,
+          "mask90_token_exact": 0.18020000463126834,
+          "mask90_bit_accuracy": 0.8365107693529126
+        },
+        {
+          "epoch": 48,
+          "mean_hidden_loss": 0.12148180097628067,
+          "mask50_token_exact": 0.8182986375762196,
+          "mask90_token_exact": 0.15922267468978774,
+          "mask90_bit_accuracy": 0.8230308839437235
+        },
+        {
+          "epoch": 49,
+          "mean_hidden_loss": 0.11476194584518633,
+          "mask50_token_exact": 0.8191715891768293,
+          "mask90_token_exact": 0.23219690829757883,
+          "mask90_bit_accuracy": 0.8599200113796879
+        },
+        {
+          "epoch": 50,
+          "mean_hidden_loss": 0.11912334246577609,
+          "mask50_token_exact": 0.818701767339939,
+          "mask90_token_exact": 0.18201546182015463,
+          "mask90_bit_accuracy": 0.8375277462594238
+        },
+        {
+          "epoch": 51,
+          "mean_hidden_loss": 0.11852091635765646,
+          "mask50_token_exact": 0.8189006526295731,
+          "mask90_token_exact": 0.1787871369829933,
+          "mask90_bit_accuracy": 0.8378001089450743
+        },
+        {
+          "epoch": 52,
+          "mean_hidden_loss": 0.11671996700881922,
+          "mask50_token_exact": 0.8194449075838415,
+          "mask90_token_exact": 0.2088672248447698,
+          "mask90_bit_accuracy": 0.8499621228410846
+        },
+        {
+          "epoch": 53,
+          "mean_hidden_loss": 0.11821290152317698,
+          "mask50_token_exact": 0.8200278677591464,
+          "mask90_token_exact": 0.1801649393138445,
+          "mask90_bit_accuracy": 0.8383393484687593
+        },
+        {
+          "epoch": 54,
+          "mean_hidden_loss": 0.11766760047528453,
+          "mask50_token_exact": 0.8201159965701219,
+          "mask90_token_exact": 0.19078112956634788,
+          "mask90_bit_accuracy": 0.8430893481930886
+        },
+        {
+          "epoch": 55,
+          "mean_hidden_loss": 0.1174034899745348,
+          "mask50_token_exact": 0.8200528772865854,
+          "mask90_token_exact": 0.18236644579927422,
+          "mask90_bit_accuracy": 0.8404205246785955
+        },
+        {
+          "epoch": 56,
+          "mean_hidden_loss": 0.11488560532747441,
+          "mask50_token_exact": 0.8206167825838414,
+          "mask90_token_exact": 0.21731201185604695,
+          "mask90_bit_accuracy": 0.8539499756858412
+        },
+        {
+          "epoch": 57,
+          "mean_hidden_loss": 0.11591751229293043,
+          "mask50_token_exact": 0.8204685118140244,
+          "mask90_token_exact": 0.21800174003367595,
+          "mask90_bit_accuracy": 0.8519984198553501
+        },
+        {
+          "epoch": 58,
+          "mean_hidden_loss": 0.11703653509212701,
+          "mask50_token_exact": 0.8208740234375,
+          "mask90_token_exact": 0.19694667094507645,
+          "mask90_bit_accuracy": 0.8442798873940184
+        },
+        {
+          "epoch": 59,
+          "mean_hidden_loss": 0.1169850491451275,
+          "mask50_token_exact": 0.8208984375,
+          "mask90_token_exact": 0.1979906911506386,
+          "mask90_bit_accuracy": 0.8451971266288005
+        },
+        {
+          "epoch": 60,
+          "mean_hidden_loss": 0.11444615547212242,
+          "mask50_token_exact": 0.8211032774390243,
+          "mask90_token_exact": 0.2119476798999646,
+          "mask90_bit_accuracy": 0.8508928699418555
+        },
+        {
+          "epoch": 61,
+          "mean_hidden_loss": 0.11466643523340939,
+          "mask50_token_exact": 0.8210901772103658,
+          "mask90_token_exact": 0.21175349743460814,
+          "mask90_bit_accuracy": 0.8503789921257412
+        },
+        {
+          "epoch": 62,
+          "mean_hidden_loss": 0.11139919923751866,
+          "mask50_token_exact": 0.8211634193978659,
+          "mask90_token_exact": 0.24493289622981676,
+          "mask90_bit_accuracy": 0.8642581314596545
+        },
+        {
+          "epoch": 63,
+          "mean_hidden_loss": 0.11372559062276552,
+          "mask50_token_exact": 0.821361113757622,
+          "mask90_token_exact": 0.22284042303328228,
+          "mask90_bit_accuracy": 0.8556321736416876
+        },
+        {
+          "epoch": 64,
+          "mean_hidden_loss": 0.1148020417185684,
+          "mask50_token_exact": 0.8215141482469512,
+          "mask90_token_exact": 0.20810538120300504,
+          "mask90_bit_accuracy": 0.8484786007835665
+        },
+        {
+          "epoch": 65,
+          "mean_hidden_loss": 0.11467282702053447,
+          "mask50_token_exact": 0.8213902915396342,
+          "mask90_token_exact": 0.20281746517451613,
+          "mask90_bit_accuracy": 0.8481460040424357
+        },
+        {
+          "epoch": 66,
+          "mean_hidden_loss": 0.11471408450535439,
+          "mask50_token_exact": 0.8217624571265244,
+          "mask90_token_exact": 0.20611228179283014,
+          "mask90_bit_accuracy": 0.8490136776791611
+        },
+        {
+          "epoch": 67,
+          "mean_hidden_loss": 0.1127864440474177,
+          "mask50_token_exact": 0.8216612280868902,
+          "mask90_token_exact": 0.22679751102407267,
+          "mask90_bit_accuracy": 0.8568992114714311
+        },
+        {
+          "epoch": 68,
+          "mean_hidden_loss": 0.11349371661777045,
+          "mask50_token_exact": 0.821827958269817,
+          "mask90_token_exact": 0.225478591962103,
+          "mask90_bit_accuracy": 0.8564659122110005
+        },
+        {
+          "epoch": 69,
+          "mean_hidden_loss": 0.11456679907549121,
+          "mask50_token_exact": 0.8218255764100609,
+          "mask90_token_exact": 0.21200325512003254,
+          "mask90_bit_accuracy": 0.8495075693670269
+        },
+        {
+          "epoch": 70,
+          "mean_hidden_loss": 0.11441119332997678,
+          "mask50_token_exact": 0.8220887719131098,
+          "mask90_token_exact": 0.2072820078533079,
+          "mask90_bit_accuracy": 0.8485705094064367
+        },
+        {
+          "epoch": 71,
+          "mean_hidden_loss": 0.11285026086457266,
+          "mask50_token_exact": 0.8219601514862804,
+          "mask90_token_exact": 0.22649085489905488,
+          "mask90_bit_accuracy": 0.8576441564971733
+        },
+        {
+          "epoch": 72,
+          "mean_hidden_loss": 0.11339664300030497,
+          "mask50_token_exact": 0.8222429973323171,
+          "mask90_token_exact": 0.21669439914255376,
+          "mask90_bit_accuracy": 0.8534747744737722
+        },
+        {
+          "epoch": 73,
+          "mean_hidden_loss": 0.11175019017893972,
+          "mask50_token_exact": 0.8222382336128049,
+          "mask90_token_exact": 0.23072614979506637,
+          "mask90_bit_accuracy": 0.8578795517373321
+        },
+        {
+          "epoch": 74,
+          "mean_hidden_loss": 0.11269719685702555,
+          "mask50_token_exact": 0.8223394626524391,
+          "mask90_token_exact": 0.22575183679410374,
+          "mask90_bit_accuracy": 0.856141172085802
+        },
+        {
+          "epoch": 75,
+          "mean_hidden_loss": 0.11269592129210544,
+          "mask50_token_exact": 0.8222221560594513,
+          "mask90_token_exact": 0.22782168293675342,
+          "mask90_bit_accuracy": 0.8574397742146417
+        },
+        {
+          "epoch": 76,
+          "mean_hidden_loss": 0.11203908697905995,
+          "mask50_token_exact": 0.8224144912347561,
+          "mask90_token_exact": 0.22939929141594415,
+          "mask90_bit_accuracy": 0.8576949901806085
+        },
+        {
+          "epoch": 77,
+          "mean_hidden_loss": 0.11202137102790863,
+          "mask50_token_exact": 0.8224406916920731,
+          "mask90_token_exact": 0.22710152071003958,
+          "mask90_bit_accuracy": 0.8569856893808325
+        },
+        {
+          "epoch": 78,
+          "mean_hidden_loss": 0.11070602091240378,
+          "mask50_token_exact": 0.8224573647103659,
+          "mask90_token_exact": 0.24041906362370283,
+          "mask90_bit_accuracy": 0.8616955790132973
+        },
+        {
+          "epoch": 79,
+          "mean_hidden_loss": 0.11162355714908663,
+          "mask50_token_exact": 0.8223918635670732,
+          "mask90_token_exact": 0.22977475495628413,
+          "mask90_bit_accuracy": 0.8581280689044514
+        },
+        {
+          "epoch": 80,
+          "mean_hidden_loss": 0.11057555130941876,
+          "mask50_token_exact": 0.8225020245807927,
+          "mask90_token_exact": 0.24161062280635012,
+          "mask90_bit_accuracy": 0.8617936626606195
+        }
+      ]
+    },
+    "prior_sparse_refinement": {
+      "epochs": 20,
+      "planned_epochs": 20,
+      "updates": 9740,
+      "skipped_updates": 0,
+      "checkpoint_sha256": "ac66768800dbfa8bd6707de4c13170e9dfb191b911ba93dadb9a6f5a7f8cf43d",
+      "config_sha256": "425a6ad54486191fb6c707fe09cc3a0597deeabe8d0341ae2f68f0d9e3c4a0a3",
+      "metrics_sha256": "70833f0aa2cbcb498751f963e769ac17be83984533dfd7b8c86ed4367b664d0d",
+      "validation_sha256": "032bac59e5bf22db46069501c5264c467ce0c5901533b4052fdc3a6d536049d1",
+      "precision": "32-true",
+      "scheduler_interval": "epoch",
+      "data_fingerprint": "a2b56702265e034233cb50f866b3e89fb975d0a114f1a06b66a90b520a592c49",
+      "mask_range": [
+        0.05,
+        0.95
+      ],
+      "initialization": {
+        "source_sha256": "8119bc16ade05c57b85e1bd8acb84459503f98d09fd36b328146fa0b6c3e1764",
+        "source_step": 38960,
+        "changed_config_keys": [
+          "Description",
+          "data",
+          "epochs",
+          "model",
+          "num_workers",
+          "optimizer"
+        ]
+      },
+      "validation_history": [
+        {
+          "epoch": 1,
+          "mean_hidden_loss": 0.061369888741373835,
+          "mask50_token_exact": 0.8201296922637196,
+          "mask90_token_exact": 0.6885128004948841,
+          "mask90_bit_accuracy": 0.9522061377537687
+        },
+        {
+          "epoch": 2,
+          "mean_hidden_loss": 0.06027639137393008,
+          "mask50_token_exact": 0.8198063548018293,
+          "mask90_token_exact": 0.7003628929548484,
+          "mask90_bit_accuracy": 0.9543267624457067
+        },
+        {
+          "epoch": 3,
+          "mean_hidden_loss": 0.059745228650286586,
+          "mask50_token_exact": 0.8201046827362805,
+          "mask90_token_exact": 0.7048797028048945,
+          "mask90_bit_accuracy": 0.9551915139726469
+        },
+        {
+          "epoch": 4,
+          "mean_hidden_loss": 0.0593945214421848,
+          "mask50_token_exact": 0.819725967035061,
+          "mask90_token_exact": 0.7090107941632787,
+          "mask90_bit_accuracy": 0.9559399324496433
+        },
+        {
+          "epoch": 5,
+          "mean_hidden_loss": 0.05908839224108622,
+          "mask50_token_exact": 0.8199272341844512,
+          "mask90_token_exact": 0.7114392327973191,
+          "mask90_bit_accuracy": 0.9565153675407634
+        },
+        {
+          "epoch": 6,
+          "mean_hidden_loss": 0.058806016218934234,
+          "mask50_token_exact": 0.8200344178734756,
+          "mask90_token_exact": 0.7141468707512248,
+          "mask90_bit_accuracy": 0.9569801208319964
+        },
+        {
+          "epoch": 7,
+          "mean_hidden_loss": 0.05863217071065778,
+          "mask50_token_exact": 0.8199766577743902,
+          "mask90_token_exact": 0.7156884214983477,
+          "mask90_bit_accuracy": 0.9572828624325848
+        },
+        {
+          "epoch": 8,
+          "mean_hidden_loss": 0.058493892475060094,
+          "mask50_token_exact": 0.8200391815929878,
+          "mask90_token_exact": 0.7167734615091981,
+          "mask90_bit_accuracy": 0.9575391259473425
+        },
+        {
+          "epoch": 9,
+          "mean_hidden_loss": 0.058377888129330445,
+          "mask50_token_exact": 0.8200498999618903,
+          "mask90_token_exact": 0.7185287122096774,
+          "mask90_bit_accuracy": 0.9577765060167894
+        },
+        {
+          "epoch": 10,
+          "mean_hidden_loss": 0.058249282253607225,
+          "mask50_token_exact": 0.8202130573551829,
+          "mask90_token_exact": 0.7190384825318482,
+          "mask90_bit_accuracy": 0.9579607367686318
+        },
+        {
+          "epoch": 11,
+          "mean_hidden_loss": 0.058151000975870705,
+          "mask50_token_exact": 0.8201201648246951,
+          "mask90_token_exact": 0.7203706337890722,
+          "mask90_bit_accuracy": 0.9581600467096493
+        },
+        {
+          "epoch": 12,
+          "mean_hidden_loss": 0.05804104086383337,
+          "mask50_token_exact": 0.8202225847942073,
+          "mask90_token_exact": 0.7210372056250062,
+          "mask90_bit_accuracy": 0.9583189708880677
+        },
+        {
+          "epoch": 13,
+          "mean_hidden_loss": 0.05807339809038266,
+          "mask50_token_exact": 0.8201427924923781,
+          "mask90_token_exact": 0.7208076270373446,
+          "mask90_bit_accuracy": 0.9583279853210848
+        },
+        {
+          "epoch": 14,
+          "mean_hidden_loss": 0.05793409546355317,
+          "mask50_token_exact": 0.8203708555640243,
+          "mask90_token_exact": 0.721875134389483,
+          "mask90_bit_accuracy": 0.9584950142190964
+        },
+        {
+          "epoch": 15,
+          "mean_hidden_loss": 0.05792187435166172,
+          "mask50_token_exact": 0.8202541444359757,
+          "mask90_token_exact": 0.7222221487100263,
+          "mask90_bit_accuracy": 0.9585519126586899
+        },
+        {
+          "epoch": 16,
+          "mean_hidden_loss": 0.057875475707520975,
+          "mask50_token_exact": 0.820459579839939,
+          "mask90_token_exact": 0.7223984677117895,
+          "mask90_bit_accuracy": 0.9585930978664188
+        },
+        {
+          "epoch": 17,
+          "mean_hidden_loss": 0.05785499429287193,
+          "mask50_token_exact": 0.8203899104420732,
+          "mask90_token_exact": 0.7225771023477222,
+          "mask90_bit_accuracy": 0.958634172805854
+        },
+        {
+          "epoch": 18,
+          "mean_hidden_loss": 0.05781814214165495,
+          "mask50_token_exact": 0.8204524342606707,
+          "mask90_token_exact": 0.7228427386674517,
+          "mask90_bit_accuracy": 0.9586764882635942
+        },
+        {
+          "epoch": 19,
+          "mean_hidden_loss": 0.05781887814973441,
+          "mask50_token_exact": 0.8203791920731708,
+          "mask90_token_exact": 0.722831822106367,
+          "mask90_bit_accuracy": 0.9586831870624416
+        },
+        {
+          "epoch": 20,
+          "mean_hidden_loss": 0.05779251035831665,
+          "mask50_token_exact": 0.8204184927591464,
+          "mask90_token_exact": 0.7231292156947068,
+          "mask90_bit_accuracy": 0.9587097892883174
+        }
+      ]
+    },
+    "prior_budget_control": {
+      "epochs": 20,
+      "planned_epochs": 20,
+      "updates": 9740,
+      "skipped_updates": 0,
+      "checkpoint_sha256": "ec584db9292aea24b0473edaf63636f9acdaeb2b9d212a6ebd7e72b312243738",
+      "config_sha256": "4f9bc309f86abd2a3640eaaa24b99b6d7352854b21e464d5c3207587b8580c96",
+      "metrics_sha256": "d53fdda9b864766d05682f35e8057294d22d25bf6c05e7bc0bc3ff70dae44cbe",
+      "validation_sha256": "7641fe5d9f69c04c6cda1d01c73b79e79e8cad370ff1ace20e60589a6599fd5b",
+      "precision": "32-true",
+      "scheduler_interval": "epoch",
+      "data_fingerprint": "a2b56702265e034233cb50f866b3e89fb975d0a114f1a06b66a90b520a592c49",
+      "mask_range": [
+        0.05,
+        0.6
+      ],
+      "initialization": {
+        "source_sha256": "8119bc16ade05c57b85e1bd8acb84459503f98d09fd36b328146fa0b6c3e1764",
+        "source_step": 38960,
+        "changed_config_keys": [
+          "Description",
+          "data",
+          "epochs",
+          "num_workers",
+          "optimizer"
+        ]
+      },
+      "validation_history": [
+        {
+          "epoch": 1,
+          "mean_hidden_loss": 0.11143206086365103,
+          "mask50_token_exact": 0.8223346989329269,
+          "mask90_token_exact": 0.23618839999603033,
+          "mask90_bit_accuracy": 0.8581852430147793
+        },
+        {
+          "epoch": 2,
+          "mean_hidden_loss": 0.10950114713402184,
+          "mask50_token_exact": 0.8222531202362805,
+          "mask90_token_exact": 0.2514950726612922,
+          "mask90_bit_accuracy": 0.8653889052453525
+        },
+        {
+          "epoch": 3,
+          "mean_hidden_loss": 0.11005068142976934,
+          "mask50_token_exact": 0.8223745950838415,
+          "mask90_token_exact": 0.24816519072555435,
+          "mask90_bit_accuracy": 0.8650015878634305
+        },
+        {
+          "epoch": 4,
+          "mean_hidden_loss": 0.10889821236155248,
+          "mask50_token_exact": 0.8225067883003049,
+          "mask90_token_exact": 0.25971127349955175,
+          "mask90_bit_accuracy": 0.8680025394788059
+        },
+        {
+          "epoch": 5,
+          "mean_hidden_loss": 0.11053634530590872,
+          "mask50_token_exact": 0.8224365234375,
+          "mask90_token_exact": 0.23473219690829758,
+          "mask90_bit_accuracy": 0.8589481893394819
+        },
+        {
+          "epoch": 6,
+          "mean_hidden_loss": 0.11117791841688766,
+          "mask50_token_exact": 0.8224460508765243,
+          "mask90_token_exact": 0.23742064817908454,
+          "mask90_bit_accuracy": 0.8595761397055175
+        },
+        {
+          "epoch": 7,
+          "mean_hidden_loss": 0.11043372049973262,
+          "mask50_token_exact": 0.822655654535061,
+          "mask90_token_exact": 0.24136450397462064,
+          "mask90_bit_accuracy": 0.863135848332578
+        },
+        {
+          "epoch": 8,
+          "mean_hidden_loss": 0.10975813345386747,
+          "mask50_token_exact": 0.822606230945122,
+          "mask90_token_exact": 0.25267009159987164,
+          "mask90_bit_accuracy": 0.8651216424682896
+        },
+        {
+          "epoch": 9,
+          "mean_hidden_loss": 0.11060673323336871,
+          "mask50_token_exact": 0.8227610518292683,
+          "mask90_token_exact": 0.249666714082033,
+          "mask90_bit_accuracy": 0.8645049946023671
+        },
+        {
+          "epoch": 10,
+          "mean_hidden_loss": 0.1114016728291121,
+          "mask50_token_exact": 0.8227866568216463,
+          "mask90_token_exact": 0.23905085463441098,
+          "mask90_bit_accuracy": 0.8605908009778592
+        },
+        {
+          "epoch": 11,
+          "mean_hidden_loss": 0.1105102306684502,
+          "mask50_token_exact": 0.822753310785061,
+          "mask90_token_exact": 0.24292524140486216,
+          "mask90_bit_accuracy": 0.8631528020827476
+        },
+        {
+          "epoch": 12,
+          "mean_hidden_loss": 0.11040485147300619,
+          "mask50_token_exact": 0.8229117044588414,
+          "mask90_token_exact": 0.24060133711333045,
+          "mask90_bit_accuracy": 0.8611598956420867
+        },
+        {
+          "epoch": 13,
+          "mean_hidden_loss": 0.11067540792066473,
+          "mask50_token_exact": 0.8228878858612805,
+          "mask90_token_exact": 0.23769885508430563,
+          "mask90_bit_accuracy": 0.8615198664871498
+        },
+        {
+          "epoch": 14,
+          "mean_hidden_loss": 0.11027631508550136,
+          "mask50_token_exact": 0.8230117425685975,
+          "mask90_token_exact": 0.24133936280363752,
+          "mask90_bit_accuracy": 0.8627821627802607
+        },
+        {
+          "epoch": 15,
+          "mean_hidden_loss": 0.11006944417261715,
+          "mask50_token_exact": 0.8231242854420732,
+          "mask90_token_exact": 0.24259344410886127,
+          "mask90_bit_accuracy": 0.8631495216010074
+        },
+        {
+          "epoch": 16,
+          "mean_hidden_loss": 0.11048397670370838,
+          "mask50_token_exact": 0.8229575552591464,
+          "mask90_token_exact": 0.23914844207441124,
+          "mask90_bit_accuracy": 0.8621934127926658
+        },
+        {
+          "epoch": 17,
+          "mean_hidden_loss": 0.11027619856417181,
+          "mask50_token_exact": 0.8230498523246951,
+          "mask90_token_exact": 0.24247170791252196,
+          "mask90_bit_accuracy": 0.8631488324241713
+        },
+        {
+          "epoch": 18,
+          "mean_hidden_loss": 0.11011971825454799,
+          "mask50_token_exact": 0.8230772437118903,
+          "mask90_token_exact": 0.24289943862411634,
+          "mask90_bit_accuracy": 0.8630980814419564
+        },
+        {
+          "epoch": 19,
+          "mean_hidden_loss": 0.1101069000597763,
+          "mask50_token_exact": 0.8230826028963415,
+          "mask90_token_exact": 0.24267449130479368,
+          "mask90_bit_accuracy": 0.8631103212225666
+        },
+        {
+          "epoch": 20,
+          "mean_hidden_loss": 0.11000337080714662,
+          "mask50_token_exact": 0.8230974895198171,
+          "mask90_token_exact": 0.24304499277191335,
+          "mask90_bit_accuracy": 0.8632250278151771
+        }
+      ]
+    }
+  },
+  "token_test": {
+    "prior_last_control": {
+      "samples": 512,
+      "seed": 20260511,
+      "mask_device": "cpu",
+      "selection_sha256": "3fb965a964f98e249a865add8f41b4e6b2c9ac86948bcb8124da9392458a0b95",
+      "tokenizer_hash": "24a9aff0eca3cb662a0e8202c06dc357627637fc1a7ede58bd089eb2592beb2e",
+      "prior_sha256": "e70494ae0a6d6ade038c8f018631ed083f7b01ee28113074f3524fd59164abb3",
+      "source": {
+        "kind": "release_cache",
+        "fingerprint": "a2b56702265e034233cb50f866b3e89fb975d0a114f1a06b66a90b520a592c49",
+        "tokenizer_binding_verified": true
+      },
+      "rows": [
+        {
+          "mask_ratio": 0.1,
+          "bit_accuracy": 0.9836784749918898,
+          "token_exact": 0.8489828826593897,
+          "bce": 0.03797801414817665,
+          "token_count": 838448,
+          "mask_sha256": "caf1cb3684e2797282f51e333fc2ec03ee089e2ebdf4e1abe0fa8b73eae5525f",
+          "uncertain_mse_reduction": 0.3111360926102549,
+          "hard_wrong_mse_reduction": 0.45514461000916473,
+          "edge_mse_reduction": 0.29339167552817935
+        },
+        {
+          "mask_ratio": 0.25,
+          "bit_accuracy": 0.9827731060382101,
+          "token_exact": 0.8433267659843109,
+          "bce": 0.0402605355727167,
+          "token_count": 2097244,
+          "mask_sha256": "650e8340b1ae4b482904dbdb36c47c61f4a5feed3b138c25f3fc69711c8c2ca0",
+          "uncertain_mse_reduction": 0.3069264432349147,
+          "hard_wrong_mse_reduction": 0.4555795484024404,
+          "edge_mse_reduction": 0.2959258537812868
+        },
+        {
+          "mask_ratio": 0.5,
+          "bit_accuracy": 0.9799584379699104,
+          "token_exact": 0.8257583925531834,
+          "bce": 0.047031212011719496,
+          "token_count": 4192288,
+          "mask_sha256": "2fa77878b6acb20e2c77d70fe7bfb137ff854d55922ad5cffaf48fc67f919270",
+          "uncertain_mse_reduction": 0.30361323268916707,
+          "hard_wrong_mse_reduction": 0.4548597776973984,
+          "edge_mse_reduction": 0.3038403081380565
+        },
+        {
+          "mask_ratio": 0.75,
+          "bit_accuracy": 0.9725686558657273,
+          "token_exact": 0.7845324676047336,
+          "bce": 0.06511917008750293,
+          "token_count": 6289885,
+          "mask_sha256": "aebc4450a78e0ca4420d704d164d616ae5300d2863b8f6cdfa4963f6c68816c9",
+          "uncertain_mse_reduction": 0.30136492886301947,
+          "hard_wrong_mse_reduction": 0.4441555530375203,
+          "edge_mse_reduction": 0.31644020671570416
+        },
+        {
+          "mask_ratio": 0.9,
+          "bit_accuracy": 0.8610427027264249,
+          "token_exact": 0.2484862589104561,
+          "bce": 0.35885221974299314,
+          "token_count": 7549838,
+          "mask_sha256": "357dba2df85152fd59f0297dedd288b7703883b5dc75617b881f16b8da54547b",
+          "uncertain_mse_reduction": 0.2064996618146745,
+          "hard_wrong_mse_reduction": 0.594686784285829,
+          "edge_mse_reduction": 0.3680431321003633
+        }
+      ],
+      "report_sha256": "628317260559a859afe82152a7aac4060f4e7a642e569971f15d794e34cc3761"
+    },
+    "prior_epoch_fp32": {
+      "samples": 512,
+      "seed": 20260511,
+      "mask_device": "cpu",
+      "selection_sha256": "3fb965a964f98e249a865add8f41b4e6b2c9ac86948bcb8124da9392458a0b95",
+      "tokenizer_hash": "24a9aff0eca3cb662a0e8202c06dc357627637fc1a7ede58bd089eb2592beb2e",
+      "prior_sha256": "8119bc16ade05c57b85e1bd8acb84459503f98d09fd36b328146fa0b6c3e1764",
+      "source": {
+        "kind": "release_cache",
+        "fingerprint": "a2b56702265e034233cb50f866b3e89fb975d0a114f1a06b66a90b520a592c49",
+        "tokenizer_binding_verified": true
+      },
+      "rows": [
+        {
+          "mask_ratio": 0.1,
+          "bit_accuracy": 0.9836872213104848,
+          "token_exact": 0.849071140965212,
+          "bce": 0.0379523644468771,
+          "token_count": 838448,
+          "mask_sha256": "caf1cb3684e2797282f51e333fc2ec03ee089e2ebdf4e1abe0fa8b73eae5525f",
+          "uncertain_mse_reduction": 0.3112307009708142,
+          "hard_wrong_mse_reduction": 0.45521076617658596,
+          "edge_mse_reduction": 0.29347803535024475
+        },
+        {
+          "mask_ratio": 0.25,
+          "bit_accuracy": 0.9827849469748553,
+          "token_exact": 0.843430235108552,
+          "bce": 0.04023172707116359,
+          "token_count": 2097244,
+          "mask_sha256": "650e8340b1ae4b482904dbdb36c47c61f4a5feed3b138c25f3fc69711c8c2ca0",
+          "uncertain_mse_reduction": 0.30691118276826734,
+          "hard_wrong_mse_reduction": 0.4555921361079054,
+          "edge_mse_reduction": 0.2959363159986138
+        },
+        {
+          "mask_ratio": 0.5,
+          "bit_accuracy": 0.9799755527292018,
+          "token_exact": 0.8258669251730797,
+          "bce": 0.04699333119540471,
+          "token_count": 4192288,
+          "mask_sha256": "2fa77878b6acb20e2c77d70fe7bfb137ff854d55922ad5cffaf48fc67f919270",
+          "uncertain_mse_reduction": 0.30352751347859375,
+          "hard_wrong_mse_reduction": 0.454827111021212,
+          "edge_mse_reduction": 0.30374236967036294
+        },
+        {
+          "mask_ratio": 0.75,
+          "bit_accuracy": 0.9725905561071466,
+          "token_exact": 0.7846564762312824,
+          "bce": 0.06505982174157397,
+          "token_count": 6289885,
+          "mask_sha256": "aebc4450a78e0ca4420d704d164d616ae5300d2863b8f6cdfa4963f6c68816c9",
+          "uncertain_mse_reduction": 0.3014097550110587,
+          "hard_wrong_mse_reduction": 0.4441380960155803,
+          "edge_mse_reduction": 0.3163649814831374
+        },
+        {
+          "mask_ratio": 0.9,
+          "bit_accuracy": 0.8603453367696985,
+          "token_exact": 0.24600289436674005,
+          "bce": 0.36031004765709324,
+          "token_count": 7549838,
+          "mask_sha256": "357dba2df85152fd59f0297dedd288b7703883b5dc75617b881f16b8da54547b",
+          "uncertain_mse_reduction": 0.2064902037953935,
+          "hard_wrong_mse_reduction": 0.5952139825726119,
+          "edge_mse_reduction": 0.366990664583001
+        }
+      ],
+      "report_sha256": "4e3abf83aead701e6220d54e8c0cc56e8e506901d9de5fe34a347d6377890030"
+    },
+    "prior_sparse_refinement": {
+      "samples": 512,
+      "seed": 20260511,
+      "mask_device": "cpu",
+      "selection_sha256": "3fb965a964f98e249a865add8f41b4e6b2c9ac86948bcb8124da9392458a0b95",
+      "tokenizer_hash": "24a9aff0eca3cb662a0e8202c06dc357627637fc1a7ede58bd089eb2592beb2e",
+      "prior_sha256": "ac66768800dbfa8bd6707de4c13170e9dfb191b911ba93dadb9a6f5a7f8cf43d",
+      "source": {
+        "kind": "release_cache",
+        "fingerprint": "a2b56702265e034233cb50f866b3e89fb975d0a114f1a06b66a90b520a592c49",
+        "tokenizer_binding_verified": true
+      },
+      "rows": [
+        {
+          "mask_ratio": 0.1,
+          "bit_accuracy": 0.9832744547067916,
+          "token_exact": 0.8459797149018186,
+          "bce": 0.03906673115974023,
+          "token_count": 838448,
+          "mask_sha256": "caf1cb3684e2797282f51e333fc2ec03ee089e2ebdf4e1abe0fa8b73eae5525f",
+          "uncertain_mse_reduction": 0.3090874418467554,
+          "hard_wrong_mse_reduction": 0.45377029076379227,
+          "edge_mse_reduction": 0.2916221562054291
+        },
+        {
+          "mask_ratio": 0.25,
+          "bit_accuracy": 0.9823821961901746,
+          "token_exact": 0.8405488345657444,
+          "bce": 0.04126323239881026,
+          "token_count": 2097244,
+          "mask_sha256": "650e8340b1ae4b482904dbdb36c47c61f4a5feed3b138c25f3fc69711c8c2ca0",
+          "uncertain_mse_reduction": 0.30587222861526875,
+          "hard_wrong_mse_reduction": 0.4550634838087608,
+          "edge_mse_reduction": 0.2954123241557651
+        },
+        {
+          "mask_ratio": 0.5,
+          "bit_accuracy": 0.9797003648922339,
+          "token_exact": 0.824022824767764,
+          "bce": 0.04768764529034225,
+          "token_count": 4192288,
+          "mask_sha256": "2fa77878b6acb20e2c77d70fe7bfb137ff854d55922ad5cffaf48fc67f919270",
+          "uncertain_mse_reduction": 0.3022709646525973,
+          "hard_wrong_mse_reduction": 0.45818071142547956,
+          "edge_mse_reduction": 0.30331518458264706
+        },
+        {
+          "mask_ratio": 0.75,
+          "bit_accuracy": 0.9735725957893772,
+          "token_exact": 0.7908510250982331,
+          "bce": 0.06200245616738886,
+          "token_count": 6289885,
+          "mask_sha256": "aebc4450a78e0ca4420d704d164d616ae5300d2863b8f6cdfa4963f6c68816c9",
+          "uncertain_mse_reduction": 0.30000629931693323,
+          "hard_wrong_mse_reduction": 0.46013720503768984,
+          "edge_mse_reduction": 0.3135202245210382
+        },
+        {
+          "mask_ratio": 0.9,
+          "bit_accuracy": 0.9597661676096008,
+          "token_exact": 0.7285875537991676,
+          "bce": 0.09270269000032406,
+          "token_count": 7549838,
+          "mask_sha256": "357dba2df85152fd59f0297dedd288b7703883b5dc75617b881f16b8da54547b",
+          "uncertain_mse_reduction": 0.3041088787499825,
+          "hard_wrong_mse_reduction": 0.4622561084112209,
+          "edge_mse_reduction": 0.3325240757382111
+        }
+      ],
+      "report_sha256": "c46ea4184c2a179db1353e0ee16eafdaa6bf24f3959babca3afa4f9c71fcb39b"
+    },
+    "prior_budget_control": {
+      "samples": 512,
+      "seed": 20260511,
+      "mask_device": "cpu",
+      "selection_sha256": "3fb965a964f98e249a865add8f41b4e6b2c9ac86948bcb8124da9392458a0b95",
+      "tokenizer_hash": "24a9aff0eca3cb662a0e8202c06dc357627637fc1a7ede58bd089eb2592beb2e",
+      "prior_sha256": "ec584db9292aea24b0473edaf63636f9acdaeb2b9d212a6ebd7e72b312243738",
+      "source": {
+        "kind": "release_cache",
+        "fingerprint": "a2b56702265e034233cb50f866b3e89fb975d0a114f1a06b66a90b520a592c49",
+        "tokenizer_binding_verified": true
+      },
+      "rows": [
+        {
+          "mask_ratio": 0.1,
+          "bit_accuracy": 0.9837627576983506,
+          "token_exact": 0.8495804152434021,
+          "bce": 0.03781224252558745,
+          "token_count": 838448,
+          "mask_sha256": "caf1cb3684e2797282f51e333fc2ec03ee089e2ebdf4e1abe0fa8b73eae5525f",
+          "uncertain_mse_reduction": 0.3105438796376033,
+          "hard_wrong_mse_reduction": 0.4545555215852418,
+          "edge_mse_reduction": 0.29271856811582875
+        },
+        {
+          "mask_ratio": 0.25,
+          "bit_accuracy": 0.9828504297385839,
+          "token_exact": 0.8439275544476466,
+          "bce": 0.04006821363561933,
+          "token_count": 2097244,
+          "mask_sha256": "650e8340b1ae4b482904dbdb36c47c61f4a5feed3b138c25f3fc69711c8c2ca0",
+          "uncertain_mse_reduction": 0.30705209822341406,
+          "hard_wrong_mse_reduction": 0.45542938267634303,
+          "edge_mse_reduction": 0.2960507321762289
+        },
+        {
+          "mask_ratio": 0.5,
+          "bit_accuracy": 0.9800613253033507,
+          "token_exact": 0.8264813867749544,
+          "bce": 0.04678495782079002,
+          "token_count": 4192288,
+          "mask_sha256": "2fa77878b6acb20e2c77d70fe7bfb137ff854d55922ad5cffaf48fc67f919270",
+          "uncertain_mse_reduction": 0.3034790934675844,
+          "hard_wrong_mse_reduction": 0.4546115506774743,
+          "edge_mse_reduction": 0.3034523145514154
+        },
+        {
+          "mask_ratio": 0.75,
+          "bit_accuracy": 0.9727153464120039,
+          "token_exact": 0.7854157905907659,
+          "bce": 0.06474078934538019,
+          "token_count": 6289885,
+          "mask_sha256": "aebc4450a78e0ca4420d704d164d616ae5300d2863b8f6cdfa4963f6c68816c9",
+          "uncertain_mse_reduction": 0.30151726743705143,
+          "hard_wrong_mse_reduction": 0.44373013537142714,
+          "edge_mse_reduction": 0.31600556287752257
+        },
+        {
+          "mask_ratio": 0.9,
+          "bit_accuracy": 0.8615833876170588,
+          "token_exact": 0.2468341704815388,
+          "bce": 0.35870337962880794,
+          "token_count": 7549838,
+          "mask_sha256": "357dba2df85152fd59f0297dedd288b7703883b5dc75617b881f16b8da54547b",
+          "uncertain_mse_reduction": 0.20296983994122242,
+          "hard_wrong_mse_reduction": 0.5963934675361212,
+          "edge_mse_reduction": 0.36843165047732607
+        }
+      ],
+      "report_sha256": "44af0ee14225d1bbb88801d94386707efd2408d5a7a2deb5156355860605a5b8"
+    }
+  },
+  "initial_test_retained": {
+    "token_evaluation": {
+      "fresh_bit": {
+        "samples": 512,
+        "source": {
+          "kind": "release_cache",
+          "fingerprint": "1a1edd34519dacdf387e67fdec6b00e3fb1ecf052193332a1d2f31626b8ee646",
+          "tokenizer_binding_verified": true
+        },
+        "selection_sha256": "3fb965a964f98e249a865add8f41b4e6b2c9ac86948bcb8124da9392458a0b95",
+        "seed": 20260511,
+        "mask_device": "cpu",
+        "batch_size": 16,
+        "report_sha256": "29a68c4c8d0477811b727fee083f29b334ce7376e098e7223d45ab6b4f7c21ed",
+        "rows": [
+          {
+            "mask_ratio": 0.1,
+            "bit_accuracy": 0.9847864745339008,
+            "token_exact": 0.8596716791023414,
+            "bce": 0.035625695877420246,
+            "token_count": 838448,
+            "mask_sha256": "caf1cb3684e2797282f51e333fc2ec03ee089e2ebdf4e1abe0fa8b73eae5525f",
+            "uncertain_mse_reduction": 0.30649268697353793,
+            "hard_wrong_mse_reduction": 0.4523431946310773,
+            "edge_mse_reduction": 0.28835765015206716
+          },
+          {
+            "mask_ratio": 0.25,
+            "bit_accuracy": 0.9838801144104676,
+            "token_exact": 0.8540446414437233,
+            "bce": 0.03770713097723429,
+            "token_count": 2097244,
+            "mask_sha256": "650e8340b1ae4b482904dbdb36c47c61f4a5feed3b138c25f3fc69711c8c2ca0",
+            "uncertain_mse_reduction": 0.30569107934833717,
+            "hard_wrong_mse_reduction": 0.45445508039737437,
+            "edge_mse_reduction": 0.2938627550558899
+          },
+          {
+            "mask_ratio": 0.5,
+            "bit_accuracy": 0.9813972902943054,
+            "token_exact": 0.8382840110221436,
+            "bce": 0.04362686535719477,
+            "token_count": 4192288,
+            "mask_sha256": "2fa77878b6acb20e2c77d70fe7bfb137ff854d55922ad5cffaf48fc67f919270",
+            "uncertain_mse_reduction": 0.3030105333852273,
+            "hard_wrong_mse_reduction": 0.4550777649933082,
+            "edge_mse_reduction": 0.30131542543678624
+          },
+          {
+            "mask_ratio": 0.75,
+            "bit_accuracy": 0.9748043618179558,
+            "token_exact": 0.8003356182187751,
+            "bce": 0.059544494085709304,
+            "token_count": 6289885,
+            "mask_sha256": "aebc4450a78e0ca4420d704d164d616ae5300d2863b8f6cdfa4963f6c68816c9",
+            "uncertain_mse_reduction": 0.30184460898265164,
+            "hard_wrong_mse_reduction": 0.4460414459112141,
+            "edge_mse_reduction": 0.31401903152487687
+          },
+          {
+            "mask_ratio": 0.9,
+            "bit_accuracy": 0.8763487154735418,
+            "token_exact": 0.25997895583984715,
+            "bce": 0.34109359297400377,
+            "token_count": 7549838,
+            "mask_sha256": "357dba2df85152fd59f0297dedd288b7703883b5dc75617b881f16b8da54547b",
+            "uncertain_mse_reduction": 0.1647553663520709,
+            "hard_wrong_mse_reduction": 0.5835251969280967,
+            "edge_mse_reduction": 0.33462961742363106
+          }
+        ]
+      },
+      "fresh_categorical": {
+        "samples": 512,
+        "source": {
+          "kind": "release_cache",
+          "fingerprint": "1a1edd34519dacdf387e67fdec6b00e3fb1ecf052193332a1d2f31626b8ee646",
+          "tokenizer_binding_verified": true
+        },
+        "selection_sha256": "3fb965a964f98e249a865add8f41b4e6b2c9ac86948bcb8124da9392458a0b95",
+        "seed": 20260511,
+        "mask_device": "cpu",
+        "batch_size": 1,
+        "report_sha256": "f90b9b7cd2853e28754c3c693a81b35910e35b2b985161b36c2af75bbd858190",
+        "rows": [
+          {
+            "mask_ratio": 0.1,
+            "token_exact": 0.8625710837165811,
+            "ce": 0.40819607902418975,
+            "token_count": 838448,
+            "mask_sha256": "caf1cb3684e2797282f51e333fc2ec03ee089e2ebdf4e1abe0fa8b73eae5525f"
+          },
+          {
+            "mask_ratio": 0.25,
+            "token_exact": 0.857177800961643,
+            "ce": 0.43026400057786773,
+            "token_count": 2097244,
+            "mask_sha256": "650e8340b1ae4b482904dbdb36c47c61f4a5feed3b138c25f3fc69711c8c2ca0"
+          },
+          {
+            "mask_ratio": 0.5,
+            "token_exact": 0.8426911509896267,
+            "ce": 0.4892842650549093,
+            "token_count": 4192288,
+            "mask_sha256": "2fa77878b6acb20e2c77d70fe7bfb137ff854d55922ad5cffaf48fc67f919270"
+          },
+          {
+            "mask_ratio": 0.75,
+            "token_exact": 0.8104127499946342,
+            "ce": 0.631801544987073,
+            "token_count": 6289885,
+            "mask_sha256": "aebc4450a78e0ca4420d704d164d616ae5300d2863b8f6cdfa4963f6c68816c9"
+          },
+          {
+            "mask_ratio": 0.9,
+            "token_exact": 0.6880872145865912,
+            "ce": 1.298891352117216,
+            "token_count": 7549838,
+            "mask_sha256": "357dba2df85152fd59f0297dedd288b7703883b5dc75617b881f16b8da54547b"
+          }
+        ]
+      },
+      "reference_pair_on_new_cache": {
+        "samples": 512,
+        "source": {
+          "kind": "release_cache",
+          "fingerprint": "54bdde4d3e0b7daea33c70d439673fd557470a88c9b3adc306cf5de2662fdbba",
+          "tokenizer_binding_verified": true
+        },
+        "selection_sha256": "3fb965a964f98e249a865add8f41b4e6b2c9ac86948bcb8124da9392458a0b95",
+        "seed": 20260511,
+        "mask_device": "cpu",
+        "batch_size": 16,
+        "report_sha256": "f6e54713ebe869ffdf76daf64feebc66b5a0a2f191981873620e7f9b54e17682",
+        "rows": [
+          {
+            "mask_ratio": 0.1,
+            "bit_accuracy": 0.9772293570978761,
+            "token_exact": 0.805719615289201,
+            "bce": 0.052821345797874716,
+            "token_count": 838448,
+            "mask_sha256": "caf1cb3684e2797282f51e333fc2ec03ee089e2ebdf4e1abe0fa8b73eae5525f",
+            "uncertain_mse_reduction": 0.30666631632420216,
+            "hard_wrong_mse_reduction": 0.4566316155050627,
+            "edge_mse_reduction": 0.2907230913107658
+          },
+          {
+            "mask_ratio": 0.25,
+            "bit_accuracy": 0.9759853884431187,
+            "token_exact": 0.7993399909595641,
+            "bce": 0.055792202208290974,
+            "token_count": 2097244,
+            "mask_sha256": "650e8340b1ae4b482904dbdb36c47c61f4a5feed3b138c25f3fc69711c8c2ca0",
+            "uncertain_mse_reduction": 0.3047815770082283,
+            "hard_wrong_mse_reduction": 0.4574155852403685,
+            "edge_mse_reduction": 0.29396726524718164
+          },
+          {
+            "mask_ratio": 0.5,
+            "bit_accuracy": 0.972302833202299,
+            "token_exact": 0.7802581788274088,
+            "bce": 0.06421315606651826,
+            "token_count": 4192288,
+            "mask_sha256": "2fa77878b6acb20e2c77d70fe7bfb137ff854d55922ad5cffaf48fc67f919270",
+            "uncertain_mse_reduction": 0.30334822339743295,
+            "hard_wrong_mse_reduction": 0.458678161505364,
+            "edge_mse_reduction": 0.30042912093793384
+          },
+          {
+            "mask_ratio": 0.75,
+            "bit_accuracy": 0.9632867294076124,
+            "token_exact": 0.7386227252167568,
+            "bce": 0.08493176859221857,
+            "token_count": 6289885,
+            "mask_sha256": "aebc4450a78e0ca4420d704d164d616ae5300d2863b8f6cdfa4963f6c68816c9",
+            "uncertain_mse_reduction": 0.3037567271898495,
+            "hard_wrong_mse_reduction": 0.4565646948900911,
+            "edge_mse_reduction": 0.31175849947418366
+          },
+          {
+            "mask_ratio": 0.9,
+            "bit_accuracy": 0.8957391315328003,
+            "token_exact": 0.3783560653884229,
+            "bce": 0.28109109413451433,
+            "token_count": 7549838,
+            "mask_sha256": "357dba2df85152fd59f0297dedd288b7703883b5dc75617b881f16b8da54547b",
+            "uncertain_mse_reduction": 0.19896536119359032,
+            "hard_wrong_mse_reduction": 0.5789976252885929,
+            "edge_mse_reduction": 0.33447555294609044
+          }
+        ]
+      },
+      "same_test_order_and_masks_verified": true,
+      "interpretation": "Tokenizers differ. Higher token accuracy alone is not evidence of improved representation or geometry."
+    },
+    "matched_4096_lfq_support": {
+      "fresh": {
+        "provenance": {
+          "split": "test",
+          "samples": 512,
+          "tokenizer_hash": "5ee34f0aa7ea925a9892539613d6bac0a6690580d94e880ca1c2cf3bcd76ab58",
+          "counting": "All stored token cells, pooled across selected samples"
+        },
+        "metrics": {
+          "name": "LFQ",
+          "codebook_size": 4096,
+          "total_tokens": 8388608,
+          "active_codes": 2563,
+          "nominal_usage": 0.625732421875,
+          "entropy_nats": 5.270246757836035,
+          "perplexity": 194.46394202700193,
+          "effective_support": 0.04747654834643602,
+          "codes_for_50": 23,
+          "codes_for_90": 450
+        },
+        "report_sha256": "d77f34e835495db5b2fb260c7203ea1fd198de61d13a5d8633cf6aff5ff6b438"
+      },
+      "reference": {
+        "provenance": {
+          "split": "test",
+          "samples": 512,
+          "tokenizer_hash": "b6c774332ba2298bc56439936f3f69091493ac2045bf6bd7a425f9828bc82d2f",
+          "counting": "All stored token cells, pooled across selected samples"
+        },
+        "metrics": {
+          "name": "LFQ",
+          "codebook_size": 4096,
+          "total_tokens": 8388608,
+          "active_codes": 3892,
+          "nominal_usage": 0.9501953125,
+          "entropy_nats": 5.95032663828799,
+          "perplexity": 383.87870806883757,
+          "effective_support": 0.09372038771211855,
+          "codes_for_50": 54,
+          "codes_for_90": 958
+        },
+        "report_sha256": "25e56f496bc8a1de71f77a4fa3f55abb4bd0d254e8f86d1d8a398447810f7e55"
+      }
+    }
+  },
+  "initial_tokenizer_selection": {
+    "run": {
+      "task": "tokenizer",
+      "seed": 2026,
+      "world_size": 1,
+      "prior_type": null,
+      "batch_per_rank": 2,
+      "accumulation": 8,
+      "effective_batch_upper_bound": 16,
+      "device_type": "cuda",
+      "torch": "2.11.0+cu128",
+      "data_fingerprint": "a0fa5e6ab5afb164279a9bb4a35cdbd29412784d8c39e02832c2f07e977f545f",
+      "initialization": null,
+      "sampling": {
+        "seed": 2026,
+        "pc_size": 8192,
+        "samples_per_mesh": 8192,
+        "uniform_samples": 2048,
+        "point_strategy": "spatial_mixed",
+        "point_bins": 28,
+        "point_random_ratio": 0.25,
+        "query_strategy": "spatial_sdf_value_balanced",
+        "query_bins": 24,
+        "query_ratios": [
+          0.1,
+          0.2,
+          0.2,
+          0.25,
+          0.25
+        ],
+        "surface_eps": 0.0005,
+        "near_eps": 0.02,
+        "orient_normals": true,
+        "point_sampling_frame": "observation",
+        "axis_lock": true,
+        "frame_source": "cache"
+      },
+      "validation_samples": 205,
+      "training_samples": 3891,
+      "precision": "bf16-mixed"
+    },
+    "planned_epochs": 12,
+    "completed_epochs": 12,
+    "updates": 2928,
+    "selected_epoch": 7,
+    "selected_step": 1708,
+    "selection_metric": "uniform_sdf_mae",
+    "selection_score": 0.15206991358092448,
+    "skipped_updates": 0,
+    "selected_checkpoint_sha256": "8dcd4f2111ed60ae66212026596c11f19b779f8608f3802f832701047c34e91c",
+    "last_checkpoint_sha256": "72d73766c2f7fb23474c5f9449d3bfc1921db381a07296d096ee4827d60622f2",
+    "config_sha256": "e89ec3a2dc480d2ebb19c175259dd4defc942a8a1be713655fc91465a8ac06a1",
+    "metrics_sha256": "c72951257a5df516955ed7221e0745940c3932214f4eaef1fe985a6d91e55726",
+    "validation_sha256": "0152e8becc5ac58ab0c5909d9684b5097ca4d4fba6e9a7001146d542411bea30"
+  },
+  "sparse_refinement_plan": {
+    "scope": "A training-coverage extension, not an unchanged-paper-protocol reproduction.",
+    "train_mask_range": [
+      0.05,
+      0.95
+    ],
+    "epochs": 20,
+    "lr": 2e-05,
+    "eta_min": 1e-06,
+    "initialization": "Completed FP32 epoch-scheduled 80-epoch control, last.pt",
+    "selection": "Fixed-budget last.pt; validation mean BCE across .1/.25/.5/.75/.9 is diagnostic.",
+    "test_metrics_seen_for_this_cache": false,
+    "config_sha256": "425a6ad54486191fb6c707fe09cc3a0597deeabe8d0341ae2f68f0d9e3c4a0a3"
+  },
+  "budget_control_plan": {
+    "purpose": "Separate twenty extra epochs from extended training-mask coverage.",
+    "epochs": 20,
+    "lr": 2e-05,
+    "eta_min": 1e-06,
+    "mask_range": [
+      0.05,
+      0.6
+    ],
+    "initialization": "Same FP32 epoch-scheduled 80-epoch last.pt as sparse refinement.",
+    "checkpoint_selection": "Fixed-budget last.pt, before any test metrics on this token cache.",
+    "config_sha256": "4f9bc309f86abd2a3640eaaa24b99b6d7352854b21e464d5c3207587b8580c96"
+  },
+  "training_cli_plot_failures": "Both 80-epoch controls saved complete valid training states, then exited 1 during plotting because the process loaded an older metric whitelist. The plot compatibility fix and public plot-training CLI regenerated both plots successfully; no optimizer steps were rerun.",
+  "limits": [
+    "Matched K=4096 support is not the 55-category K=8192 support experiment.",
+    "Sparse-context refinement extends masking coverage and adds 20 epochs; it is not unchanged-protocol reproduction.",
+    "Full-shape adaptation uses fixed pretrained tokenizer/priors and ten new epochs per prior, not independent full-budget retraining.",
+    "One training seed and one CUDA GPU; functional test counts are separate from scientific reproduction.",
+    "The original reference prior may have seen the new matched-validation objects; that comparison is diagnostic only. All 512 matched-test objects remain held out.",
+    "A lower valid-only full-shape mean can result from a previously valid outlier becoming invalid. Common-valid before/after comparisons and all-object failure-inclusive counts are reported separately; adaptation does not by itself establish a relaxed-boundary advantage."
+  ],
+  "corrected_test_support": {
+    "format": "orbit_folding.token_support.v1",
+    "title": "LFQ token cache",
+    "scope": "Selected cache split: test; 512 samples. Not a paper benchmark.",
+    "provenance": {
+      "split": "test",
+      "samples": 512,
+      "tokenizer_hash": "24a9aff0eca3cb662a0e8202c06dc357627637fc1a7ede58bd089eb2592beb2e",
+      "counting": "All stored token cells, pooled across selected samples"
+    },
+    "series": [
+      {
+        "name": "LFQ",
+        "codebook_size": 4096,
+        "total_tokens": 8388608,
+        "active_codes": 2965,
+        "nominal_usage": 0.723876953125,
+        "entropy_nats": 6.015631700552854,
+        "perplexity": 409.7846183424317,
+        "effective_support": 0.10004507283750774,
+        "codes_for_50": 63,
+        "codes_for_90": 631
+      }
+    ],
+    "definitions": {
+      "nominal_usage": "nonzero histogram bins / vocabulary size",
+      "effective_support": "exp(-sum(p*log(p))) / vocabulary size",
+      "codes_for_50": "smallest ranked prefix carrying at least 50% of tokens",
+      "aggregation": "Count-pool all selected cells before computing entropy"
+    }
+  },
+  "matched_support_by_category": {
+    "initial_best": {
+      "02691156": {
+        "codebook_size": 4096,
+        "total_tokens": 1048576,
+        "active_codes": 1968,
+        "nominal_usage": 0.48046875,
+        "entropy_nats": 4.574111893110356,
+        "perplexity": 96.94190612021129,
+        "effective_support": 0.02366745754887971,
+        "codes_for_50": 11,
+        "codes_for_90": 288
+      },
+      "02933112": {
+        "codebook_size": 4096,
+        "total_tokens": 1048576,
+        "active_codes": 2072,
+        "nominal_usage": 0.505859375,
+        "entropy_nats": 5.1958852603718535,
+        "perplexity": 180.5278862630204,
+        "effective_support": 0.044074190982182716,
+        "codes_for_50": 22,
+        "codes_for_90": 382
+      },
+      "02958343": {
+        "codebook_size": 4096,
+        "total_tokens": 1048576,
+        "active_codes": 1884,
+        "nominal_usage": 0.4599609375,
+        "entropy_nats": 4.787953479247447,
+        "perplexity": 120.055421169851,
+        "effective_support": 0.029310405559045655,
+        "codes_for_50": 14,
+        "codes_for_90": 308
+      },
+      "03001627": {
+        "codebook_size": 4096,
+        "total_tokens": 1048576,
+        "active_codes": 2051,
+        "nominal_usage": 0.500732421875,
+        "entropy_nats": 5.013421900355583,
+        "perplexity": 150.4185738683216,
+        "effective_support": 0.036723284635820704,
+        "codes_for_50": 23,
+        "codes_for_90": 393
+      },
+      "03636649": {
+        "codebook_size": 4096,
+        "total_tokens": 1048576,
+        "active_codes": 2144,
+        "nominal_usage": 0.5234375,
+        "entropy_nats": 4.922831012913358,
+        "perplexity": 137.39101888492686,
+        "effective_support": 0.03354272921995285,
+        "codes_for_50": 14,
+        "codes_for_90": 348
+      },
+      "04256520": {
+        "codebook_size": 4096,
+        "total_tokens": 1048576,
+        "active_codes": 2038,
+        "nominal_usage": 0.49755859375,
+        "entropy_nats": 5.223297014162298,
+        "perplexity": 185.54492094547916,
+        "effective_support": 0.045299052965204874,
+        "codes_for_50": 26,
+        "codes_for_90": 397
+      },
+      "04379243": {
+        "codebook_size": 4096,
+        "total_tokens": 1048576,
+        "active_codes": 2180,
+        "nominal_usage": 0.5322265625,
+        "entropy_nats": 5.448459145209443,
+        "perplexity": 232.39979554193403,
+        "effective_support": 0.05673823133347999,
+        "codes_for_50": 33,
+        "codes_for_90": 489
+      },
+      "04530566": {
+        "codebook_size": 4096,
+        "total_tokens": 1048576,
+        "active_codes": 1939,
+        "nominal_usage": 0.473388671875,
+        "entropy_nats": 4.1366680002076555,
+        "perplexity": 62.593910699742295,
+        "effective_support": 0.015281716479429271,
+        "codes_for_50": 5,
+        "codes_for_90": 217
+      }
+    },
+    "completed_last": {
+      "02691156": {
+        "codebook_size": 4096,
+        "total_tokens": 1048576,
+        "active_codes": 2232,
+        "nominal_usage": 0.544921875,
+        "entropy_nats": 5.401132431216765,
+        "perplexity": 221.65728576093787,
+        "effective_support": 0.05411554828147897,
+        "codes_for_50": 30,
+        "codes_for_90": 440
+      },
+      "02933112": {
+        "codebook_size": 4096,
+        "total_tokens": 1048576,
+        "active_codes": 2455,
+        "nominal_usage": 0.599365234375,
+        "entropy_nats": 5.7214031575186395,
+        "perplexity": 305.3330528886484,
+        "effective_support": 0.07454420236539268,
+        "codes_for_50": 49,
+        "codes_for_90": 494
+      },
+      "02958343": {
+        "codebook_size": 4096,
+        "total_tokens": 1048576,
+        "active_codes": 2263,
+        "nominal_usage": 0.552490234375,
+        "entropy_nats": 5.465729195207592,
+        "perplexity": 236.44820916231365,
+        "effective_support": 0.05772661356501798,
+        "codes_for_50": 36,
+        "codes_for_90": 444
+      },
+      "03001627": {
+        "codebook_size": 4096,
+        "total_tokens": 1048576,
+        "active_codes": 2410,
+        "nominal_usage": 0.58837890625,
+        "entropy_nats": 5.594692277299802,
+        "perplexity": 268.9948615298305,
+        "effective_support": 0.06567257361568127,
+        "codes_for_50": 44,
+        "codes_for_90": 547
+      },
+      "03636649": {
+        "codebook_size": 4096,
+        "total_tokens": 1048576,
+        "active_codes": 2457,
+        "nominal_usage": 0.599853515625,
+        "entropy_nats": 5.497104905789597,
+        "perplexity": 243.98455053025202,
+        "effective_support": 0.05956654065679981,
+        "codes_for_50": 31,
+        "codes_for_90": 484
+      },
+      "04256520": {
+        "codebook_size": 4096,
+        "total_tokens": 1048576,
+        "active_codes": 2345,
+        "nominal_usage": 0.572509765625,
+        "entropy_nats": 5.649477086134816,
+        "perplexity": 284.1428447360883,
+        "effective_support": 0.06937081170314656,
+        "codes_for_50": 46,
+        "codes_for_90": 543
+      },
+      "04379243": {
+        "codebook_size": 4096,
+        "total_tokens": 1048576,
+        "active_codes": 2483,
+        "nominal_usage": 0.606201171875,
+        "entropy_nats": 5.958121957413525,
+        "perplexity": 386.8828590487722,
+        "effective_support": 0.09445382300995415,
+        "codes_for_50": 64,
+        "codes_for_90": 655
+      },
+      "04530566": {
+        "codebook_size": 4096,
+        "total_tokens": 1048576,
+        "active_codes": 2232,
+        "nominal_usage": 0.544921875,
+        "entropy_nats": 4.902394299266793,
+        "perplexity": 134.61169483278806,
+        "effective_support": 0.03286418330878615,
+        "codes_for_50": 16,
+        "codes_for_90": 332
+      }
+    },
+    "reference": {
+      "02691156": {
+        "codebook_size": 4096,
+        "total_tokens": 1048576,
+        "active_codes": 3233,
+        "nominal_usage": 0.789306640625,
+        "entropy_nats": 5.222520117565085,
+        "perplexity": 185.40082770778707,
+        "effective_support": 0.04526387395209645,
+        "codes_for_50": 31,
+        "codes_for_90": 640
+      },
+      "02933112": {
+        "codebook_size": 4096,
+        "total_tokens": 1048576,
+        "active_codes": 3376,
+        "nominal_usage": 0.82421875,
+        "entropy_nats": 5.737653313241081,
+        "perplexity": 310.3352960837092,
+        "effective_support": 0.07576545314543681,
+        "codes_for_50": 53,
+        "codes_for_90": 737
+      },
+      "02958343": {
+        "codebook_size": 4096,
+        "total_tokens": 1048576,
+        "active_codes": 3187,
+        "nominal_usage": 0.778076171875,
+        "entropy_nats": 5.491394860790755,
+        "perplexity": 242.59535771894014,
+        "effective_support": 0.05922738225560062,
+        "codes_for_50": 37,
+        "codes_for_90": 693
+      },
+      "03001627": {
+        "codebook_size": 4096,
+        "total_tokens": 1048576,
+        "active_codes": 3482,
+        "nominal_usage": 0.85009765625,
+        "entropy_nats": 5.965721182910105,
+        "perplexity": 389.83406838582,
+        "effective_support": 0.09517433310200683,
+        "codes_for_50": 56,
+        "codes_for_90": 899
+      },
+      "03636649": {
+        "codebook_size": 4096,
+        "total_tokens": 1048576,
+        "active_codes": 3470,
+        "nominal_usage": 0.84716796875,
+        "entropy_nats": 5.706967835759787,
+        "perplexity": 300.95713192718495,
+        "effective_support": 0.07347586228691039,
+        "codes_for_50": 35,
+        "codes_for_90": 745
+      },
+      "04256520": {
+        "codebook_size": 4096,
+        "total_tokens": 1048576,
+        "active_codes": 3461,
+        "nominal_usage": 0.844970703125,
+        "entropy_nats": 5.802839765464934,
+        "perplexity": 331.2388662666049,
+        "effective_support": 0.08086886383462033,
+        "codes_for_50": 55,
+        "codes_for_90": 813
+      },
+      "04379243": {
+        "codebook_size": 4096,
+        "total_tokens": 1048576,
+        "active_codes": 3622,
+        "nominal_usage": 0.88427734375,
+        "entropy_nats": 6.121305119013368,
+        "perplexity": 455.45873462303507,
+        "effective_support": 0.11119598013257692,
+        "codes_for_50": 75,
+        "codes_for_90": 1068
+      },
+      "04530566": {
+        "codebook_size": 4096,
+        "total_tokens": 1048576,
+        "active_codes": 3305,
+        "nominal_usage": 0.806884765625,
+        "entropy_nats": 4.97276827254543,
+        "perplexity": 144.4261454216118,
+        "effective_support": 0.035260289409573195,
+        "codes_for_50": 15,
+        "codes_for_90": 534
+      }
+    }
+  },
+  "corrected_reconstruction": {
+    "attempted_samples": 512,
+    "successful_samples": 512,
+    "failed_samples": [],
+    "paths": {
+      "raw": {
+        "query": {
+          "absolute_error_sum": 57185.40296371571,
+          "query_count": 1048576,
+          "finite_count": 1048576,
+          "nonfinite_count": 0,
+          "sign_correct": 849697,
+          "sign_count": 943060,
+          "sign_finite_count": 943060,
+          "sign_excluded_surface_count": 105516,
+          "sdf_mae": 0.05453625007983752,
+          "sign_accuracy": 0.9009999363773249
+        },
+        "uniform": {
+          "absolute_error_sum": 80115.97793736702,
+          "query_count": 524288,
+          "finite_count": 524288,
+          "nonfinite_count": 0,
+          "sign_correct": 517550,
+          "sign_count": 523720,
+          "sign_finite_count": 523720,
+          "sign_excluded_surface_count": 568,
+          "sdf_mae": 0.1528091009852734,
+          "sign_accuracy": 0.988218895593065
+        },
+        "mesh_status_counts": {
+          "ok": 512
+        },
+        "mesh_valid_count": 512,
+        "mesh_attempted_count": 512,
+        "cd_x1e4_valid_only": {
+          "count": 512,
+          "missing": 0,
+          "mean": 5.686836156206535,
+          "median": 3.152482301218326,
+          "p95": 15.267623362062292
+        }
+      },
+      "continuous": {
+        "query": {
+          "absolute_error_sum": 56980.027869149686,
+          "query_count": 1048576,
+          "finite_count": 1048576,
+          "nonfinite_count": 0,
+          "sign_correct": 850865,
+          "sign_count": 943060,
+          "sign_finite_count": 943060,
+          "sign_excluded_surface_count": 105516,
+          "sdf_mae": 0.0543403891269204,
+          "sign_accuracy": 0.902238457786355
+        },
+        "uniform": {
+          "absolute_error_sum": 80378.68475522514,
+          "query_count": 524288,
+          "finite_count": 524288,
+          "nonfinite_count": 0,
+          "sign_correct": 518473,
+          "sign_count": 523720,
+          "sign_finite_count": 523720,
+          "sign_excluded_surface_count": 568,
+          "sdf_mae": 0.1533101744751456,
+          "sign_accuracy": 0.9899812877109906
+        },
+        "mesh_status_counts": {
+          "ok": 512
+        },
+        "mesh_valid_count": 512,
+        "mesh_attempted_count": 512,
+        "cd_x1e4_valid_only": {
+          "count": 512,
+          "missing": 0,
+          "mean": 5.130182662815928,
+          "median": 2.8873513274269644,
+          "p95": 12.800910953566717
+        }
+      },
+      "quantized": {
+        "query": {
+          "absolute_error_sum": 57165.870764131905,
+          "query_count": 1048576,
+          "finite_count": 1048576,
+          "nonfinite_count": 0,
+          "sign_correct": 848175,
+          "sign_count": 943060,
+          "sign_finite_count": 943060,
+          "sign_excluded_surface_count": 105516,
+          "sdf_mae": 0.05451762272275153,
+          "sign_accuracy": 0.8993860411850784
+        },
+        "uniform": {
+          "absolute_error_sum": 80557.28103299603,
+          "query_count": 524288,
+          "finite_count": 524288,
+          "nonfinite_count": 0,
+          "sign_correct": 518191,
+          "sign_count": 523720,
+          "sign_finite_count": 523720,
+          "sign_excluded_surface_count": 568,
+          "sdf_mae": 0.15365081984137732,
+          "sign_accuracy": 0.989442832047659
+        },
+        "mesh_status_counts": {
+          "ok": 512
+        },
+        "mesh_valid_count": 512,
+        "mesh_attempted_count": 512,
+        "cd_x1e4_valid_only": {
+          "count": 512,
+          "missing": 0,
+          "mean": 5.306807589892916,
+          "median": 3.0617261123665047,
+          "p95": 14.9651414925708
+        }
+      }
+    },
+    "protocol": [
+      "All points and SDF values retain radius-0.5 model units; no additional input scaling is applied.",
+      "Query scores use the dataset's balanced SDF samples; uniform scores are reported separately, with additive support counts. Sign ties within sign_eps are excluded.",
+      "Mesh validity means a finite nonempty nondegenerate level-zero surface, not guaranteed watertightness, correct topology, or raw-scan SDF reliability. Topology is reported separately.",
+      "Mesh CD compares area-sampled predicted triangles with stored reference surface points in the SAME representative coordinates. Invalid/missing surfaces receive null CD, never zero; valid-only averages are selection-biased.",
+      "Tiny demonstrations, untrained checkpoints, and GPU overfit examples are not paper-quality evidence or industrial/grasp-quality validation."
+    ],
+    "resolution": 56,
+    "report_sha256": "8ce3997dfbda5ebcd31a839ae231a8232f8d9a8e78c8da0e8350e1149fd7b5f2"
+  },
+  "fullshape": {
+    "cohort": {
+      "source_split_sha256": "42d89251c55666df38df9e733863c6865a76ca9bf7c7de1ce589c7fdae2f0bdc",
+      "source_metadata_sha256": "626f73b4aeeb9b6ddaccad2efc76d9ec58bea45bc43ce5574b54d0481bd9dc78",
+      "source_prior_configs_sha256": [
+        "c72a858ac5483647b41a87e6eedc0cd1671582fa47f6ec397831a483dd7a7eae",
+        "8c70718f84e4dedde71b88c0c5c4b6a7584e5e9bc0724710795e6ec7bbbe1491"
+      ],
+      "seed": 20260511,
+      "prior_holdout_rule": "Generator(seed).shuffle(arange(N)); first round(N*.05) objects",
+      "original_prior_holdout_count": 2347,
+      "train": 4096,
+      "val": 205,
+      "test": 512,
+      "training_categories": 55,
+      "validation_categories": 54,
+      "all_adaptation_validation_objects_unseen_by_both_original_priors": true,
+      "test_order_matches_previous_extraction": true,
+      "split_sha256": "82fc200695c2e7bb6dcd9fa3cbccea8480734191f8f0ae88943b7896afefd897"
+    },
+    "plan": {
+      "scope": "Warm-start prior adaptation to newly extracted full-shape tokens; NOT independent tokenizer/prior retraining.",
+      "validation": "205 objects from the original held-out subset of both priors; no test selection.",
+      "test_protocol": "All 512 original objects, original saved 75% masks, resolution 56, failure inclusive.",
+      "test_geometry_used_for_training_choices": false,
+      "models": {
+        "bit": {
+          "source_sha256": "28d13e58c01e2d653b214e390b7e4d700630d9ff6f3fa5f93476ce58843504b7",
+          "config_sha256": "36dd2d4abf1216e35fbe589fdbc5e04e3fe4632cdd2245f211a139bf1eafa535",
+          "epochs": 10,
+          "batch": 8,
+          "train_samples": 4096,
+          "mask_range": [
+            0.05,
+            0.95
+          ],
+          "lr": 2e-05,
+          "eta_min": 1e-06,
+          "checkpoint_selection": "fixed-budget last.pt"
+        },
+        "categorical": {
+          "source_sha256": "f8e42c436e862a0d4fdf91a4abca627256fc5c64a5d3916a1bb15114426e4a65",
+          "config_sha256": "1a087b75fb70fc73089b4551c2b8a55f031c25c0960b0633bad2a1ab4af5bce4",
+          "epochs": 10,
+          "batch": 8,
+          "train_samples": 4096,
+          "mask_range": [
+            0.05,
+            0.95
+          ],
+          "lr": 2e-05,
+          "eta_min": 1e-06,
+          "checkpoint_selection": "fixed-budget last.pt"
+        }
+      }
+    },
+    "cache_identity": {
+      "samples": 512,
+      "same_ids_order_and_tokenizer": true,
+      "equal_bits": 100639445,
+      "bits": 100663296,
+      "bit_agreement": 0.9997630616029104,
+      "fresh_cache_fingerprint": "c42a5948dbce0d14b5f08d05527e41081798a770c664d2b5f962b2cc173ce402",
+      "previous_cache_fingerprint": "827f7d9d2238342ceb1f4023eeb98e61d4fabc0a29bd88c3a6c390d101b5935f"
+    },
+    "point_identity": [
+      {
+        "index": 0,
+        "same_points": true,
+        "same_frame": true
+      },
+      {
+        "index": 127,
+        "same_points": true,
+        "same_frame": true
+      },
+      {
+        "index": 255,
+        "same_points": true,
+        "same_frame": true
+      },
+      {
+        "index": 511,
+        "same_points": true,
+        "same_frame": true
+      }
+    ],
+    "archived_extraction_comparison": {
+      "samples": 512,
+      "same_sample_ids": true,
+      "same_bits": 94817080,
+      "bits": 100663296,
+      "same_cells": 5436811,
+      "cells": 8388608,
+      "bit_agreement": 0.9419230620066324,
+      "token_exact_agreement": 0.6481183767318726,
+      "archived_indices_sha256": "d2c165042c1f3dd44f3780f024f84cc81222428d262400fad8eef8d6bb41bf65",
+      "scope": "Frozen-tokenizer extraction agreement, not prior accuracy. Original observation sampling RNG was not preserved."
+    },
+    "training": {
+      "bit": {
+        "epochs": 10,
+        "planned_epochs": 10,
+        "updates": 5120,
+        "skipped_updates": 0,
+        "checkpoint_sha256": "c5a3ac3a50a051b989046b76527f0bf6073e752c4f8320ba1ace39ec3d947116",
+        "config_sha256": "36dd2d4abf1216e35fbe589fdbc5e04e3fe4632cdd2245f211a139bf1eafa535",
+        "metrics_sha256": "6c547612c13777756140d549b5ca13a4e57ee3bfe3dfe11bc361c498cf88f370",
+        "validation_sha256": "535d8c9e3bb9e1a52301f1ccf1e337968c441806e53d5569b8f2ab1a366c163d",
+        "precision": "32-true",
+        "scheduler_interval": "epoch",
+        "data_fingerprint": "c42a5948dbce0d14b5f08d05527e41081798a770c664d2b5f962b2cc173ce402",
+        "mask_range": [
+          0.05,
+          0.95
+        ],
+        "initialization": {
+          "source_sha256": "28d13e58c01e2d653b214e390b7e4d700630d9ff6f3fa5f93476ce58843504b7",
+          "source_step": 50166,
+          "changed_config_keys": [
+            "Description",
+            "Tokenizer",
+            "Trainer",
+            "Validation",
+            "accelerator",
+            "devices",
+            "epochs",
+            "gradient_clip_val",
+            "log_every_n_steps",
+            "model",
+            "optimizer",
+            "plane_res",
+            "save_top_k"
+          ]
+        }
+      },
+      "categorical": {
+        "epochs": 10,
+        "planned_epochs": 10,
+        "updates": 5120,
+        "skipped_updates": 0,
+        "checkpoint_sha256": "e414647c58e8db3536d5c2a890be0a74fbc5eb938ebbd454c5c892d144186ca0",
+        "config_sha256": "1a087b75fb70fc73089b4551c2b8a55f031c25c0960b0633bad2a1ab4af5bce4",
+        "metrics_sha256": "799f759429fbe122e566bf13d59109809657d4aacd51f39a2de46f77b3201372",
+        "validation_sha256": "156e8965db9f43a55516aa19a4b206e05095d6c3add6acd235bffd8e3fbcf074",
+        "precision": "32-true",
+        "scheduler_interval": "epoch",
+        "data_fingerprint": "c42a5948dbce0d14b5f08d05527e41081798a770c664d2b5f962b2cc173ce402",
+        "mask_range": [
+          0.05,
+          0.95
+        ],
+        "initialization": {
+          "source_sha256": "f8e42c436e862a0d4fdf91a4abca627256fc5c64a5d3916a1bb15114426e4a65",
+          "source_step": 0,
+          "changed_config_keys": [
+            "Description",
+            "Tokenizer",
+            "Trainer",
+            "Validation",
+            "accelerator",
+            "batch_size",
+            "data",
+            "devices",
+            "epochs",
+            "gradient_clip_val",
+            "label_path",
+            "log_every_n_steps",
+            "model",
+            "num_workers",
+            "optimizer",
+            "save_top_k"
+          ]
+        }
+      }
+    },
+    "token_test": {
+      "baseline_bit": {
+        "samples": 512,
+        "seed": 20260511,
+        "mask_device": "cpu",
+        "selection_sha256": "3fb965a964f98e249a865add8f41b4e6b2c9ac86948bcb8124da9392458a0b95",
+        "tokenizer_hash": "1511df4f17dcbf59a58bbb29e1bd7cff19aa590ba8188258ec3468f745b7c40f",
+        "prior_sha256": "28d13e58c01e2d653b214e390b7e4d700630d9ff6f3fa5f93476ce58843504b7",
+        "source": {
+          "kind": "release_cache",
+          "fingerprint": "c42a5948dbce0d14b5f08d05527e41081798a770c664d2b5f962b2cc173ce402",
+          "tokenizer_binding_verified": true
+        },
+        "rows": [
+          {
+            "mask_ratio": 0.1,
+            "bit_accuracy": 0.961352801048286,
+            "token_exact": 0.7131032574470927,
+            "bce": 0.08820718675805377,
+            "token_count": 838448,
+            "mask_sha256": "caf1cb3684e2797282f51e333fc2ec03ee089e2ebdf4e1abe0fa8b73eae5525f",
+            "uncertain_mse_reduction": 0.30988849476037916,
+            "hard_wrong_mse_reduction": 0.464794814384914,
+            "edge_mse_reduction": 0.2956542208456002
+          },
+          {
+            "mask_ratio": 0.25,
+            "bit_accuracy": 0.9592103573388059,
+            "token_exact": 0.7050996450579904,
+            "bce": 0.09310074670466335,
+            "token_count": 2097244,
+            "mask_sha256": "650e8340b1ae4b482904dbdb36c47c61f4a5feed3b138c25f3fc69711c8c2ca0",
+            "uncertain_mse_reduction": 0.3079648278049367,
+            "hard_wrong_mse_reduction": 0.46588831370853834,
+            "edge_mse_reduction": 0.29885119345836575
+          },
+          {
+            "mask_ratio": 0.5,
+            "bit_accuracy": 0.9536515621064202,
+            "token_exact": 0.6851153832942775,
+            "bce": 0.10537959199328227,
+            "token_count": 4192288,
+            "mask_sha256": "2fa77878b6acb20e2c77d70fe7bfb137ff854d55922ad5cffaf48fc67f919270",
+            "uncertain_mse_reduction": 0.3062916346051644,
+            "hard_wrong_mse_reduction": 0.468191088103837,
+            "edge_mse_reduction": 0.30378754494117244
+          },
+          {
+            "mask_ratio": 0.75,
+            "bit_accuracy": 0.9405763910362961,
+            "token_exact": 0.6415470235147384,
+            "bce": 0.1336426266305611,
+            "token_count": 6289885,
+            "mask_sha256": "aebc4450a78e0ca4420d704d164d616ae5300d2863b8f6cdfa4963f6c68816c9",
+            "uncertain_mse_reduction": 0.307814774264185,
+            "hard_wrong_mse_reduction": 0.4734690434156178,
+            "edge_mse_reduction": 0.31207875410390395
+          },
+          {
+            "mask_ratio": 0.9,
+            "bit_accuracy": 0.8576154216818956,
+            "token_exact": 0.3145580077347355,
+            "bce": 0.34889402662790026,
+            "token_count": 7549838,
+            "mask_sha256": "357dba2df85152fd59f0297dedd288b7703883b5dc75617b881f16b8da54547b",
+            "uncertain_mse_reduction": 0.23840866358507296,
+            "hard_wrong_mse_reduction": 0.5893133049370818,
+            "edge_mse_reduction": 0.30486223672706547
+          }
+        ],
+        "report_sha256": "7a701772e6346a255856118df2555a73eda466d715f8b8989c4ad30fde0efc6b"
+      },
+      "baseline_categorical": {
+        "samples": 512,
+        "seed": 20260511,
+        "mask_device": "cpu",
+        "selection_sha256": "3fb965a964f98e249a865add8f41b4e6b2c9ac86948bcb8124da9392458a0b95",
+        "tokenizer_hash": "1511df4f17dcbf59a58bbb29e1bd7cff19aa590ba8188258ec3468f745b7c40f",
+        "prior_sha256": "f8e42c436e862a0d4fdf91a4abca627256fc5c64a5d3916a1bb15114426e4a65",
+        "source": {
+          "kind": "release_cache",
+          "fingerprint": "c42a5948dbce0d14b5f08d05527e41081798a770c664d2b5f962b2cc173ce402",
+          "tokenizer_binding_verified": true
+        },
+        "rows": [
+          {
+            "mask_ratio": 0.1,
+            "token_exact": 0.7292223250577257,
+            "ce": 0.9546246363470928,
+            "token_count": 838448,
+            "mask_sha256": "caf1cb3684e2797282f51e333fc2ec03ee089e2ebdf4e1abe0fa8b73eae5525f"
+          },
+          {
+            "mask_ratio": 0.25,
+            "token_exact": 0.7213829196793506,
+            "ce": 1.0067559947638052,
+            "token_count": 2097244,
+            "mask_sha256": "650e8340b1ae4b482904dbdb36c47c61f4a5feed3b138c25f3fc69711c8c2ca0"
+          },
+          {
+            "mask_ratio": 0.5,
+            "token_exact": 0.7021872066041265,
+            "ce": 1.1327920107758542,
+            "token_count": 4192288,
+            "mask_sha256": "2fa77878b6acb20e2c77d70fe7bfb137ff854d55922ad5cffaf48fc67f919270"
+          },
+          {
+            "mask_ratio": 0.75,
+            "token_exact": 0.6632905053113054,
+            "ce": 1.401944608256699,
+            "token_count": 6289885,
+            "mask_sha256": "aebc4450a78e0ca4420d704d164d616ae5300d2863b8f6cdfa4963f6c68816c9"
+          },
+          {
+            "mask_ratio": 0.9,
+            "token_exact": 0.5143432216691272,
+            "ce": 2.600460994965016,
+            "token_count": 7549838,
+            "mask_sha256": "357dba2df85152fd59f0297dedd288b7703883b5dc75617b881f16b8da54547b"
+          }
+        ],
+        "report_sha256": "55c0a481d0a2237c0b01943dd7af187afde7b4343fa45b2a881e8330d146c57c"
+      },
+      "adapted_bit": {
+        "samples": 512,
+        "seed": 20260511,
+        "mask_device": "cpu",
+        "selection_sha256": "3fb965a964f98e249a865add8f41b4e6b2c9ac86948bcb8124da9392458a0b95",
+        "tokenizer_hash": "1511df4f17dcbf59a58bbb29e1bd7cff19aa590ba8188258ec3468f745b7c40f",
+        "prior_sha256": "c5a3ac3a50a051b989046b76527f0bf6073e752c4f8320ba1ace39ec3d947116",
+        "source": {
+          "kind": "release_cache",
+          "fingerprint": "c42a5948dbce0d14b5f08d05527e41081798a770c664d2b5f962b2cc173ce402",
+          "tokenizer_binding_verified": true
+        },
+        "rows": [
+          {
+            "mask_ratio": 0.1,
+            "bit_accuracy": 0.9611546174201222,
+            "token_exact": 0.7120763601320536,
+            "bce": 0.08867566125367693,
+            "token_count": 838448,
+            "mask_sha256": "caf1cb3684e2797282f51e333fc2ec03ee089e2ebdf4e1abe0fa8b73eae5525f",
+            "uncertain_mse_reduction": 0.3094660541455493,
+            "hard_wrong_mse_reduction": 0.465990562166262,
+            "edge_mse_reduction": 0.29585131516685403
+          },
+          {
+            "mask_ratio": 0.25,
+            "bit_accuracy": 0.9590348492275259,
+            "token_exact": 0.7044006324490617,
+            "bce": 0.09348197432708116,
+            "token_count": 2097244,
+            "mask_sha256": "650e8340b1ae4b482904dbdb36c47c61f4a5feed3b138c25f3fc69711c8c2ca0",
+            "uncertain_mse_reduction": 0.30763340689250074,
+            "hard_wrong_mse_reduction": 0.4680998054723745,
+            "edge_mse_reduction": 0.29933777941494755
+          },
+          {
+            "mask_ratio": 0.5,
+            "bit_accuracy": 0.953688335979462,
+            "token_exact": 0.685483917135464,
+            "bce": 0.10529352373731639,
+            "token_count": 4192288,
+            "mask_sha256": "2fa77878b6acb20e2c77d70fe7bfb137ff854d55922ad5cffaf48fc67f919270",
+            "uncertain_mse_reduction": 0.30521449527582534,
+            "hard_wrong_mse_reduction": 0.47356408323522137,
+            "edge_mse_reduction": 0.3033729381667113
+          },
+          {
+            "mask_ratio": 0.75,
+            "bit_accuracy": 0.94243809703993,
+            "token_exact": 0.6499715018637066,
+            "bce": 0.12878489775482116,
+            "token_count": 6289885,
+            "mask_sha256": "aebc4450a78e0ca4420d704d164d616ae5300d2863b8f6cdfa4963f6c68816c9",
+            "uncertain_mse_reduction": 0.3070978425854193,
+            "hard_wrong_mse_reduction": 0.48271209212164123,
+            "edge_mse_reduction": 0.30681413963439175
+          },
+          {
+            "mask_ratio": 0.9,
+            "bit_accuracy": 0.9194290658951887,
+            "token_exact": 0.5876792323226008,
+            "bce": 0.17392606153160725,
+            "token_count": 7549838,
+            "mask_sha256": "357dba2df85152fd59f0297dedd288b7703883b5dc75617b881f16b8da54547b",
+            "uncertain_mse_reduction": 0.31721464498272733,
+            "hard_wrong_mse_reduction": 0.4980797210058264,
+            "edge_mse_reduction": 0.3194203532237174
+          }
+        ],
+        "report_sha256": "2cedc66e53adfccadc8b1979893f45f6e2ae7eb6358c94ba5f96b176ea6d29be"
+      },
+      "adapted_categorical": {
+        "samples": 512,
+        "seed": 20260511,
+        "mask_device": "cpu",
+        "selection_sha256": "3fb965a964f98e249a865add8f41b4e6b2c9ac86948bcb8124da9392458a0b95",
+        "tokenizer_hash": "1511df4f17dcbf59a58bbb29e1bd7cff19aa590ba8188258ec3468f745b7c40f",
+        "prior_sha256": "e414647c58e8db3536d5c2a890be0a74fbc5eb938ebbd454c5c892d144186ca0",
+        "source": {
+          "kind": "release_cache",
+          "fingerprint": "c42a5948dbce0d14b5f08d05527e41081798a770c664d2b5f962b2cc173ce402",
+          "tokenizer_binding_verified": true
+        },
+        "rows": [
+          {
+            "mask_ratio": 0.1,
+            "token_exact": 0.7275609220846134,
+            "ce": 0.9646186699037472,
+            "token_count": 838448,
+            "mask_sha256": "caf1cb3684e2797282f51e333fc2ec03ee089e2ebdf4e1abe0fa8b73eae5525f"
+          },
+          {
+            "mask_ratio": 0.25,
+            "token_exact": 0.7196363417895104,
+            "ce": 1.0161662567450127,
+            "token_count": 2097244,
+            "mask_sha256": "650e8340b1ae4b482904dbdb36c47c61f4a5feed3b138c25f3fc69711c8c2ca0"
+          },
+          {
+            "mask_ratio": 0.5,
+            "token_exact": 0.7013967074781122,
+            "ce": 1.1376454940544436,
+            "token_count": 4192288,
+            "mask_sha256": "2fa77878b6acb20e2c77d70fe7bfb137ff854d55922ad5cffaf48fc67f919270"
+          },
+          {
+            "mask_ratio": 0.75,
+            "token_exact": 0.6673570343495946,
+            "ce": 1.3728152381356884,
+            "token_count": 6289885,
+            "mask_sha256": "aebc4450a78e0ca4420d704d164d616ae5300d2863b8f6cdfa4963f6c68816c9"
+          },
+          {
+            "mask_ratio": 0.9,
+            "token_exact": 0.6048629122903034,
+            "ce": 1.8506041582189827,
+            "token_count": 7549838,
+            "mask_sha256": "357dba2df85152fd59f0297dedd288b7703883b5dc75617b881f16b8da54547b"
+          }
+        ],
+        "report_sha256": "a5a23af4ef45440c517bcfbe1b3bcd1c6040828c28c4cf13e3c90a109bddb8f6"
+      }
+    },
+    "geometry": {
+      "baseline": {
+        "samples": 512,
+        "summary": {
+          "relaxed": {
+            "samples": 512,
+            "valid": 512,
+            "valid_fraction": 1.0,
+            "drift_failures": 4,
+            "drift_valid_fraction": 0.0078125,
+            "failure_inclusive_fraction": 0.0078125,
+            "cd_n": {
+              "count": 512,
+              "missing": 0,
+              "mean": 0.002460469803975699,
+              "median": 0.0006227130254587755,
+              "p95": 0.0012046314797742083
+            },
+            "fscore_1pct": {
+              "count": 512,
+              "missing": 0,
+              "mean": 0.32140743790849663,
+              "median": 0.2670675274223035,
+              "p95": 0.6571467542719168
+            },
+            "normal_consistency": {
+              "count": 512,
+              "missing": 0,
+              "mean": 0.8967185193690403,
+              "median": 0.9120124966501231,
+              "p95": 0.9716248990851588
+            },
+            "edge_distance": {
+              "count": 512,
+              "missing": 0,
+              "mean": 0.018503655078717433,
+              "median": 0.016514081213762813,
+              "p95": 0.023543319699883408
+            },
+            "excess_drift": 0.0,
+            "excess_edge": 0.0
+          },
+          "hard": {
+            "samples": 512,
+            "valid": 511,
+            "valid_fraction": 0.998046875,
+            "drift_failures": 2,
+            "drift_valid_fraction": 0.003913894324853229,
+            "failure_inclusive_fraction": 0.005859375,
+            "cd_n": {
+              "count": 511,
+              "missing": 1,
+              "mean": 0.0007023544430182483,
+              "median": 0.0006261554580157124,
+              "p95": 0.0012754524466861846
+            },
+            "fscore_1pct": {
+              "count": 511,
+              "missing": 1,
+              "mean": 0.319231605106383,
+              "median": 0.2626807911245353,
+              "p95": 0.6503228565581948
+            },
+            "normal_consistency": {
+              "count": 511,
+              "missing": 1,
+              "mean": 0.8961289734675516,
+              "median": 0.9094792914536647,
+              "p95": 0.9723212946038714
+            },
+            "edge_distance": {
+              "count": 511,
+              "missing": 1,
+              "mean": 0.016464268982299,
+              "median": 0.016403690435770734,
+              "p95": 0.023170119274865012
+            },
+            "excess_drift": -0.4990215264187867,
+            "excess_edge": -0.11021531085304859
+          },
+          "categorical": {
+            "samples": 512,
+            "valid": 511,
+            "valid_fraction": 0.998046875,
+            "drift_failures": 2,
+            "drift_valid_fraction": 0.003913894324853229,
+            "failure_inclusive_fraction": 0.005859375,
+            "cd_n": {
+              "count": 511,
+              "missing": 1,
+              "mean": 0.0006913924568616619,
+              "median": 0.0006261877138408876,
+              "p95": 0.00127315717839949
+            },
+            "fscore_1pct": {
+              "count": 511,
+              "missing": 1,
+              "mean": 0.3172307766946383,
+              "median": 0.2630304962894249,
+              "p95": 0.661992705774958
+            },
+            "normal_consistency": {
+              "count": 511,
+              "missing": 1,
+              "mean": 0.8954143422783277,
+              "median": 0.9098939989197623,
+              "p95": 0.9707606778041676
+            },
+            "edge_distance": {
+              "count": 511,
+              "missing": 1,
+              "mean": 0.01646870722609018,
+              "median": 0.01629453562949843,
+              "p95": 0.02284055163432759
+            },
+            "excess_drift": -0.4990215264187867,
+            "excess_edge": -0.10997545317237412
+          }
+        },
+        "definitions": {
+          "cd_n": "Sum of both mean squared nearest-neighbor distances divided by oracle bbox diagonal squared; NO factor 0.5.",
+          "drift_valid_fraction": "Fraction of valid pairs with CD_n > threshold; missing pairs excluded and separately counted.",
+          "failure_inclusive_fraction": "Missing/invalid pairs plus drift failures divided by ALL requested pairs.",
+          "edge_distance": "Mean distance from oracle vertices at/above the configured Laplacian percentile to sampled prediction, divided by oracle bbox diagonal.",
+          "sampling": "Original Open3D uniform surface sampler, now explicitly seeded per pair. The original run did not seed Open3D's global stream; small differences are expected."
+        },
+        "protocol": {
+          "resolution": 56,
+          "bounds": [
+            -0.5,
+            0.5
+          ],
+          "ratio": 0.75,
+          "seed": 20260516,
+          "selection_sha256": "5738153ec97595b1c1e4dc027f7b7fb4534f19ed2ce9f9ee712e6d34a384cde7",
+          "mask_sha256": "1fa1b22c60a3854f8f4d465cf2d7a60b75310c6fc1ae292461c4bff5ef462b35",
+          "supplied_mask_sha256": "1fa1b22c60a3854f8f4d465cf2d7a60b75310c6fc1ae292461c4bff5ef462b35",
+          "mask_rule": "Supplied mask",
+          "component_min_fraction": 0.02,
+          "component_min_triangles": 64
+        },
+        "prior_sha256": {
+          "bit_field": "28d13e58c01e2d653b214e390b7e4d700630d9ff6f3fa5f93476ce58843504b7",
+          "categorical": "f8e42c436e862a0d4fdf91a4abca627256fc5c64a5d3916a1bb15114426e4a65"
+        },
+        "source": {
+          "kind": "release_cache",
+          "fingerprint": "c42a5948dbce0d14b5f08d05527e41081798a770c664d2b5f962b2cc173ce402",
+          "tokenizer_binding_verified": true
+        },
+        "report_sha256": "a51d2d7f3ba381a8a40b1680c79b9b1ac14971603b0940e2be1fc2c1f456ecd4",
+        "paired_edge_differences": {
+          "hard": {
+            "valid_pairs": 511,
+            "mean_relaxed_minus_other": 0.00027918032476642943,
+            "bootstrap_95_ci": [
+              0.00014461521240977573,
+              0.00046766315781312156
+            ],
+            "resamples": 5000,
+            "seed": 20261025
+          },
+          "categorical": {
+            "valid_pairs": 511,
+            "mean_relaxed_minus_other": 0.00027474208097524975,
+            "bootstrap_95_ci": [
+              0.00012095331143445162,
+              0.0004466892303943776
+            ],
+            "resamples": 5000,
+            "seed": 20261025
+          }
+        },
+        "surface_repeats": {
+          "plan": {
+            "seeds": [
+              20260518,
+              20260519,
+              20260520,
+              20260521,
+              20260522
+            ],
+            "sample_points": 1024,
+            "note": "First seed is the default benchmark output; repeat fixed meshes, not independent training seeds.",
+            "checkpoint_selection": "Unchanged fixed-budget last.pt for both priors.",
+            "planned_before_new_geometry_metrics_available": true
+          },
+          "summary": {
+            "relaxed": {
+              "edge_mean_over_seeds": 0.01846474072356305,
+              "edge_by_seed": [
+                0.018503655078717433,
+                0.018442398609206552,
+                0.018426785346395847,
+                0.018478697566538953,
+                0.018472167016956455
+              ],
+              "drift_failures": [
+                4,
+                4,
+                4,
+                4,
+                4
+              ],
+              "valid": [
+                512,
+                512,
+                512,
+                512,
+                512
+              ]
+            },
+            "hard": {
+              "edge_mean_over_seeds": 0.01644321331737485,
+              "edge_by_seed": [
+                0.016464268982299,
+                0.016427110109283265,
+                0.016452907107519555,
+                0.016446256601610733,
+                0.016425523786161682
+              ],
+              "drift_failures": [
+                2,
+                2,
+                2,
+                2,
+                2
+              ],
+              "valid": [
+                511,
+                511,
+                511,
+                511,
+                511
+              ]
+            },
+            "categorical": {
+              "edge_mean_over_seeds": 0.01648586820251907,
+              "edge_by_seed": [
+                0.01646870722609018,
+                0.01647891160356536,
+                0.016502025669709233,
+                0.016487575593292017,
+                0.016492120919938576
+              ],
+              "drift_failures": [
+                2,
+                2,
+                2,
+                2,
+                2
+              ],
+              "valid": [
+                511,
+                511,
+                511,
+                511,
+                511
+              ]
+            }
+          },
+          "scope": "Repeat surface sampling on fixed meshes; not independent trained models.",
+          "paired_edge_differences": {
+            "hard": {
+              "valid_pairs": 511,
+              "mean_relaxed_minus_other": 0.0002601918153364169,
+              "bootstrap_95_ci": [
+                0.00013062672016600756,
+                0.0004501056112099788
+              ],
+              "resamples": 5000,
+              "seed": 20261025
+            },
+            "categorical": {
+              "valid_pairs": 511,
+              "mean_relaxed_minus_other": 0.0002175369301921907,
+              "bootstrap_95_ci": [
+                7.138245232599154e-05,
+                0.00037198524094372924
+              ],
+              "resamples": 5000,
+              "seed": 20261025
+            }
+          }
+        }
+      },
+      "adapted": {
+        "samples": 512,
+        "summary": {
+          "relaxed": {
+            "samples": 512,
+            "valid": 511,
+            "valid_fraction": 0.998046875,
+            "drift_failures": 2,
+            "drift_valid_fraction": 0.003913894324853229,
+            "failure_inclusive_fraction": 0.005859375,
+            "cd_n": {
+              "count": 511,
+              "missing": 1,
+              "mean": 0.0007203963325260634,
+              "median": 0.0006231223215869017,
+              "p95": 0.0011383185155201603
+            },
+            "fscore_1pct": {
+              "count": 511,
+              "missing": 1,
+              "mean": 0.3210735416520451,
+              "median": 0.2689711887477314,
+              "p95": 0.6549627527945474
+            },
+            "normal_consistency": {
+              "count": 511,
+              "missing": 1,
+              "mean": 0.8983927647354121,
+              "median": 0.9129733884377498,
+              "p95": 0.9713727962449114
+            },
+            "edge_distance": {
+              "count": 511,
+              "missing": 1,
+              "mean": 0.01689800969471506,
+              "median": 0.016575677123100846,
+              "p95": 0.023483710952591115
+            },
+            "excess_drift": 0.0,
+            "excess_edge": 0.0
+          },
+          "hard": {
+            "samples": 512,
+            "valid": 511,
+            "valid_fraction": 0.998046875,
+            "drift_failures": 1,
+            "drift_valid_fraction": 0.0019569471624266144,
+            "failure_inclusive_fraction": 0.00390625,
+            "cd_n": {
+              "count": 511,
+              "missing": 1,
+              "mean": 0.0006781232485302834,
+              "median": 0.0006225563427892782,
+              "p95": 0.0012129696669104237
+            },
+            "fscore_1pct": {
+              "count": 511,
+              "missing": 1,
+              "mean": 0.31851157346449765,
+              "median": 0.26447186346863466,
+              "p95": 0.6524078159508784
+            },
+            "normal_consistency": {
+              "count": 511,
+              "missing": 1,
+              "mean": 0.8966749262617024,
+              "median": 0.9110081832925117,
+              "p95": 0.970640760145919
+            },
+            "edge_distance": {
+              "count": 511,
+              "missing": 1,
+              "mean": 0.01637237725088628,
+              "median": 0.016330595695843622,
+              "p95": 0.022775700445266486
+            },
+            "excess_drift": -0.5,
+            "excess_edge": -0.031106174829167665
+          },
+          "categorical": {
+            "samples": 512,
+            "valid": 511,
+            "valid_fraction": 0.998046875,
+            "drift_failures": 3,
+            "drift_valid_fraction": 0.005870841487279843,
+            "failure_inclusive_fraction": 0.0078125,
+            "cd_n": {
+              "count": 511,
+              "missing": 1,
+              "mean": 0.0006984337946196064,
+              "median": 0.000628137457844899,
+              "p95": 0.0012454493355721278
+            },
+            "fscore_1pct": {
+              "count": 511,
+              "missing": 1,
+              "mean": 0.3179905554955079,
+              "median": 0.26171875,
+              "p95": 0.6545256025070705
+            },
+            "normal_consistency": {
+              "count": 511,
+              "missing": 1,
+              "mean": 0.8954558643867662,
+              "median": 0.9107582251788249,
+              "p95": 0.9715306036323175
+            },
+            "edge_distance": {
+              "count": 511,
+              "missing": 1,
+              "mean": 0.01650622664018113,
+              "median": 0.016278415664156408,
+              "p95": 0.023050266458666806
+            },
+            "excess_drift": 0.5,
+            "excess_edge": -0.02318515976804425
+          }
+        },
+        "definitions": {
+          "cd_n": "Sum of both mean squared nearest-neighbor distances divided by oracle bbox diagonal squared; NO factor 0.5.",
+          "drift_valid_fraction": "Fraction of valid pairs with CD_n > threshold; missing pairs excluded and separately counted.",
+          "failure_inclusive_fraction": "Missing/invalid pairs plus drift failures divided by ALL requested pairs.",
+          "edge_distance": "Mean distance from oracle vertices at/above the configured Laplacian percentile to sampled prediction, divided by oracle bbox diagonal.",
+          "sampling": "Original Open3D uniform surface sampler, now explicitly seeded per pair. The original run did not seed Open3D's global stream; small differences are expected."
+        },
+        "protocol": {
+          "resolution": 56,
+          "bounds": [
+            -0.5,
+            0.5
+          ],
+          "ratio": 0.75,
+          "seed": 20260516,
+          "selection_sha256": "5738153ec97595b1c1e4dc027f7b7fb4534f19ed2ce9f9ee712e6d34a384cde7",
+          "mask_sha256": "1fa1b22c60a3854f8f4d465cf2d7a60b75310c6fc1ae292461c4bff5ef462b35",
+          "supplied_mask_sha256": "1fa1b22c60a3854f8f4d465cf2d7a60b75310c6fc1ae292461c4bff5ef462b35",
+          "mask_rule": "Supplied mask",
+          "component_min_fraction": 0.02,
+          "component_min_triangles": 64
+        },
+        "prior_sha256": {
+          "bit_field": "c5a3ac3a50a051b989046b76527f0bf6073e752c4f8320ba1ace39ec3d947116",
+          "categorical": "e414647c58e8db3536d5c2a890be0a74fbc5eb938ebbd454c5c892d144186ca0"
+        },
+        "source": {
+          "kind": "release_cache",
+          "fingerprint": "c42a5948dbce0d14b5f08d05527e41081798a770c664d2b5f962b2cc173ce402",
+          "tokenizer_binding_verified": true
+        },
+        "report_sha256": "d6ac6f6c776095b8c6ead5d1326ae8348a242cdfe228fad5206025d11242bbfc",
+        "paired_edge_differences": {
+          "hard": {
+            "valid_pairs": 511,
+            "mean_relaxed_minus_other": 0.0005256324438287797,
+            "bootstrap_95_ci": [
+              0.00027662259615934105,
+              0.0009328749718185489
+            ],
+            "resamples": 5000,
+            "seed": 20261025
+          },
+          "categorical": {
+            "valid_pairs": 511,
+            "mean_relaxed_minus_other": 0.00039178305453393286,
+            "bootstrap_95_ci": [
+              0.00016612533582928754,
+              0.0006597381316032681
+            ],
+            "resamples": 5000,
+            "seed": 20261025
+          }
+        },
+        "surface_repeats": {
+          "plan": {
+            "seeds": [
+              20260518,
+              20260519,
+              20260520,
+              20260521,
+              20260522
+            ],
+            "sample_points": 1024,
+            "note": "First seed is the default benchmark output; repeat fixed meshes, not independent training seeds.",
+            "checkpoint_selection": "Unchanged fixed-budget last.pt for both priors.",
+            "planned_before_new_geometry_metrics_available": true
+          },
+          "summary": {
+            "relaxed": {
+              "edge_mean_over_seeds": 0.016860578389736834,
+              "edge_by_seed": [
+                0.01689800969471506,
+                0.016864516058991898,
+                0.016833341209137962,
+                0.016871607798296013,
+                0.016835417187543233
+              ],
+              "drift_failures": [
+                2,
+                2,
+                2,
+                2,
+                2
+              ],
+              "valid": [
+                511,
+                511,
+                511,
+                511,
+                511
+              ]
+            },
+            "hard": {
+              "edge_mean_over_seeds": 0.016371462680447015,
+              "edge_by_seed": [
+                0.01637237725088628,
+                0.016335127592072732,
+                0.01637256190897547,
+                0.01638077750527893,
+                0.016396469145021658
+              ],
+              "drift_failures": [
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "valid": [
+                511,
+                511,
+                511,
+                511,
+                511
+              ]
+            },
+            "categorical": {
+              "edge_mean_over_seeds": 0.016503436805993105,
+              "edge_by_seed": [
+                0.01650622664018113,
+                0.01648588386492681,
+                0.01649759833540352,
+                0.01651037729728546,
+                0.01651709789216859
+              ],
+              "drift_failures": [
+                3,
+                3,
+                3,
+                3,
+                3
+              ],
+              "valid": [
+                511,
+                511,
+                511,
+                511,
+                511
+              ]
+            }
+          },
+          "scope": "Repeat surface sampling on fixed meshes; not independent trained models.",
+          "paired_edge_differences": {
+            "hard": {
+              "valid_pairs": 511,
+              "mean_relaxed_minus_other": 0.0004891157092898194,
+              "bootstrap_95_ci": [
+                0.0002438564156013905,
+                0.0008984121596144019
+              ],
+              "resamples": 5000,
+              "seed": 20261025
+            },
+            "categorical": {
+              "valid_pairs": 511,
+              "mean_relaxed_minus_other": 0.00035714158374373277,
+              "bootstrap_95_ci": [
+                0.0001365884842240448,
+                0.0006177532165232776
+              ],
+              "resamples": 5000,
+              "seed": 20261025
+            }
+          }
+        }
+      }
+    },
+    "same_cohort_checks": {
+      "same_mask_and_selection_protocol": true,
+      "same_oracle_mesh_sha256_count": 512,
+      "samples": 512
+    },
+    "adaptation_on_common_valid_pairs": {
+      "relaxed": {
+        "common_valid": 511,
+        "missing_from_common": 1,
+        "edge_distance": {
+          "before": 0.016703405132711263,
+          "after": 0.016860578389736838,
+          "mean_after_minus_before": 0.0001571732570255697,
+          "bootstrap_95_ci": [
+            -3.523458737415985e-05,
+            0.0004165165749270529
+          ]
+        },
+        "cd_n": {
+          "before": 0.000710443103725239,
+          "after": 0.0007169041073544328,
+          "mean_after_minus_before": 6.461003629193843e-06,
+          "bootstrap_95_ci": [
+            -7.862227659178297e-05,
+            0.0001139359125373846
+          ]
+        }
+      },
+      "hard": {
+        "common_valid": 511,
+        "missing_from_common": 1,
+        "edge_distance": {
+          "before": 0.01644321331737485,
+          "after": 0.016371462680447015,
+          "mean_after_minus_before": -7.175063692783298e-05,
+          "bootstrap_95_ci": [
+            -0.00021537196894193679,
+            3.258102438292983e-05
+          ]
+        },
+        "cd_n": {
+          "before": 0.0007150900495401035,
+          "after": 0.000678430258806661,
+          "mean_after_minus_before": -3.665979073344238e-05,
+          "bootstrap_95_ci": [
+            -0.00010306837126731305,
+            1.7247384829648049e-06
+          ]
+        }
+      },
+      "categorical": {
+        "common_valid": 511,
+        "missing_from_common": 1,
+        "edge_distance": {
+          "before": 0.01648586820251907,
+          "after": 0.0165034368059931,
+          "mean_after_minus_before": 1.7568603474027513e-05,
+          "bootstrap_95_ci": [
+            -4.9926111157889956e-05,
+            8.532612898760738e-05
+          ]
+        },
+        "cd_n": {
+          "before": 0.0006953198398172947,
+          "after": 0.0007010093478726968,
+          "mean_after_minus_before": 5.689508055402102e-06,
+          "bootstrap_95_ci": [
+            -1.752066803738072e-05,
+            3.860767200239719e-05
+          ]
+        }
+      }
+    }
+  },
+  "functional_tests": {
+    "workspace": "429 passed",
+    "isolated_public_copy": "429 passed",
+    "isolated_exit_code": 0,
+    "isolated_evidence_sha256": "4b1b694ee8cccbbbe467bc860e9bf137ddb041682480e335c05323f825de5b9b"
+  }
+}

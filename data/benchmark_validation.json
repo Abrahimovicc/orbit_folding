@@ -1,0 +1,408 @@
+{
+  "format": "orbit_folding.benchmark_validation.v1",
+  "date": "2026-10-25",
+  "scope": "New inference/resampling checks, not from-scratch convergence evidence. Full training is reported separately.",
+  "boundary_followup_report": "data/boundary_reproduction.json",
+  "fresh_stress": [
+    {
+      "dataset": "shapenet2461",
+      "samples": 2461,
+      "failed_samples": 0,
+      "summary": {
+        "base_observation": {
+          "orbit": {
+            "count": 2461,
+            "missing": 0,
+            "mean": 4.289558145506253e-25,
+            "median": 2.0327122068058434e-27,
+            "p95": 2.7018352102362756e-25
+          },
+          "pca": {
+            "count": 2461,
+            "missing": 0,
+            "mean": 23.982764242702398,
+            "median": 10.61364011725767,
+            "p95": 96.34347504408086
+          },
+          "p95_ratio": 3.5658531163954895e+26,
+          "successful_samples": 2461,
+          "orbit_tail_fraction": 0.0,
+          "pca_tail_fraction": 0.40308817553839904
+        },
+        "jitter": {
+          "orbit": {
+            "count": 2461,
+            "missing": 0,
+            "mean": 1.1141091413802138,
+            "median": 0.0007636887851717018,
+            "p95": 1.1244280550779702
+          },
+          "pca": {
+            "count": 2461,
+            "missing": 0,
+            "mean": 24.009225738398094,
+            "median": 10.652018420654073,
+            "p95": 96.34747888074412
+          },
+          "p95_ratio": 85.68576570607107,
+          "successful_samples": 2461,
+          "orbit_tail_fraction": 0.01828524989841528,
+          "pca_tail_fraction": 0.4034945144250305
+        }
+      },
+      "protocol": {
+        "points": 2048,
+        "seed": 20260704,
+        "normalization": "centroid, radius 0.5",
+        "categories": [
+          "02691156",
+          "02933112",
+          "02958343",
+          "03001627",
+          "03636649",
+          "04256520",
+          "04379243",
+          "04530566"
+        ],
+        "max_per_category": 400,
+        "jitter_sigma_unit_radius": 0.005,
+        "jitter_sigma_model": 0.0025,
+        "jitter_clip_unit_radius": 0.015,
+        "tail_threshold": 16.18,
+        "pae": "0.5 * (both mean squared NN distances), times 1e4; same unperturbed reference for both frames.",
+        "frame_precision": "float64",
+        "nn_engine": "scipy.cKDTree float64",
+        "selection_sha256": "f70af22d24451bc98c2eaaf31e213ad142178f66a8bca701c2e20ff65c48f2b3",
+        "split_sha256": "42d89251c55666df38df9e733863c6865a76ca9bf7c7de1ce589c7fdae2f0bdc",
+        "source_sha256": null
+      },
+      "report_sha256": "67de74da358e1d3a27ca1dda03118b773cb9aeabdf41e5b3c65fe833d0c0e884"
+    },
+    {
+      "dataset": "objaverse8192",
+      "samples": 8192,
+      "failed_samples": 0,
+      "summary": {
+        "base_observation": {
+          "orbit": {
+            "count": 8192,
+            "missing": 0,
+            "mean": 7.708383076107687e-25,
+            "median": 3.393192219884467e-27,
+            "p95": 9.740343506848717e-25
+          },
+          "pca": {
+            "count": 8192,
+            "missing": 0,
+            "mean": 22.940445313118325,
+            "median": 10.683936316304504,
+            "p95": 86.46549633499254
+          },
+          "p95_ratio": 8.877047947456488e+25,
+          "successful_samples": 8192,
+          "orbit_tail_fraction": 0.0,
+          "pca_tail_fraction": 0.41259765625
+        },
+        "jitter": {
+          "orbit": {
+            "count": 8192,
+            "missing": 0,
+            "mean": 1.3302941103437622,
+            "median": 0.0015769483322170745,
+            "p95": 1.723537642904025
+          },
+          "pca": {
+            "count": 8192,
+            "missing": 0,
+            "mean": 22.986331660166343,
+            "median": 10.72891651634635,
+            "p95": 86.6310723831253
+          },
+          "p95_ratio": 50.26352208772114,
+          "successful_samples": 8192,
+          "orbit_tail_fraction": 0.01513671875,
+          "pca_tail_fraction": 0.4129638671875
+        }
+      },
+      "protocol": {
+        "points": 2048,
+        "seed": 20260704,
+        "normalization": "centroid, radius 0.5",
+        "categories": null,
+        "max_per_category": null,
+        "jitter_sigma_unit_radius": 0.005,
+        "jitter_sigma_model": 0.0025,
+        "jitter_clip_unit_radius": 0.015,
+        "tail_threshold": 16.18,
+        "pae": "0.5 * (both mean squared NN distances), times 1e4; same unperturbed reference for both frames.",
+        "frame_precision": "float64",
+        "nn_engine": "scipy.cKDTree float64",
+        "selection_sha256": "52bfb34660f3aefd159cec704f1d4d50fd4cf8ac9cf5076503dbf7653f3034ac",
+        "split_sha256": null,
+        "source_sha256": null
+      },
+      "report_sha256": "5a72f8aaca3c4763daed6c42a3c04459aca2822855df48f64520381d6e9f96bc"
+    },
+    {
+      "dataset": "scanobjectnn",
+      "samples": 2882,
+      "failed_samples": 0,
+      "summary": {
+        "base_observation": {
+          "orbit": {
+            "count": 2882,
+            "missing": 0,
+            "mean": 8.307073824540036e-27,
+            "median": 1.5837198276050306e-27,
+            "p95": 2.4794853932865468e-26
+          },
+          "pca": {
+            "count": 2882,
+            "missing": 0,
+            "mean": 34.98099236536456,
+            "median": 31.520584869447283,
+            "p95": 91.84185247329006
+          },
+          "p95_ratio": 3.7040691073220677e+27,
+          "successful_samples": 2882,
+          "orbit_tail_fraction": 0.0,
+          "pca_tail_fraction": 0.6526717557251909
+        },
+        "jitter": {
+          "orbit": {
+            "count": 2882,
+            "missing": 0,
+            "mean": 1.524788347346303,
+            "median": 0.0007569493641056103,
+            "p95": 0.0223337510780072
+          },
+          "pca": {
+            "count": 2882,
+            "missing": 0,
+            "mean": 35.04516964030888,
+            "median": 31.526894203799067,
+            "p95": 91.84391633054577
+          },
+          "p95_ratio": 4112.337242846213,
+          "successful_samples": 2882,
+          "orbit_tail_fraction": 0.01943095072866065,
+          "pca_tail_fraction": 0.6533657182512145
+        }
+      },
+      "protocol": {
+        "points": 2048,
+        "seed": 20260704,
+        "normalization": "centroid, radius 0.5",
+        "jitter_sigma_unit_radius": 0.005,
+        "jitter_sigma_model": 0.0025,
+        "jitter_clip_unit_radius": 0.015,
+        "tail_threshold": 16.18,
+        "pae": "0.5 * (both mean squared NN distances), times 1e4; same unperturbed reference for both frames.",
+        "frame_precision": "float64",
+        "nn_engine": "scipy.cKDTree float64",
+        "selection_sha256": "2e31fd4dbb4ae946024834deeff43238e7b53f15aa6221538860b27254408f98",
+        "split_sha256": null,
+        "source_sha256": "f23822ee2f1e1d18331e91334d74adb10c8718d72d503bfa76ebe0a9348a7ea1"
+      },
+      "report_sha256": "3ba0556de20fc9d2b2119ebecd1574f91a24945dacaced414e906e631cb6e08a"
+    }
+  ],
+  "fresh_decoded_geometry": {
+    "samples": 512,
+    "summary": {
+      "relaxed": {
+        "samples": 512,
+        "valid": 512,
+        "valid_fraction": 1.0,
+        "drift_failures": 5,
+        "drift_valid_fraction": 0.009765625,
+        "failure_inclusive_fraction": 0.009765625,
+        "cd_n": {
+          "count": 512,
+          "missing": 0,
+          "mean": 0.008536617136975717,
+          "median": 0.000626311399417116,
+          "p95": 0.0013770450349872153
+        },
+        "fscore_1pct": {
+          "count": 512,
+          "missing": 0,
+          "mean": 0.3187885068997005,
+          "median": 0.2687930647789144,
+          "p95": 0.6480596540492778
+        },
+        "normal_consistency": {
+          "count": 512,
+          "missing": 0,
+          "mean": 0.8960246066669406,
+          "median": 0.9107100050470196,
+          "p95": 0.9716099258965154
+        },
+        "edge_distance": {
+          "count": 512,
+          "missing": 0,
+          "mean": 0.019353536830059186,
+          "median": 0.016748236490529415,
+          "p95": 0.023271367145034402
+        },
+        "excess_drift": 0.0,
+        "excess_edge": 0.0
+      },
+      "hard": {
+        "samples": 512,
+        "valid": 512,
+        "valid_fraction": 1.0,
+        "drift_failures": 8,
+        "drift_valid_fraction": 0.015625,
+        "failure_inclusive_fraction": 0.015625,
+        "cd_n": {
+          "count": 512,
+          "missing": 0,
+          "mean": 0.010346363907039427,
+          "median": 0.0006195679353382779,
+          "p95": 0.001304638410181064
+        },
+        "fscore_1pct": {
+          "count": 512,
+          "missing": 0,
+          "mean": 0.3169826595469891,
+          "median": 0.2658363865184835,
+          "p95": 0.6507808836417031
+        },
+        "normal_consistency": {
+          "count": 512,
+          "missing": 0,
+          "mean": 0.8945767839548289,
+          "median": 0.9094191760806166,
+          "p95": 0.96955246314481
+        },
+        "edge_distance": {
+          "count": 512,
+          "missing": 0,
+          "mean": 0.019489204422455948,
+          "median": 0.016446781093874575,
+          "p95": 0.022547214526860804
+        },
+        "excess_drift": 0.6000000000000001,
+        "excess_edge": 0.007009963790496787
+      },
+      "categorical": {
+        "samples": 512,
+        "valid": 512,
+        "valid_fraction": 1.0,
+        "drift_failures": 8,
+        "drift_valid_fraction": 0.015625,
+        "failure_inclusive_fraction": 0.015625,
+        "cd_n": {
+          "count": 512,
+          "missing": 0,
+          "mean": 0.020675095349278645,
+          "median": 0.0006305909189074838,
+          "p95": 0.0014332880790370365
+        },
+        "fscore_1pct": {
+          "count": 512,
+          "missing": 0,
+          "mean": 0.31615923116496086,
+          "median": 0.265350341796875,
+          "p95": 0.6478153901919751
+        },
+        "normal_consistency": {
+          "count": 512,
+          "missing": 0,
+          "mean": 0.8945405870616352,
+          "median": 0.9082220674630608,
+          "p95": 0.9713307691765164
+        },
+        "edge_distance": {
+          "count": 512,
+          "missing": 0,
+          "mean": 0.02099980565442718,
+          "median": 0.016458282357831762,
+          "p95": 0.02270014983288673
+        },
+        "excess_drift": 0.6000000000000001,
+        "excess_edge": 0.08506294424753769
+      }
+    },
+    "definitions": {
+      "cd_n": "Sum of both mean squared nearest-neighbor distances divided by oracle bbox diagonal squared; NO factor 0.5.",
+      "drift_valid_fraction": "Fraction of valid pairs with CD_n > threshold; missing pairs excluded and separately counted.",
+      "failure_inclusive_fraction": "Missing/invalid pairs plus drift failures divided by ALL requested pairs.",
+      "edge_distance": "Mean distance from oracle vertices at/above the configured Laplacian percentile to sampled prediction, divided by oracle bbox diagonal.",
+      "sampling": "Original Open3D uniform surface sampler, now explicitly seeded per pair. The original run did not seed Open3D's global stream; small differences are expected."
+    },
+    "sample_points": 1024,
+    "seed": 20260518,
+    "decode_protocol": {
+      "resolution": 56,
+      "bounds": [
+        -0.5,
+        0.5
+      ],
+      "ratio": 0.75,
+      "seed": 20260516,
+      "selection_sha256": "5738153ec97595b1c1e4dc027f7b7fb4534f19ed2ce9f9ee712e6d34a384cde7",
+      "mask_sha256": "1fa1b22c60a3854f8f4d465cf2d7a60b75310c6fc1ae292461c4bff5ef462b35",
+      "supplied_mask_sha256": "1fa1b22c60a3854f8f4d465cf2d7a60b75310c6fc1ae292461c4bff5ef462b35",
+      "mask_rule": "Supplied mask",
+      "component_min_fraction": 0.02,
+      "component_min_triangles": 64
+    },
+    "prior_bindings_verified": {
+      "bit_field": true,
+      "categorical": true
+    },
+    "source_tokenizer_binding_verified": false,
+    "scope": "New prior predictions and mesh regeneration, followed by seeded Open3D surface sampling. Original test arrays and masks retained; legacy arrays lack a tokenizer hash.",
+    "report_sha256": "cb756c909b90c06760f19a1224e4a31564a1254566b5f4e9848f8445fd0f8c91",
+    "decoded_manifest_sha256": "389e2a6ea13c73ee31fdae99fc2d1b1f4cb696150dd02f4ca15802222d612ddc"
+  },
+  "historical_stress_audit": [
+    {
+      "dataset": "shapenet",
+      "samples": 2461,
+      "metric_contracts": [
+        "frame_estimate_on_stress_score_complete_reference"
+      ],
+      "orbit_median": 0.003956937231123447,
+      "orbit_p95": 7.990106105804443,
+      "pca_p95": 98.59138488769531,
+      "csv_sha256": "c97ba95eb446d69453b0bd556f23c92ce0b4fc48aef5d3ec63f429f620170f4a"
+    },
+    {
+      "dataset": "objaverse",
+      "samples": 8192,
+      "metric_contracts": [
+        "frame_estimate_on_stress_score_complete_reference"
+      ],
+      "orbit_median": 0.007553690345957875,
+      "orbit_p95": 5.760860538482666,
+      "pca_p95": 87.72555809020996,
+      "csv_sha256": "7dde55e57c8f3d32daec5e3b4105f40a6e7cffaf5dc424d627ad3a785c1f7f3c"
+    },
+    {
+      "dataset": "scanobjectnn",
+      "samples": 2882,
+      "metric_contracts": [
+        "frame_estimate_on_stress_score_complete_reference"
+      ],
+      "orbit_median": 0.003296746057458222,
+      "orbit_p95": 0.15172411054372742,
+      "pca_p95": 89.53559722900387,
+      "csv_sha256": "8f2cc40eaeed47961c52d763d69b09827bb8315f7d29fc4cb62c5ae222b7398b"
+    }
+  ],
+  "fixed_token_metrics": {
+    "checks": 48,
+    "matches_reported_precision": true,
+    "samples": 512,
+    "source": "Matched-completion frozen pair and original 512 test fields."
+  },
+  "remaining_limits": [
+    "Full new training quality must be measured separately, not inferred from smoke tests.",
+    "Fresh K=8192 tokenizer training/support convergence is not part of these frozen-weight checks.",
+    "CUDA/NCCL multi-GPU hardware has not been tested.",
+    "Historical stress protocols are not interchangeable; the old archive audit was deprecated."
+  ]
+}

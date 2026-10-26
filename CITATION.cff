@@ -1,0 +1,34 @@
+# Geometric Orbit Representatives for Unaligned 3D Tokenization
+# Chair of Multimodal Machine Learning, ScaDS.AI Dresden/Leipzig
+# Contact: Xiang Chen <xiang.chen@uni-leipzig.de>
+# SPDX-License-Identifier: MIT
+cff-version: 1.2.0
+message: "Please cite our BMVC 2026 paper when using this software."
+type: software
+title: "Geometric Orbit Representatives for Unaligned 3D Tokenization"
+version: 0.1.0
+license: MIT
+authors:
+  - family-names: Chen
+    given-names: Xiang
+    email: xiang.chen@uni-leipzig.de
+    affiliation: "Chair of Multimodal Machine Learning, ScaDS.AI Dresden/Leipzig"
+  - family-names: Mei
+    given-names: Jianhan
+    affiliation: "Nanyang Technological University, Singapore"
+  - family-names: Binder
+    given-names: Alexander
+    affiliation: "ScaDS.AI Dresden/Leipzig"
+preferred-citation:
+  type: conference-paper
+  title: "Geometric Orbit Representatives for Unaligned 3D Tokenization"
+  authors:
+    - family-names: Chen
+      given-names: Xiang
+    - family-names: Mei
+      given-names: Jianhan
+    - family-names: Binder
+      given-names: Alexander
+  conference:
+    name: "British Machine Vision Conference"
+  year: 2026

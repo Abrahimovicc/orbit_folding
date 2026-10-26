@@ -1,0 +1,48 @@
+# Geometric Orbit Representatives for Unaligned 3D Tokenization
+# Chair of Multimodal Machine Learning, ScaDS.AI Dresden/Leipzig
+# Contact: Xiang Chen <xiang.chen@uni-leipzig.de>
+# SPDX-License-Identifier: MIT
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "orbit-folding"
+version = "0.1.0"
+description = "Geometric orbit representatives, reconstructive 3D tokenization, and masked bit-field completion"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE", "licenses/*.txt"]
+authors = [
+  {name = "Xiang Chen", email = "xiang.chen@uni-leipzig.de"},
+  {name = "Jianhan Mei"},
+  {name = "Alexander Binder"},
+]
+dependencies = [
+  "torch>=2.4,<3",
+  "numpy>=1.24,<2",
+  "PyYAML>=6,<7",
+  "vector-quantize-pytorch==1.25.2",
+  "einops>=0.8,<0.9",
+  "open3d>=0.18,<0.20",
+  "scipy>=1.10,<2",
+  "scikit-image>=0.22,<0.26",
+  "matplotlib>=3.7,<4",
+  "Pillow>=10,<12",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<9", "build>=1,<2"]
+benchmark = ["h5py>=3.10,<4"]
+
+[project.scripts]
+orbit = "orbit_folding.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+markers = ["distributed: two-process CPU distributed-training integration", "integration: command-line integration"]

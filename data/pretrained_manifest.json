@@ -1,0 +1,41 @@
+{
+  "format": "orbit_folding.pretrained.v1",
+  "hosting": "Hugging Face",
+  "published": false,
+  "pairs": [
+    {
+      "id": "reconstructive",
+      "scope": "Full-ShapeNet frozen reconstructive interface and its original matched prior; not the 97.23% matched-control result or the K=8192 support comparison.",
+      "codebook_size": 4096,
+      "num_bits": 12,
+      "tokenizer_hash": "1511df4f17dcbf59a58bbb29e1bd7cff19aa590ba8188258ec3468f745b7c40f",
+      "tokenizer": {
+        "path": "reconstructive/tokenizer.pt",
+        "sha256": "dc5ffb31073021ca89bfef997a2a70aebefe72fc8ef50d41ced090ebe011306d",
+        "bytes": 85974797
+      },
+      "prior": {
+        "path": "reconstructive/prior.pt",
+        "sha256": "28d13e58c01e2d653b214e390b7e4d700630d9ff6f3fa5f93476ce58843504b7",
+        "bytes": 10460265
+      }
+    },
+    {
+      "id": "matched_completion",
+      "scope": "Matched 4096-code, eight-category completion control; published 50%-mask results are 97.23% bit accuracy and 78.01% token exactness on its fixed-mask split, not full-test distributional support.",
+      "codebook_size": 4096,
+      "num_bits": 12,
+      "tokenizer_hash": "b6c774332ba2298bc56439936f3f69091493ac2045bf6bd7a425f9828bc82d2f",
+      "tokenizer": {
+        "path": "matched_completion/tokenizer.pt",
+        "sha256": "ea243f5b419b3bd8951338c82893728ad83f4482df4e4f77751b2680a6630f7f",
+        "bytes": 85974797
+      },
+      "prior": {
+        "path": "matched_completion/prior.pt",
+        "sha256": "34fb1419928c9dd9ce265406a3d90ec27219f6ff9be148cdc97c5a07894cbb37",
+        "bytes": 10460265
+      }
+    }
+  ]
+}

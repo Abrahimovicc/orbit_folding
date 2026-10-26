@@ -1,0 +1,419 @@
+{
+  "format": "orbit_folding.reproduction_audit.v1",
+  "date": "2026-10-25",
+  "token_prior_rerun": {
+    "samples": 512,
+    "seed": 20260511,
+    "batch_size": 16,
+    "mask_device": "cpu",
+    "torch": "2.11.0+cu128",
+    "prior_sha256": "34fb1419928c9dd9ce265406a3d90ec27219f6ff9be148cdc97c5a07894cbb37",
+    "tokenizer_hash": "b6c774332ba2298bc56439936f3f69091493ac2045bf6bd7a425f9828bc82d2f",
+    "selection_sha256": "3fb965a964f98e249a865add8f41b4e6b2c9ac86948bcb8124da9392458a0b95",
+    "source": {
+      "kind": "external_indices",
+      "indices_sha256": "e0f0d4445f14a5e4a9a98c40dc6d345bac7e64f4f252e7323977854eaaef20a2",
+      "metadata_sha256": "554bf8becfc2461e375f694f0617d70e8e204d53dce98c0c226792ea708897c6",
+      "tokenizer_binding_verified": false,
+      "categories": {
+        "02691156": 64,
+        "02958343": 64,
+        "03001627": 64,
+        "04379243": 64,
+        "03636649": 64,
+        "04256520": 64,
+        "02933112": 64,
+        "04530566": 64
+      }
+    },
+    "rows": [
+      {
+        "mask_ratio": 0.1,
+        "loss_sum": 532562.3232421875,
+        "bit_correct": 9832297,
+        "bit_count": 10061376,
+        "token_correct": 675598,
+        "token_count": 838448,
+        "confidence_sum": 9617133.59375,
+        "uncertain_count": 941566,
+        "uncertain_soft_mse_sum": 593511.9345703125,
+        "uncertain_hard_mse_sum": 854404.0,
+        "hard_wrong_count": 229079,
+        "hard_wrong_soft_mse_sum": 499128.6826171875,
+        "hard_wrong_hard_mse_sum": 916316.0,
+        "thin_proxy_count": 2986738,
+        "thin_proxy_soft_mse_sum": 641620.615234375,
+        "thin_proxy_hard_mse_sum": 908200.0,
+        "edge_soft_mse_sum": 2561722.845703125,
+        "edge_hard_mse_sum": 3604420.0,
+        "edge_count": 37933884,
+        "mask_sha256": "caf1cb3684e2797282f51e333fc2ec03ee089e2ebdf4e1abe0fa8b73eae5525f",
+        "bce": 0.05293136080414722,
+        "bit_accuracy": 0.9772318418474769,
+        "token_exact": 0.8057720932007709,
+        "confidence": 0.9558467543355899,
+        "uncertain_fraction": 0.09358222970695063,
+        "uncertain_mse_reduction": 0.3053497706350713,
+        "hard_wrong_fraction": 0.022768158152523074,
+        "hard_wrong_mse_reduction": 0.4552876053488234,
+        "thin_proxy_fraction": 0.29685184213372007,
+        "thin_proxy_mse_reduction": 0.29352497772035346,
+        "edge_mse_reduction": 0.2892829232711157
+      },
+      {
+        "mask_ratio": 0.25,
+        "loss_sum": 1404494.73828125,
+        "bit_correct": 24562171,
+        "bit_count": 25166928,
+        "token_correct": 1675802,
+        "token_count": 2097244,
+        "confidence_sum": 23982197.5,
+        "uncertain_count": 2524065,
+        "uncertain_soft_mse_sum": 1574533.45703125,
+        "uncertain_hard_mse_sum": 2264752.0,
+        "hard_wrong_count": 604757,
+        "hard_wrong_soft_mse_sum": 1312305.5390625,
+        "hard_wrong_hard_mse_sum": 2419028.0,
+        "thin_proxy_count": 7460413,
+        "thin_proxy_soft_mse_sum": 1681161.20703125,
+        "thin_proxy_hard_mse_sum": 2387876.0,
+        "edge_soft_mse_sum": 6550631.84375,
+        "edge_hard_mse_sum": 9281596.0,
+        "edge_count": 87392040,
+        "mask_sha256": "650e8340b1ae4b482904dbdb36c47c61f4a5feed3b138c25f3fc69711c8c2ca0",
+        "bce": 0.05580715843750377,
+        "bit_accuracy": 0.9759701700581016,
+        "token_exact": 0.7990496098689518,
+        "confidence": 0.9529251047247403,
+        "uncertain_fraction": 0.10029293205750023,
+        "uncertain_mse_reduction": 0.3047656180317977,
+        "hard_wrong_fraction": 0.02402982994189835,
+        "hard_wrong_mse_reduction": 0.45750709001198,
+        "thin_proxy_fraction": 0.29643717342060977,
+        "thin_proxy_mse_reduction": 0.29595958624683605,
+        "edge_mse_reduction": 0.29423432739908095
+      },
+      {
+        "mask_ratio": 0.5,
+        "loss_sum": 3231493.828125,
+        "bit_correct": 48913499,
+        "bit_count": 50307456,
+        "token_correct": 3270377,
+        "token_count": 4192288,
+        "confidence_sum": 47558983.0,
+        "uncertain_count": 5904704,
+        "uncertain_soft_mse_sum": 3652409.8515625,
+        "uncertain_hard_mse_sum": 5243480.0,
+        "hard_wrong_count": 1393957,
+        "hard_wrong_soft_mse_sum": 3017395.7265625,
+        "hard_wrong_hard_mse_sum": 5575828.0,
+        "thin_proxy_count": 14915576,
+        "thin_proxy_soft_mse_sum": 3806631.34375,
+        "thin_proxy_hard_mse_sum": 5435452.0,
+        "edge_soft_mse_sum": 14163052.359375,
+        "edge_hard_mse_sum": 20242688.0,
+        "edge_count": 149766828,
+        "mask_sha256": "2fa77878b6acb20e2c77d70fe7bfb137ff854d55922ad5cffaf48fc67f919270",
+        "bce": 0.06423488852477453,
+        "bit_accuracy": 0.9722912444628486,
+        "token_exact": 0.7800935908983352,
+        "confidence": 0.9453664880211792,
+        "uncertain_fraction": 0.11737234337590038,
+        "uncertain_mse_reduction": 0.30343782153026233,
+        "hard_wrong_fraction": 0.02770875553715139,
+        "hard_wrong_mse_reduction": 0.4588434710391892,
+        "thin_proxy_fraction": 0.29648837738883077,
+        "thin_proxy_mse_reduction": 0.299666091476845,
+        "edge_mse_reduction": 0.3003373682697179
+      },
+      {
+        "mask_ratio": 0.75,
+        "loss_sum": 6412222.765625,
+        "bit_correct": 72706646,
+        "bit_count": 75478620,
+        "token_correct": 4645122,
+        "token_count": 6289885,
+        "confidence_sum": 70103160.75,
+        "uncertain_count": 11465081,
+        "uncertain_soft_mse_sum": 7243510.609375,
+        "uncertain_hard_mse_sum": 10405096.0,
+        "hard_wrong_count": 2771974,
+        "hard_wrong_soft_mse_sum": 6025603.8125,
+        "hard_wrong_hard_mse_sum": 11087896.0,
+        "thin_proxy_count": 22379894,
+        "thin_proxy_soft_mse_sum": 7266909.8125,
+        "thin_proxy_hard_mse_sum": 10448016.0,
+        "edge_soft_mse_sum": 25330858.375,
+        "edge_hard_mse_sum": 36801420.0,
+        "edge_count": 187256976,
+        "mask_sha256": "aebc4450a78e0ca4420d704d164d616ae5300d2863b8f6cdfa4963f6c68816c9",
+        "bce": 0.08495416007374008,
+        "bit_accuracy": 0.9632747127597192,
+        "token_exact": 0.7385066658611406,
+        "confidence": 0.928781696724185,
+        "uncertain_fraction": 0.1518983918889879,
+        "uncertain_mse_reduction": 0.30384970889504526,
+        "hard_wrong_fraction": 0.036725287240280756,
+        "hard_wrong_mse_reduction": 0.4565602155269133,
+        "thin_proxy_fraction": 0.2965064014153942,
+        "thin_proxy_mse_reduction": 0.3044698809324182,
+        "edge_mse_reduction": 0.31168801706564586
+      },
+      {
+        "mask_ratio": 0.9,
+        "loss_sum": 25449241.25,
+        "bit_correct": 81158013,
+        "bit_count": 90598056,
+        "token_correct": 2859655,
+        "token_count": 7549838,
+        "confidence_sum": 58615008.25,
+        "uncertain_count": 63211342,
+        "uncertain_soft_mse_sum": 29771998.875,
+        "uncertain_hard_mse_sum": 37171400.0,
+        "hard_wrong_count": 9440043,
+        "hard_wrong_soft_mse_sum": 15894172.8125,
+        "hard_wrong_hard_mse_sum": 37760172.0,
+        "thin_proxy_count": 26866558,
+        "thin_proxy_soft_mse_sum": 17387936.5,
+        "thin_proxy_hard_mse_sum": 25993324.0,
+        "edge_soft_mse_sum": 55302346.125,
+        "edge_hard_mse_sum": 83120936.0,
+        "edge_count": 197753064,
+        "mask_sha256": "357dba2df85152fd59f0297dedd288b7703883b5dc75617b881f16b8da54547b",
+        "bce": 0.28090272985548387,
+        "bit_accuracy": 0.8958030291510891,
+        "token_exact": 0.3787703789140906,
+        "confidence": 0.646978653162271,
+        "uncertain_fraction": 0.6977119023392732,
+        "uncertain_mse_reduction": 0.19906167443249378,
+        "hard_wrong_fraction": 0.10419697084891093,
+        "hard_wrong_mse_reduction": 0.5790757305740026,
+        "thin_proxy_fraction": 0.29654673826555394,
+        "thin_proxy_mse_reduction": 0.3310614487012127,
+        "edge_mse_reduction": 0.33467609020909006
+      }
+    ],
+    "report_sha256": "4e0527c7fdd84b0864f16f82ca5827c2d4e9dd2f92e01b04363d35ab13d9edc6",
+    "checks": 48,
+    "matches_reported_precision": true,
+    "scope": "New inference on all 512 original cached fields, not fresh token extraction or training."
+  },
+  "original_release_parity": {
+    "torch": "2.7.0+cu128",
+    "cases": 16,
+    "pairs": [
+      "matched_completion",
+      "reconstructive"
+    ],
+    "active_tensors_exact": true,
+    "max_frame_absolute_difference": 0.0,
+    "identical_token_index_cases": 15,
+    "max_quantized_sdf_absolute_difference": 7.174164056777954e-05,
+    "training_batches": [
+      {
+        "pair": "reconstructive",
+        "training_objective": {
+          "original": 23.765592575073242,
+          "released": 23.76559066772461,
+          "absolute_difference": 1.9073486328125e-06
+        },
+        "gradient_relative_l2": 0.00017076838970978526
+      },
+      {
+        "pair": "matched_completion",
+        "training_objective": {
+          "original": 56.278194427490234,
+          "released": 56.2781982421875,
+          "absolute_difference": 3.814697265625e-06
+        },
+        "gradient_relative_l2": 7.163106795808977e-06
+      }
+    ],
+    "scope": "Same active weights and same real batches, not bitwise CUDA determinism or converged retraining."
+  },
+  "archived_stress_rows": {
+    "scope": "DEPRECATED stress archive: historical matched_independent rows, not the later frameisolated archive. Reaggregation only; do not use these values as verified frame-isolated evidence. See docs/BENCHMARKS.md.",
+    "metric": "Historical CSV PAE columns; the original metric-contract metadata is absent. The later frameisolated CSV explicitly records its different contract.",
+    "rows": [
+      {
+        "dataset": "shapenet",
+        "condition": "base observation",
+        "samples": 2461,
+        "orbit_median": 2.4543282052036375e-05,
+        "orbit_p95": 3.358763933647424e-05,
+        "pca_p95": 100.63310241699219,
+        "p95_ratio": 2996135.01886423,
+        "source_sha256": "511692716c3fd5c5766cc1c2eede4dcf3ec004f6d9dee67c81abf7b2171c27c9"
+      },
+      {
+        "dataset": "shapenet",
+        "condition": "jitter",
+        "samples": 2461,
+        "orbit_median": 1.126698613166809,
+        "orbit_p95": 7.242924690246582,
+        "pca_p95": 90.88778686523438,
+        "p95_ratio": 12.548492598249029,
+        "source_sha256": "f10abc9a7309ccd4da44fa5bf2263d598f02385473585a6c746d8163c4b5ae43"
+      },
+      {
+        "dataset": "objaverse",
+        "condition": "base observation",
+        "samples": 8192,
+        "orbit_median": 2.418545409454964e-05,
+        "orbit_p95": 4.499179340200499e-05,
+        "pca_p95": 87.20788574218747,
+        "p95_ratio": 1938306.5032100098,
+        "source_sha256": "df7c5fefbffc6bb06e595f7bef999fbcf4e346ea135c0ea76905377c83efefe5"
+      },
+      {
+        "dataset": "objaverse",
+        "condition": "jitter",
+        "samples": 8192,
+        "orbit_median": 1.0519272089004517,
+        "orbit_p95": 5.439658880233764,
+        "pca_p95": 80.07996025085446,
+        "p95_ratio": 14.72150405273448,
+        "source_sha256": "81cce25ebb0380ae4afd4e46c7bce5c4e67193a642627d9617467b93184855ee"
+      },
+      {
+        "dataset": "scanobjectnn",
+        "condition": "base observation",
+        "samples": 2882,
+        "orbit_median": 2.2305286620394327e-05,
+        "orbit_p95": 2.893546025006799e-05,
+        "pca_p95": 89.93740653991698,
+        "p95_ratio": 3108207.222648399,
+        "source_sha256": "86d5ce42b25de11624adf34ef926365e45cd3081d93ed3b2d8500000a95075cf"
+      },
+      {
+        "dataset": "scanobjectnn",
+        "condition": "jitter",
+        "samples": 2882,
+        "orbit_median": 0.888835221529007,
+        "orbit_p95": 1.265837448835373,
+        "pca_p95": 82.49403114318844,
+        "p95_ratio": 65.16952964149277,
+        "source_sha256": "6da730db478da35ceb14d5406393a212cfb53655ccdfc5e635555b432854f33d"
+      }
+    ]
+  },
+  "archived_decoded_rows": {
+    "scope": "Independent reaggregation of 1536 archived mesh comparisons, not mesh regeneration/resampling.",
+    "source_sha256": "8116a4e20c3f229f9225058ea8302006b6f93d80b9e9545bde22b1383346b575",
+    "rows": [
+      {
+        "mode": "categorical",
+        "samples": 512,
+        "valid": 512,
+        "cd_median": 0.0004959485689618609,
+        "drift_failure_count": 8,
+        "drift_failure_fraction": 0.015625,
+        "fscore_at_1_percent_mean": 0.35058885690363734,
+        "edge_distance_mean": 0.01979319268359323
+      },
+      {
+        "mode": "hard",
+        "samples": 512,
+        "valid": 512,
+        "cd_median": 0.0004889237721503591,
+        "drift_failure_count": 6,
+        "drift_failure_fraction": 0.01171875,
+        "fscore_at_1_percent_mean": 0.3516742180278567,
+        "edge_distance_mean": 0.018349943751413952
+      },
+      {
+        "mode": "soft",
+        "samples": 512,
+        "valid": 512,
+        "cd_median": 0.0004884007885537014,
+        "drift_failure_count": 5,
+        "drift_failure_fraction": 0.009765625,
+        "fscore_at_1_percent_mean": 0.3528508606631459,
+        "edge_distance_mean": 0.018135771356725203
+      }
+    ]
+  },
+  "support_histogram_rerun": {
+    "scope": "Archived integer histograms recomputed, not fresh VQ/LFQ encoding.",
+    "source_sha256": "93ab2353a1d0694bf12fa008a4059d78709b7a6e8a667714a7d9db009921ec4a",
+    "rows": [
+      {
+        "name": "Standard VQ",
+        "codebook_size": 8192,
+        "total_tokens": 5341184,
+        "active_codes": 7886,
+        "nominal_usage": 0.962646484375,
+        "effective_support": 0.04503879915420318,
+        "codes_for_50": 33
+      },
+      {
+        "name": "LFQ",
+        "codebook_size": 8192,
+        "total_tokens": 5341184,
+        "active_codes": 8192,
+        "nominal_usage": 1.0,
+        "effective_support": 0.9623018806162017,
+        "codes_for_50": 3218
+      }
+    ]
+  },
+  "cuda_workflow": {
+    "torch": "2.11.0+cu128",
+    "tokenizer_updates": 1,
+    "prior_updates": 1,
+    "imported_objects": 8,
+    "token_maps": 8,
+    "decoded_samples": 1,
+    "tokenizer_precision": "bf16-mixed",
+    "prior_precision": "16-mixed",
+    "scope": "Bounded functional smoke with reduced point/query budgets, not learned quality or the paper decoder benchmark.",
+    "fp16_tokenizer_trial": "Eight attempted updates overflowed; no optimizer updates. Not counted as successful training."
+  },
+  "reference_geometry_smoke": {
+    "reconstruction": {
+      "resolution": 64,
+      "attempted_samples": 2,
+      "successful_samples": 2,
+      "mesh_status_counts": {
+        "raw": {
+          "ok": 2
+        },
+        "continuous": {
+          "ok": 2
+        },
+        "quantized": {
+          "ok": 2
+        }
+      }
+    },
+    "completion": {
+      "resolution": 64,
+      "attempted_samples": 2,
+      "successful_samples": 2,
+      "mesh_status_counts": {
+        "hard": {
+          "ok": 2
+        },
+        "relaxed": {
+          "ok": 2
+        },
+        "oracle": {
+          "ok": 2
+        }
+      }
+    },
+    "scope": "Two actual test objects per task using unmodified reference weights and newly sampled/exported inputs. Functional check, not a benchmark quality estimate."
+  },
+  "follow_up_validation": {
+    "benchmark_report": "data/benchmark_validation.json",
+    "full_training_report": "data/full_training_validation.json",
+    "boundary_followup_report": "data/boundary_reproduction.json",
+    "scope": "The original observations above are retained. Fresh raw-data stress, full mesh regeneration and primary matched training are recorded in these later reports; they do not imply every paper result has been retrained."
+  },
+  "not_verified": [
+    "Independent from-scratch reproduction of every paper table; the primary matched LFQ tokenizer and both priors have completed full budgets and evaluation, recorded separately.",
+    "Fresh full-test VQ/LFQ support extraction at K=8192; VQ training is now available but has not been rerun to convergence.",
+    "Fresh training of the full-shape tokenizer/prior pair used by the decoded-boundary table; the new matched-completion pair is a different experiment.",
+    "CUDA/NCCL multi-GPU hardware execution; CPU/Gloo DDP is covered by tests."
+  ]
+}

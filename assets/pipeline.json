@@ -1,0 +1,22 @@
+{
+  "project": "Geometric Orbit Representatives for Unaligned 3D Tokenization",
+  "institution": "Chair of Multimodal Machine Learning, ScaDS.AI Dresden/Leipzig",
+  "contact": "Xiang Chen <xiang.chen@uni-leipzig.de>",
+  "asset": "pipeline.png",
+  "source": "BMVC 2026 poster architecture schematic (poster_pipeline.png)",
+  "changes": "None; copied from the authors' presentation asset.",
+  "scope": "Conceptual pipeline, not measured token activations or an experimental reconstruction pair.",
+  "roles": [
+    "Arbitrarily rotated point observation",
+    "Fixed geometric representative: PCA and deterministic axis lock",
+    "Learned local tri-plane LFQ tokenizer",
+    "Learned masked bit-field prior",
+    "Learned representative-frame SDF decoder, frozen during completion"
+  ],
+  "result_sources": {
+    "representative_stability": "Paper Table 1: no-retraining stress test, independent jitter, no yaw minimization, common reference for frame comparison.",
+    "effective_support": "Paper Figure 5 and supplementary soft-collapse table: matched K=8192, full 5216-shape ShapeNet test split.",
+    "completion": "Primary completion split at 50% masking: 97.23% bit accuracy and 78.01% token exactness.",
+    "relaxed_decoding": "Paper decoded-geometry table at 75% masking, 512 maps; drift is oracle-relative failure, not ground-truth reconstruction error."
+  }
+}

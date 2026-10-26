@@ -1,0 +1,972 @@
+{
+  "format": "orbit_folding.full_training_validation.v1",
+  "date": "2026-10-25",
+  "scope": "Fresh primary matched-completion training and held-out evaluation, not a reproduction of every paper table.",
+  "status": "complete",
+  "full_training_budget_executed": true,
+  "source_commit_checked_after_run": "b01a9282d896d4061d2dada12457c47244b71842",
+  "source_snapshot_at_validation": {
+    "src/orbit_folding/__init__.py": "d6098f923fc18be29e92641e7164f291f96983818aea54c07cbd0c97e831ef68",
+    "src/orbit_folding/__main__.py": "88cbcad8b4739d400ed77819c172e7d8010b9a14e7167210ac958be927c728c7",
+    "src/orbit_folding/benchmark_decode.py": "5afdf06313bf11a1368335b108939e506e8e794f6c3009136885ce0076258b7a",
+    "src/orbit_folding/checkpoints.py": "928f88f46c6b29b84ea57ae091eaed3fa0cfbdf683b38e01d19915143c854ea2",
+    "src/orbit_folding/cli.py": "e10175d7bccf732a666d25723a7203952f7baeba08e22ca28fdd65040330b7e5",
+    "src/orbit_folding/data.py": "f34ef498b36c47f899db7acc3860af82e5771fd76e39b4e2ec5577f85a8ca698",
+    "src/orbit_folding/evaluation.py": "63a68f0ac808a67f1b66e514a3ac90b7dbb5934023e17091000c1c55443b1581",
+    "src/orbit_folding/geometry.py": "168ec00024c0ff5b7fca4f1dbed16ec6574632b15bbdac38c567f33b78218858",
+    "src/orbit_folding/inference.py": "50d38f619f4c33ced5707ce823be083acf1f21573423e690ecc53978eecea9a8",
+    "src/orbit_folding/mesh_benchmark.py": "865f9141f881e685bc29e69a0b3ac0a9075906524b2377f97de81b1f2206c0ae",
+    "src/orbit_folding/metrics.py": "f85c50a66894d1315dd39d19ee4afa895d181c5e37923e04de846cee4fa2e092",
+    "src/orbit_folding/models/__init__.py": "7bcaf111e1bbb4f83abf33d4af9b4528d0faa50341cac99946c2163bdc80eae0",
+    "src/orbit_folding/models/categorical.py": "aebb2d0dfbe84586222ef35d4465dbff72b18c04ab8bcf57b61112e1c498aaa1",
+    "src/orbit_folding/models/encoder.py": "afa48987438c38d48afef9af0e90aa95de1410c071f6fdef2ef5c69147779301",
+    "src/orbit_folding/models/field.py": "474637a2dbe1e64951083944a465cb3585ed11436b009afb2e26100af107f337",
+    "src/orbit_folding/models/prior.py": "f8ac480acb9f5f5ffd44f10fe79ae096598b917b71084fccc0bc7cb78f2254ec",
+    "src/orbit_folding/models/quantization.py": "955b725e8a80c2adad4beab778d75a2d2e1f7fb13d542427801e97dd3fc7c5b6",
+    "src/orbit_folding/models/tokenizer.py": "dba1b4bd9bcb3a9530298203cd6795a455a93865cb27a9aed0551a8652628a74",
+    "src/orbit_folding/monitoring.py": "61559590b45b9eec9b585a89c88aa812b9ed3c648f04364b9dea3f0bfedb4d84",
+    "src/orbit_folding/objectives.py": "92a49b1c7791fac0e161816eed1875aeb8aae19d3f4a08975c404e499c0c1318",
+    "src/orbit_folding/paper_evaluation.py": "d471d96866c20b87f40b447bccd75645b59ba4ceece944368b1069e03a39501b",
+    "src/orbit_folding/preprocessing.py": "6e9dc54185f1e937c195f4f0075f52b5cc79c2d64501bd65993c94355e6f47bb",
+    "src/orbit_folding/provenance.py": "3f2d722c89a015b4fb15c948720a4352dd9f64c811717d67b45900f8092a0c45",
+    "src/orbit_folding/stress_benchmark.py": "f2e7615f73f7f83b8761e9f8b1ce34cccb773b9e4e45061af242be5688f8495c",
+    "src/orbit_folding/token_cache.py": "3ec5c026eaee290ecb4f9321f6dceccb994ec6110d89c9951ec00d45ec73c37b",
+    "src/orbit_folding/token_support.py": "61cc56711fe120f0410886ce18d0315f3d15389cbbc8360695f17ed4753cb26a",
+    "src/orbit_folding/training.py": "844d9715cd7671255a2b9a199947f7aafffe5a5d45feb45212b9d7972305ae24",
+    "src/orbit_folding/validation.py": "1bdcc4691ab8084d75f76c87c75c634eaa3d5f970f852c1da5a4d82b66fd11a2",
+    "src/orbit_folding/visualization.py": "0bab538ff34b2e7d43511491bd8430cb6dbfdf29d2c0c19bcf5ef4c74a3ae535",
+    "src/orbit_folding/weights.py": "ca4524b14e02305f611329e37f3695b397d576dd3fe620de736d169975e30bd0"
+  },
+  "hardware": {
+    "gpu": "NVIDIA RTX PRO 6000 Blackwell Workstation Edition",
+    "gpus": 1,
+    "precision": "bf16-mixed",
+    "torch": "2.11.0+cu128"
+  },
+  "dataset": {
+    "samples": 4608,
+    "split_counts": {
+      "train": 3891,
+      "val": 205,
+      "test": 512
+    },
+    "geometry_fingerprint": "a0fa5e6ab5afb164279a9bb4a35cdbd29412784d8c39e02832c2f07e977f545f",
+    "token_cache_fingerprint": "1a1edd34519dacdf387e67fdec6b00e3fb1ecf052193332a1d2f31626b8ee646",
+    "original_test_ids_preserved": true,
+    "original_train_ids_equal_train_union_validation": true,
+    "codebook_size": 4096,
+    "categories": 8,
+    "token_shape": [
+      128,
+      128
+    ],
+    "tokenizer_hash": "5ee34f0aa7ea925a9892539613d6bac0a6690580d94e880ca1c2cf3bcd76ab58",
+    "validation_holdout_seed": 20260511,
+    "validation_holdout_ratio": 0.05
+  },
+  "workflow": {
+    "steps": [
+      {
+        "name": "train_tokenizer",
+        "status": "complete",
+        "returncode": 0,
+        "elapsed_seconds": 4792.520401017973
+      },
+      {
+        "name": "cache_tokens",
+        "status": "complete",
+        "returncode": 0,
+        "elapsed_seconds": 108.29697083903011
+      },
+      {
+        "name": "train_bit",
+        "status": "complete",
+        "returncode": 0,
+        "elapsed_seconds": 1720.5265141709242
+      },
+      {
+        "name": "evaluate_bit",
+        "status": "complete",
+        "returncode": 0,
+        "elapsed_seconds": 13.0827626590617
+      },
+      {
+        "name": "train_categorical",
+        "status": "complete",
+        "returncode": 0,
+        "elapsed_seconds": 2725.9819969510427
+      },
+      {
+        "name": "evaluate_categorical",
+        "status": "complete",
+        "returncode": 0,
+        "elapsed_seconds": 30.89730272698216
+      },
+      {
+        "name": "decoded_geometry",
+        "status": "complete",
+        "returncode": 0,
+        "elapsed_seconds": 125.66049677401315
+      }
+    ],
+    "elapsed_seconds": 9516.966445139027,
+    "report_sha256": "7960f7b318e01f4a6ef448537627c379bcb13ebe7edae001d13bc89118eb2930"
+  },
+  "models": {
+    "tokenizer": {
+      "run": {
+        "task": "tokenizer",
+        "seed": 2026,
+        "world_size": 1,
+        "prior_type": null,
+        "batch_per_rank": 2,
+        "accumulation": 8,
+        "effective_batch_upper_bound": 16,
+        "device_type": "cuda",
+        "torch": "2.11.0+cu128",
+        "data_fingerprint": "a0fa5e6ab5afb164279a9bb4a35cdbd29412784d8c39e02832c2f07e977f545f",
+        "initialization": null,
+        "sampling": {
+          "seed": 2026,
+          "pc_size": 8192,
+          "samples_per_mesh": 8192,
+          "uniform_samples": 2048,
+          "point_strategy": "spatial_mixed",
+          "point_bins": 28,
+          "point_random_ratio": 0.25,
+          "query_strategy": "spatial_sdf_value_balanced",
+          "query_bins": 24,
+          "query_ratios": [
+            0.1,
+            0.2,
+            0.2,
+            0.25,
+            0.25
+          ],
+          "surface_eps": 0.0005,
+          "near_eps": 0.02,
+          "orient_normals": true,
+          "point_sampling_frame": "observation",
+          "axis_lock": true,
+          "frame_source": "cache"
+        },
+        "validation_samples": 205,
+        "training_samples": 3891,
+        "precision": "bf16-mixed"
+      },
+      "planned_epochs": 12,
+      "completed_epochs": 12,
+      "updates": 2928,
+      "selected_epoch": 7,
+      "selected_step": 1708,
+      "selection_metric": "uniform_sdf_mae",
+      "selection_score": 0.15206991358092448,
+      "skipped_updates": 0,
+      "selected_checkpoint_sha256": "8dcd4f2111ed60ae66212026596c11f19b779f8608f3802f832701047c34e91c",
+      "last_checkpoint_sha256": "72d73766c2f7fb23474c5f9449d3bfc1921db381a07296d096ee4827d60622f2",
+      "config_sha256": "e89ec3a2dc480d2ebb19c175259dd4defc942a8a1be713655fc91465a8ac06a1",
+      "metrics_sha256": "c72951257a5df516955ed7221e0745940c3932214f4eaef1fe985a6d91e55726",
+      "validation_sha256": "0152e8becc5ac58ab0c5909d9684b5097ca4d4fba6e9a7001146d542411bea30"
+    },
+    "bit": {
+      "run": {
+        "task": "prior",
+        "seed": 20260511,
+        "world_size": 1,
+        "prior_type": "bit_field",
+        "batch_per_rank": 8,
+        "accumulation": 1,
+        "effective_batch_upper_bound": 8,
+        "device_type": "cuda",
+        "torch": "2.11.0+cu128",
+        "data_fingerprint": "1a1edd34519dacdf387e67fdec6b00e3fb1ecf052193332a1d2f31626b8ee646",
+        "initialization": null,
+        "sampling": null,
+        "validation_samples": 205,
+        "training_samples": 3891,
+        "precision": "bf16-mixed"
+      },
+      "planned_epochs": 80,
+      "completed_epochs": 80,
+      "updates": 38960,
+      "selected_epoch": 80,
+      "selected_step": 38960,
+      "selection_metric": "hidden_bce",
+      "selection_score": 0.04399501358113059,
+      "skipped_updates": 0,
+      "selected_checkpoint_sha256": "d9802eec62543654ccc5db710304b5a8f1f9b0a498c47178b82699c6f0aa0d02",
+      "last_checkpoint_sha256": "d9802eec62543654ccc5db710304b5a8f1f9b0a498c47178b82699c6f0aa0d02",
+      "config_sha256": "31fcabf1f8a574dbae062562d2f80b2b32648d481fa9aed1c40528cb8920690f",
+      "metrics_sha256": "088776c7b653f5378b4540700dd442f0bf8eb65a41503d71f10c19d1516200ec",
+      "validation_sha256": "5dd4c55e9eccec62c4155cbd60e84ad288f9403b5c38aef014ae068415e1f79e"
+    },
+    "categorical": {
+      "run": {
+        "task": "prior",
+        "seed": 20260511,
+        "world_size": 1,
+        "prior_type": "categorical",
+        "batch_per_rank": 2,
+        "accumulation": 1,
+        "effective_batch_upper_bound": 2,
+        "device_type": "cuda",
+        "torch": "2.11.0+cu128",
+        "data_fingerprint": "1a1edd34519dacdf387e67fdec6b00e3fb1ecf052193332a1d2f31626b8ee646",
+        "initialization": null,
+        "sampling": null,
+        "validation_samples": 205,
+        "training_samples": 3891,
+        "precision": "bf16-mixed"
+      },
+      "planned_epochs": 80,
+      "completed_epochs": 80,
+      "updates": 155680,
+      "selected_epoch": 80,
+      "selected_step": 155680,
+      "selection_metric": "hidden_ce",
+      "selection_score": 0.49205213407190834,
+      "skipped_updates": 0,
+      "selected_checkpoint_sha256": "c383e906374a255770fb9edc2f05c41ba63bd414029b9ae86852c730945b18f3",
+      "last_checkpoint_sha256": "c383e906374a255770fb9edc2f05c41ba63bd414029b9ae86852c730945b18f3",
+      "config_sha256": "1dbf9afb678c9e2dc761849517cd3997ae5ebdae9c7762dc8493b59e7e0af6b2",
+      "metrics_sha256": "f5a0812f4ff8de0cf1faf48728fca4a9c18d14233cfb1b07e442f9e9d1a66448",
+      "validation_sha256": "0d13c309e3f38000bbed58db83163e65f750f817f03115d2fc947fb06ce241cd"
+    }
+  },
+  "token_evaluation": {
+    "fresh_bit": {
+      "samples": 512,
+      "source": {
+        "kind": "release_cache",
+        "fingerprint": "1a1edd34519dacdf387e67fdec6b00e3fb1ecf052193332a1d2f31626b8ee646",
+        "tokenizer_binding_verified": true
+      },
+      "selection_sha256": "3fb965a964f98e249a865add8f41b4e6b2c9ac86948bcb8124da9392458a0b95",
+      "seed": 20260511,
+      "mask_device": "cpu",
+      "batch_size": 16,
+      "report_sha256": "29a68c4c8d0477811b727fee083f29b334ce7376e098e7223d45ab6b4f7c21ed",
+      "rows": [
+        {
+          "mask_ratio": 0.1,
+          "bit_accuracy": 0.9847864745339008,
+          "token_exact": 0.8596716791023414,
+          "bce": 0.035625695877420246,
+          "token_count": 838448,
+          "mask_sha256": "caf1cb3684e2797282f51e333fc2ec03ee089e2ebdf4e1abe0fa8b73eae5525f",
+          "uncertain_mse_reduction": 0.30649268697353793,
+          "hard_wrong_mse_reduction": 0.4523431946310773,
+          "edge_mse_reduction": 0.28835765015206716
+        },
+        {
+          "mask_ratio": 0.25,
+          "bit_accuracy": 0.9838801144104676,
+          "token_exact": 0.8540446414437233,
+          "bce": 0.03770713097723429,
+          "token_count": 2097244,
+          "mask_sha256": "650e8340b1ae4b482904dbdb36c47c61f4a5feed3b138c25f3fc69711c8c2ca0",
+          "uncertain_mse_reduction": 0.30569107934833717,
+          "hard_wrong_mse_reduction": 0.45445508039737437,
+          "edge_mse_reduction": 0.2938627550558899
+        },
+        {
+          "mask_ratio": 0.5,
+          "bit_accuracy": 0.9813972902943054,
+          "token_exact": 0.8382840110221436,
+          "bce": 0.04362686535719477,
+          "token_count": 4192288,
+          "mask_sha256": "2fa77878b6acb20e2c77d70fe7bfb137ff854d55922ad5cffaf48fc67f919270",
+          "uncertain_mse_reduction": 0.3030105333852273,
+          "hard_wrong_mse_reduction": 0.4550777649933082,
+          "edge_mse_reduction": 0.30131542543678624
+        },
+        {
+          "mask_ratio": 0.75,
+          "bit_accuracy": 0.9748043618179558,
+          "token_exact": 0.8003356182187751,
+          "bce": 0.059544494085709304,
+          "token_count": 6289885,
+          "mask_sha256": "aebc4450a78e0ca4420d704d164d616ae5300d2863b8f6cdfa4963f6c68816c9",
+          "uncertain_mse_reduction": 0.30184460898265164,
+          "hard_wrong_mse_reduction": 0.4460414459112141,
+          "edge_mse_reduction": 0.31401903152487687
+        },
+        {
+          "mask_ratio": 0.9,
+          "bit_accuracy": 0.8763487154735418,
+          "token_exact": 0.25997895583984715,
+          "bce": 0.34109359297400377,
+          "token_count": 7549838,
+          "mask_sha256": "357dba2df85152fd59f0297dedd288b7703883b5dc75617b881f16b8da54547b",
+          "uncertain_mse_reduction": 0.1647553663520709,
+          "hard_wrong_mse_reduction": 0.5835251969280967,
+          "edge_mse_reduction": 0.33462961742363106
+        }
+      ]
+    },
+    "fresh_categorical": {
+      "samples": 512,
+      "source": {
+        "kind": "release_cache",
+        "fingerprint": "1a1edd34519dacdf387e67fdec6b00e3fb1ecf052193332a1d2f31626b8ee646",
+        "tokenizer_binding_verified": true
+      },
+      "selection_sha256": "3fb965a964f98e249a865add8f41b4e6b2c9ac86948bcb8124da9392458a0b95",
+      "seed": 20260511,
+      "mask_device": "cpu",
+      "batch_size": 1,
+      "report_sha256": "f90b9b7cd2853e28754c3c693a81b35910e35b2b985161b36c2af75bbd858190",
+      "rows": [
+        {
+          "mask_ratio": 0.1,
+          "token_exact": 0.8625710837165811,
+          "ce": 0.40819607902418975,
+          "token_count": 838448,
+          "mask_sha256": "caf1cb3684e2797282f51e333fc2ec03ee089e2ebdf4e1abe0fa8b73eae5525f"
+        },
+        {
+          "mask_ratio": 0.25,
+          "token_exact": 0.857177800961643,
+          "ce": 0.43026400057786773,
+          "token_count": 2097244,
+          "mask_sha256": "650e8340b1ae4b482904dbdb36c47c61f4a5feed3b138c25f3fc69711c8c2ca0"
+        },
+        {
+          "mask_ratio": 0.5,
+          "token_exact": 0.8426911509896267,
+          "ce": 0.4892842650549093,
+          "token_count": 4192288,
+          "mask_sha256": "2fa77878b6acb20e2c77d70fe7bfb137ff854d55922ad5cffaf48fc67f919270"
+        },
+        {
+          "mask_ratio": 0.75,
+          "token_exact": 0.8104127499946342,
+          "ce": 0.631801544987073,
+          "token_count": 6289885,
+          "mask_sha256": "aebc4450a78e0ca4420d704d164d616ae5300d2863b8f6cdfa4963f6c68816c9"
+        },
+        {
+          "mask_ratio": 0.9,
+          "token_exact": 0.6880872145865912,
+          "ce": 1.298891352117216,
+          "token_count": 7549838,
+          "mask_sha256": "357dba2df85152fd59f0297dedd288b7703883b5dc75617b881f16b8da54547b"
+        }
+      ]
+    },
+    "reference_pair_on_new_cache": {
+      "samples": 512,
+      "source": {
+        "kind": "release_cache",
+        "fingerprint": "54bdde4d3e0b7daea33c70d439673fd557470a88c9b3adc306cf5de2662fdbba",
+        "tokenizer_binding_verified": true
+      },
+      "selection_sha256": "3fb965a964f98e249a865add8f41b4e6b2c9ac86948bcb8124da9392458a0b95",
+      "seed": 20260511,
+      "mask_device": "cpu",
+      "batch_size": 16,
+      "report_sha256": "f6e54713ebe869ffdf76daf64feebc66b5a0a2f191981873620e7f9b54e17682",
+      "rows": [
+        {
+          "mask_ratio": 0.1,
+          "bit_accuracy": 0.9772293570978761,
+          "token_exact": 0.805719615289201,
+          "bce": 0.052821345797874716,
+          "token_count": 838448,
+          "mask_sha256": "caf1cb3684e2797282f51e333fc2ec03ee089e2ebdf4e1abe0fa8b73eae5525f",
+          "uncertain_mse_reduction": 0.30666631632420216,
+          "hard_wrong_mse_reduction": 0.4566316155050627,
+          "edge_mse_reduction": 0.2907230913107658
+        },
+        {
+          "mask_ratio": 0.25,
+          "bit_accuracy": 0.9759853884431187,
+          "token_exact": 0.7993399909595641,
+          "bce": 0.055792202208290974,
+          "token_count": 2097244,
+          "mask_sha256": "650e8340b1ae4b482904dbdb36c47c61f4a5feed3b138c25f3fc69711c8c2ca0",
+          "uncertain_mse_reduction": 0.3047815770082283,
+          "hard_wrong_mse_reduction": 0.4574155852403685,
+          "edge_mse_reduction": 0.29396726524718164
+        },
+        {
+          "mask_ratio": 0.5,
+          "bit_accuracy": 0.972302833202299,
+          "token_exact": 0.7802581788274088,
+          "bce": 0.06421315606651826,
+          "token_count": 4192288,
+          "mask_sha256": "2fa77878b6acb20e2c77d70fe7bfb137ff854d55922ad5cffaf48fc67f919270",
+          "uncertain_mse_reduction": 0.30334822339743295,
+          "hard_wrong_mse_reduction": 0.458678161505364,
+          "edge_mse_reduction": 0.30042912093793384
+        },
+        {
+          "mask_ratio": 0.75,
+          "bit_accuracy": 0.9632867294076124,
+          "token_exact": 0.7386227252167568,
+          "bce": 0.08493176859221857,
+          "token_count": 6289885,
+          "mask_sha256": "aebc4450a78e0ca4420d704d164d616ae5300d2863b8f6cdfa4963f6c68816c9",
+          "uncertain_mse_reduction": 0.3037567271898495,
+          "hard_wrong_mse_reduction": 0.4565646948900911,
+          "edge_mse_reduction": 0.31175849947418366
+        },
+        {
+          "mask_ratio": 0.9,
+          "bit_accuracy": 0.8957391315328003,
+          "token_exact": 0.3783560653884229,
+          "bce": 0.28109109413451433,
+          "token_count": 7549838,
+          "mask_sha256": "357dba2df85152fd59f0297dedd288b7703883b5dc75617b881f16b8da54547b",
+          "uncertain_mse_reduction": 0.19896536119359032,
+          "hard_wrong_mse_reduction": 0.5789976252885929,
+          "edge_mse_reduction": 0.33447555294609044
+        }
+      ]
+    },
+    "same_test_order_and_masks_verified": true,
+    "interpretation": "Tokenizers differ. Higher token accuracy alone is not evidence of improved representation or geometry."
+  },
+  "reconstruction": {
+    "fresh": {
+      "resolution": 56,
+      "options": {
+        "pc_size": null,
+        "samples_per_mesh": 2048,
+        "uniform_samples": 1024,
+        "query_chunk_size": 4096,
+        "chunk_size": 512,
+        "mesh_samples": 2048,
+        "seed": 2026,
+        "sign_eps": 0.0005,
+        "bounds": [
+          -0.6,
+          0.6
+        ],
+        "save_meshes": false,
+        "sampling": {
+          "seed": 2026,
+          "pc_size": 8192,
+          "samples_per_mesh": 2048,
+          "uniform_samples": 1024,
+          "point_strategy": "spatial_mixed",
+          "point_bins": 28,
+          "point_random_ratio": 0.25,
+          "query_strategy": "spatial_sdf_value_balanced",
+          "query_bins": 24,
+          "query_ratios": [
+            0.1,
+            0.2,
+            0.2,
+            0.25,
+            0.25
+          ],
+          "surface_eps": 0.0005,
+          "near_eps": 0.02,
+          "orient_normals": true,
+          "point_sampling_frame": "observation",
+          "axis_lock": true,
+          "frame_source": "cache"
+        }
+      },
+      "attempted_samples": 512,
+      "successful_samples": 512,
+      "paths": {
+        "raw": {
+          "query": {
+            "absolute_error_sum": 57168.332243072626,
+            "query_count": 1048576,
+            "finite_count": 1048576,
+            "nonfinite_count": 0,
+            "sign_correct": 846669,
+            "sign_count": 943060,
+            "sign_finite_count": 943060,
+            "sign_excluded_surface_count": 105516,
+            "sdf_mae": 0.05451997017199767,
+            "sign_accuracy": 0.8977891120395309
+          },
+          "uniform": {
+            "absolute_error_sum": 80196.58461019909,
+            "query_count": 524288,
+            "finite_count": 524288,
+            "nonfinite_count": 0,
+            "sign_correct": 517331,
+            "sign_count": 523720,
+            "sign_finite_count": 523720,
+            "sign_excluded_surface_count": 568,
+            "sdf_mae": 0.1529628460124952,
+            "sign_accuracy": 0.9878007332162224
+          },
+          "mesh_status_counts": {
+            "ok": 512
+          },
+          "mesh_valid_count": 512,
+          "mesh_attempted_count": 512,
+          "cd_x1e4_valid_only": {
+            "count": 512,
+            "missing": 0,
+            "mean": 5.582498732939216,
+            "median": 3.200691295334231,
+            "p95": 14.903102769770776
+          }
+        },
+        "continuous": {
+          "query": {
+            "absolute_error_sum": 56679.54589890058,
+            "query_count": 1048576,
+            "finite_count": 1048576,
+            "nonfinite_count": 0,
+            "sign_correct": 845446,
+            "sign_count": 943060,
+            "sign_finite_count": 943060,
+            "sign_excluded_surface_count": 105516,
+            "sdf_mae": 0.05405382718935068,
+            "sign_accuracy": 0.8964922698449728
+          },
+          "uniform": {
+            "absolute_error_sum": 79615.29106323737,
+            "query_count": 524288,
+            "finite_count": 524288,
+            "nonfinite_count": 0,
+            "sign_correct": 517534,
+            "sign_count": 523720,
+            "sign_finite_count": 523720,
+            "sign_excluded_surface_count": 568,
+            "sdf_mae": 0.15185411656043504,
+            "sign_accuracy": 0.9881883449171313
+          },
+          "mesh_status_counts": {
+            "ok": 512
+          },
+          "mesh_valid_count": 512,
+          "mesh_attempted_count": 512,
+          "cd_x1e4_valid_only": {
+            "count": 512,
+            "missing": 0,
+            "mean": 5.209822834248166,
+            "median": 3.12205985443721,
+            "p95": 14.226418320930184
+          }
+        },
+        "quantized": {
+          "query": {
+            "absolute_error_sum": 56978.47682749437,
+            "query_count": 1048576,
+            "finite_count": 1048576,
+            "nonfinite_count": 0,
+            "sign_correct": 841478,
+            "sign_count": 943060,
+            "sign_finite_count": 943060,
+            "sign_excluded_surface_count": 105516,
+            "sdf_mae": 0.05433890993833005,
+            "sign_accuracy": 0.8922846902636099
+          },
+          "uniform": {
+            "absolute_error_sum": 79920.7476391554,
+            "query_count": 524288,
+            "finite_count": 524288,
+            "nonfinite_count": 0,
+            "sign_correct": 517181,
+            "sign_count": 523720,
+            "sign_finite_count": 523720,
+            "sign_excluded_surface_count": 568,
+            "sdf_mae": 0.15243672874289588,
+            "sign_accuracy": 0.987514320629344
+          },
+          "mesh_status_counts": {
+            "ok": 512
+          },
+          "mesh_valid_count": 512,
+          "mesh_attempted_count": 512,
+          "cd_x1e4_valid_only": {
+            "count": 512,
+            "missing": 0,
+            "mean": 5.3471046756262375,
+            "median": 3.5156704584818503,
+            "p95": 14.443212248390614
+          }
+        }
+      },
+      "protocol": [
+        "All points and SDF values retain radius-0.5 model units; no additional input scaling is applied.",
+        "Query scores use the dataset's balanced SDF samples; uniform scores are reported separately, with additive support counts. Sign ties within sign_eps are excluded.",
+        "Mesh validity means a finite nonempty nondegenerate level-zero surface, not guaranteed watertightness, correct topology, or raw-scan SDF reliability. Topology is reported separately.",
+        "Mesh CD compares area-sampled predicted triangles with stored reference surface points in the SAME representative coordinates. Invalid/missing surfaces receive null CD, never zero; valid-only averages are selection-biased.",
+        "Tiny demonstrations, untrained checkpoints, and GPU overfit examples are not paper-quality evidence or industrial/grasp-quality validation."
+      ],
+      "report_sha256": "be474aa649add946f78ab537cb90d9e99a50a8db1e9ab39ea1bd83f080b0da4c"
+    },
+    "reference": {
+      "resolution": 56,
+      "options": {
+        "pc_size": null,
+        "samples_per_mesh": 2048,
+        "uniform_samples": 1024,
+        "query_chunk_size": 4096,
+        "chunk_size": 512,
+        "mesh_samples": 2048,
+        "seed": 2026,
+        "sign_eps": 0.0005,
+        "bounds": [
+          -0.6,
+          0.6
+        ],
+        "save_meshes": false,
+        "sampling": {
+          "seed": 2026,
+          "pc_size": 8192,
+          "samples_per_mesh": 2048,
+          "uniform_samples": 1024,
+          "point_strategy": "spatial_mixed",
+          "point_bins": 28,
+          "point_random_ratio": 0.25,
+          "query_strategy": "spatial_sdf_value_balanced",
+          "query_bins": 24,
+          "query_ratios": [
+            0.1,
+            0.2,
+            0.2,
+            0.25,
+            0.25
+          ],
+          "surface_eps": 0.0005,
+          "near_eps": 0.02,
+          "orient_normals": true,
+          "point_sampling_frame": "observation",
+          "axis_lock": true,
+          "frame_source": "cache"
+        }
+      },
+      "attempted_samples": 512,
+      "successful_samples": 512,
+      "paths": {
+        "raw": {
+          "query": {
+            "absolute_error_sum": 58188.1161077285,
+            "query_count": 1048576,
+            "finite_count": 1048576,
+            "nonfinite_count": 0,
+            "sign_correct": 866758,
+            "sign_count": 943060,
+            "sign_finite_count": 943060,
+            "sign_excluded_surface_count": 105516,
+            "sdf_mae": 0.05549251185200548,
+            "sign_accuracy": 0.9190910440480987
+          },
+          "uniform": {
+            "absolute_error_sum": 79949.12532174055,
+            "query_count": 524288,
+            "finite_count": 524288,
+            "nonfinite_count": 0,
+            "sign_correct": 519493,
+            "sign_count": 523720,
+            "sign_finite_count": 523720,
+            "sign_excluded_surface_count": 568,
+            "sdf_mae": 0.15249085487697706,
+            "sign_accuracy": 0.9919288933017643
+          },
+          "mesh_status_counts": {
+            "ok": 512
+          },
+          "mesh_valid_count": 512,
+          "mesh_attempted_count": 512,
+          "cd_x1e4_valid_only": {
+            "count": 512,
+            "missing": 0,
+            "mean": 6.515652690239303,
+            "median": 2.941699855209149,
+            "p95": 13.079620810675236
+          }
+        },
+        "continuous": {
+          "query": {
+            "absolute_error_sum": 57846.461266440325,
+            "query_count": 1048576,
+            "finite_count": 1048576,
+            "nonfinite_count": 0,
+            "sign_correct": 869067,
+            "sign_count": 943060,
+            "sign_finite_count": 943060,
+            "sign_excluded_surface_count": 105516,
+            "sdf_mae": 0.055166684404793095,
+            "sign_accuracy": 0.9215394566623545
+          },
+          "uniform": {
+            "absolute_error_sum": 79928.46790113628,
+            "query_count": 524288,
+            "finite_count": 524288,
+            "nonfinite_count": 0,
+            "sign_correct": 520058,
+            "sign_count": 523720,
+            "sign_finite_count": 523720,
+            "sign_excluded_surface_count": 568,
+            "sdf_mae": 0.15245145397403007,
+            "sign_accuracy": 0.9930077140456732
+          },
+          "mesh_status_counts": {
+            "ok": 512
+          },
+          "mesh_valid_count": 512,
+          "mesh_attempted_count": 512,
+          "cd_x1e4_valid_only": {
+            "count": 512,
+            "missing": 0,
+            "mean": 6.0871532216178785,
+            "median": 2.707866670705366,
+            "p95": 11.852335962328945
+          }
+        },
+        "quantized": {
+          "query": {
+            "absolute_error_sum": 58122.5689977767,
+            "query_count": 1048576,
+            "finite_count": 1048576,
+            "nonfinite_count": 0,
+            "sign_correct": 866207,
+            "sign_count": 943060,
+            "sign_finite_count": 943060,
+            "sign_excluded_surface_count": 105516,
+            "sdf_mae": 0.0554300012567298,
+            "sign_accuracy": 0.9185067758149005
+          },
+          "uniform": {
+            "absolute_error_sum": 80422.68283994694,
+            "query_count": 524288,
+            "finite_count": 524288,
+            "nonfinite_count": 0,
+            "sign_correct": 519801,
+            "sign_count": 523720,
+            "sign_finite_count": 523720,
+            "sign_excluded_surface_count": 568,
+            "sdf_mae": 0.1533940941618861,
+            "sign_accuracy": 0.9925169938134881
+          },
+          "mesh_status_counts": {
+            "ok": 512
+          },
+          "mesh_valid_count": 512,
+          "mesh_attempted_count": 512,
+          "cd_x1e4_valid_only": {
+            "count": 512,
+            "missing": 0,
+            "mean": 5.237073268933296,
+            "median": 2.814940823155388,
+            "p95": 12.695032636725374
+          }
+        }
+      },
+      "protocol": [
+        "All points and SDF values retain radius-0.5 model units; no additional input scaling is applied.",
+        "Query scores use the dataset's balanced SDF samples; uniform scores are reported separately, with additive support counts. Sign ties within sign_eps are excluded.",
+        "Mesh validity means a finite nonempty nondegenerate level-zero surface, not guaranteed watertightness, correct topology, or raw-scan SDF reliability. Topology is reported separately.",
+        "Mesh CD compares area-sampled predicted triangles with stored reference surface points in the SAME representative coordinates. Invalid/missing surfaces receive null CD, never zero; valid-only averages are selection-biased.",
+        "Tiny demonstrations, untrained checkpoints, and GPU overfit examples are not paper-quality evidence or industrial/grasp-quality validation."
+      ],
+      "report_sha256": "face8ffb54f1ec4e0cc9e475f599447a31a9ea872311d5fe4039301903584499"
+    }
+  },
+  "matched_4096_lfq_support": {
+    "fresh": {
+      "provenance": {
+        "split": "test",
+        "samples": 512,
+        "tokenizer_hash": "5ee34f0aa7ea925a9892539613d6bac0a6690580d94e880ca1c2cf3bcd76ab58",
+        "counting": "All stored token cells, pooled across selected samples"
+      },
+      "metrics": {
+        "name": "LFQ",
+        "codebook_size": 4096,
+        "total_tokens": 8388608,
+        "active_codes": 2563,
+        "nominal_usage": 0.625732421875,
+        "entropy_nats": 5.270246757836035,
+        "perplexity": 194.46394202700193,
+        "effective_support": 0.04747654834643602,
+        "codes_for_50": 23,
+        "codes_for_90": 450
+      },
+      "report_sha256": "d77f34e835495db5b2fb260c7203ea1fd198de61d13a5d8633cf6aff5ff6b438"
+    },
+    "reference": {
+      "provenance": {
+        "split": "test",
+        "samples": 512,
+        "tokenizer_hash": "b6c774332ba2298bc56439936f3f69091493ac2045bf6bd7a425f9828bc82d2f",
+        "counting": "All stored token cells, pooled across selected samples"
+      },
+      "metrics": {
+        "name": "LFQ",
+        "codebook_size": 4096,
+        "total_tokens": 8388608,
+        "active_codes": 3892,
+        "nominal_usage": 0.9501953125,
+        "entropy_nats": 5.95032663828799,
+        "perplexity": 383.87870806883757,
+        "effective_support": 0.09372038771211855,
+        "codes_for_50": 54,
+        "codes_for_90": 958
+      },
+      "report_sha256": "25e56f496bc8a1de71f77a4fa3f55abb4bd0d254e8f86d1d8a398447810f7e55"
+    }
+  },
+  "decoded_completion": {
+    "samples": 512,
+    "protocol": {
+      "resolution": 56,
+      "bounds": [
+        -0.5,
+        0.5
+      ],
+      "ratio": 0.75,
+      "seed": 20260516,
+      "selection_sha256": "5738153ec97595b1c1e4dc027f7b7fb4534f19ed2ce9f9ee712e6d34a384cde7",
+      "mask_sha256": "e5720d7b4aee12ddc84f584f50512d70a792a91995a0c78e5ddb37cd5f8af543",
+      "supplied_mask_sha256": null,
+      "mask_rule": "CPU Bernoulli; seed + round(ratio * 10000)",
+      "component_min_fraction": 0.02,
+      "component_min_triangles": 64
+    },
+    "source": {
+      "kind": "release_cache",
+      "fingerprint": "1a1edd34519dacdf387e67fdec6b00e3fb1ecf052193332a1d2f31626b8ee646",
+      "tokenizer_binding_verified": true
+    },
+    "bindings_verified": {
+      "bit_field": true,
+      "categorical": true
+    },
+    "summary": {
+      "relaxed": {
+        "samples": 512,
+        "valid": 512,
+        "valid_fraction": 1.0,
+        "drift_failures": 0,
+        "drift_valid_fraction": 0.0,
+        "failure_inclusive_fraction": 0.0,
+        "cd_n": {
+          "count": 512,
+          "missing": 0,
+          "mean": 0.0006606171784134618,
+          "median": 0.0006241910568193767,
+          "p95": 0.0012496902547299393
+        },
+        "fscore_1pct": {
+          "count": 512,
+          "missing": 0,
+          "mean": 0.3184039483189359,
+          "median": 0.2653049935551741,
+          "p95": 0.6475920770020075
+        },
+        "normal_consistency": {
+          "count": 512,
+          "missing": 0,
+          "mean": 0.9042270576995507,
+          "median": 0.9078989166166457,
+          "p95": 0.9634273727552229
+        },
+        "edge_distance": {
+          "count": 512,
+          "missing": 0,
+          "mean": 0.01645608945861953,
+          "median": 0.016351447507017922,
+          "p95": 0.02477982585459889
+        },
+        "excess_drift": null,
+        "excess_edge": 0.0
+      },
+      "hard": {
+        "samples": 512,
+        "valid": 512,
+        "valid_fraction": 1.0,
+        "drift_failures": 0,
+        "drift_valid_fraction": 0.0,
+        "failure_inclusive_fraction": 0.0,
+        "cd_n": {
+          "count": 512,
+          "missing": 0,
+          "mean": 0.0006628874226355951,
+          "median": 0.0006307823009649955,
+          "p95": 0.0012827933200448476
+        },
+        "fscore_1pct": {
+          "count": 512,
+          "missing": 0,
+          "mean": 0.3161755282967432,
+          "median": 0.261368337198354,
+          "p95": 0.6440640945280938
+        },
+        "normal_consistency": {
+          "count": 512,
+          "missing": 0,
+          "mean": 0.9012212755079223,
+          "median": 0.90453493586508,
+          "p95": 0.9622370507655023
+        },
+        "edge_distance": {
+          "count": 512,
+          "missing": 0,
+          "mean": 0.01626154912231246,
+          "median": 0.016384719334637518,
+          "p95": 0.023911059288477903
+        },
+        "excess_drift": null,
+        "excess_edge": -0.011821784075509711
+      },
+      "categorical": {
+        "samples": 512,
+        "valid": 512,
+        "valid_fraction": 1.0,
+        "drift_failures": 0,
+        "drift_valid_fraction": 0.0,
+        "failure_inclusive_fraction": 0.0,
+        "cd_n": {
+          "count": 512,
+          "missing": 0,
+          "mean": 0.0006625621163405364,
+          "median": 0.0006289466609306214,
+          "p95": 0.0012343866417147851
+        },
+        "fscore_1pct": {
+          "count": 512,
+          "missing": 0,
+          "mean": 0.31482002503127937,
+          "median": 0.2618349201965035,
+          "p95": 0.6420697031296703
+        },
+        "normal_consistency": {
+          "count": 512,
+          "missing": 0,
+          "mean": 0.8991133904616371,
+          "median": 0.9050752179243506,
+          "p95": 0.9613300950346881
+        },
+        "edge_distance": {
+          "count": 512,
+          "missing": 0,
+          "mean": 0.01630961528131022,
+          "median": 0.016297188901581054,
+          "p95": 0.023718682152124422
+        },
+        "excess_drift": null,
+        "excess_edge": -0.008900910369844195
+      }
+    },
+    "definitions": {
+      "cd_n": "Sum of both mean squared nearest-neighbor distances divided by oracle bbox diagonal squared; NO factor 0.5.",
+      "drift_valid_fraction": "Fraction of valid pairs with CD_n > threshold; missing pairs excluded and separately counted.",
+      "failure_inclusive_fraction": "Missing/invalid pairs plus drift failures divided by ALL requested pairs.",
+      "edge_distance": "Mean distance from oracle vertices at/above the configured Laplacian percentile to sampled prediction, divided by oracle bbox diagonal.",
+      "sampling": "Original Open3D uniform surface sampler, now explicitly seeded per pair. The original run did not seed Open3D's global stream; small differences are expected."
+    },
+    "report_sha256": "c98e1f2b66e3cdcaeeddf148a600c95568a2a91eeccaf373097f61438def4c65",
+    "interpretation": "Fresh matched-completion pair, NOT the paper full-shape boundary pair. All three paths have zero drift failures here; relaxed edge error is not lower than hard/categorical."
+  },
+  "limits": [
+    "One seed and one CUDA GPU; no CUDA/NCCL multi-GPU hardware run.",
+    "The K=8192 55-category VQ/LFQ support experiment has not been trained afresh.",
+    "Matched K=4096 fresh LFQ effective support is lower than the reference pair; token-accuracy gains do not establish a method improvement.",
+    "The full-shape relaxed decoded-boundary advantage is not independently retrained by this primary-completion run.",
+    "Historical stress-source and numerical-protocol differences are documented separately in BENCHMARKS.md.",
+    "Raw training data, token arrays, meshes and weights are not publicly redistributed by this report."
+  ]
+}

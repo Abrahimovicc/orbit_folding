@@ -1,0 +1,832 @@
+{
+  "_project": {
+    "institution": "Chair of Multimodal Machine Learning, ScaDS.AI Dresden/Leipzig",
+    "contact": "Xiang Chen <xiang.chen@uni-leipzig.de>"
+  },
+  "schema_version": 1,
+  "project_authored_metadata_license_spdx": "MIT",
+  "project_authored_metadata_license_file": "licenses/MIT.txt",
+  "third_party_assets_relicensed_under_mit": false,
+  "path_base": "Paths in this manifest are relative to orbit_folding_release/data.",
+  "upstream_repository": "https://github.com/KhronosGroup/glTF-Sample-Assets",
+  "upstream_revision": "8f492390ddc7a2ae221a1369ef560589cf8c70fb",
+  "verification_date": "2026-10-25",
+  "conversion_environment": {
+    "python": "3.11.14",
+    "open3d": "0.19.0",
+    "trimesh": "4.9.0",
+    "numpy": "1.26.4",
+    "device": "CPU only"
+  },
+  "license_texts": {
+    "CC0-1.0": {
+      "path": "licenses/CC0-1.0.txt",
+      "source_url": "https://creativecommons.org/publicdomain/zero/1.0/legalcode.txt",
+      "sha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
+      "modified": false,
+      "license_spdx": "CC0-1.0"
+    },
+    "CC-BY-4.0": {
+      "path": "licenses/CC-BY-4.0.txt",
+      "source_url": "https://creativecommons.org/licenses/by/4.0/legalcode.txt",
+      "sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411",
+      "modified": false,
+      "license_spdx": "CC-BY-4.0"
+    }
+  },
+  "upstream_metadata_attribution": "KhronosGroup/glTF-Sample-Assets contributors (CC-BY-4.0). Source README.md, LICENSE.md, and metadata.json are copied verbatim; their author, copyright, and license notices remain intact. No project header is inserted into unmodified third-party files.",
+  "upstream_trademark_notice": {
+    "path": "licenses/upstream/LICENSES/LicenseRef-LegalMark-Khronos.txt",
+    "source_url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/8f492390ddc7a2ae221a1369ef560589cf8c70fb/LICENSES/LicenseRef-LegalMark-Khronos.txt",
+    "sha256": "2ea9821de870cf8d3faaa115ffc47f56632bf9f98d54d2ac1ce61592040b765c",
+    "modified": false
+  },
+  "license_caveats": [
+    "The MIT license applies only to original project contributions, not to the third-party meshes or copied upstream documentation.",
+    "CC-BY-4.0 assets and upstream documentation require preservation of attribution, source, license, and modification notices on redistribution.",
+    "Fox has a CC0 base model plus CC-BY rigging/conversion components. Preserve all supplied credits; do not treat the license expression as an OR choice.",
+    "Khronos and glTF trademarks/logos are not licensed by CC0/CC-BY. Appearance data containing logos is omitted; the upstream trademark notice is retained.",
+    "All meshes are supplied as-is, without warranty or endorsement. No patent, trademark, or other third-party-rights clearance is implied."
+  ],
+  "assets": [
+    {
+      "id": "mandarin_orange",
+      "title": "Mandarin Orange",
+      "path": "samples/raw/mandarin_orange.ply",
+      "sha256": "3a1bf51b90326fda29ce7ca9d052e0acbcaa99b3d315553f7bf78892743a4203",
+      "bytes": 1021351,
+      "source_url": "https://github.com/KhronosGroup/glTF-Sample-Assets/tree/8f492390ddc7a2ae221a1369ef560589cf8c70fb/Models/MandarinOrange",
+      "license_spdx": "CC-BY-4.0",
+      "full_license_texts": [
+        "licenses/CC-BY-4.0.txt"
+      ],
+      "authors": [
+        {
+          "name": "zamdreamer",
+          "role": "Initial creation",
+          "copyright_year": "2015",
+          "copyright_holder": "zamdreamer",
+          "license_spdx": "CC-BY-4.0"
+        },
+        {
+          "name": "Eric Chadwick",
+          "role": "glTF PBR material",
+          "copyright_year": "2023",
+          "copyright_holder": "Wayfair",
+          "license_spdx": "CC-BY-4.0"
+        }
+      ],
+      "source_files": [
+        {
+          "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/8f492390ddc7a2ae221a1369ef560589cf8c70fb/Models/MandarinOrange/glTF/MandarinOrange.gltf",
+          "sha256": "148a260776eb8258f1d90c1623bad1bdca17b1bec42da597536ef09e816c2091",
+          "bytes": 3791
+        },
+        {
+          "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/8f492390ddc7a2ae221a1369ef560589cf8c70fb/Models/MandarinOrange/glTF/MandarinOrange.bin",
+          "sha256": "15bc58559ab4b60e6e1a94449940911e1c5ebc4c021004b7f4fac54323063cfd",
+          "bytes": 1262448
+        }
+      ],
+      "upstream_provenance_files": [
+        {
+          "path": "licenses/upstream/Models/MandarinOrange/README.md",
+          "source_url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/8f492390ddc7a2ae221a1369ef560589cf8c70fb/Models/MandarinOrange/README.md",
+          "sha256": "201714cb3c45417c164e90f79f3234419e77548448af9dd2d900822a21d776fd",
+          "modified": false,
+          "license_spdx": "CC-BY-4.0",
+          "attribution": "KhronosGroup/glTF-Sample-Assets contributors; original authors and notices retained in the copied files."
+        },
+        {
+          "path": "licenses/upstream/Models/MandarinOrange/LICENSE.md",
+          "source_url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/8f492390ddc7a2ae221a1369ef560589cf8c70fb/Models/MandarinOrange/LICENSE.md",
+          "sha256": "5b4b3fa8c86794ca645db22eca4bc0a06702e102d403140ea3b7875b87500210",
+          "modified": false,
+          "license_spdx": "CC-BY-4.0",
+          "attribution": "KhronosGroup/glTF-Sample-Assets contributors; original authors and notices retained in the copied files."
+        },
+        {
+          "path": "licenses/upstream/Models/MandarinOrange/metadata.json",
+          "source_url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/8f492390ddc7a2ae221a1369ef560589cf8c70fb/Models/MandarinOrange/metadata.json",
+          "sha256": "0e4cc86876f714aaf90dd3d839ff8cf837668518ce1ddd224b07e4979ca1c104",
+          "modified": false,
+          "license_spdx": "CC-BY-4.0",
+          "attribution": "KhronosGroup/glTF-Sample-Assets contributors; original authors and notices retained in the copied files."
+        }
+      ],
+      "source_gltf_asset": {
+        "version": "2.0",
+        "copyright": "Orange (https://skfb.ly/EZNY) by zamdreamer (CCBY 4.0), glTF material by Eric Chadwick (CCBY 4.0)"
+      },
+      "selected_nodes": [
+        {
+          "node": "MandarinOrange",
+          "geometry": "MandarinOrange",
+          "world_transform": [
+            [
+              1.0,
+              -1.2246467991473535e-16,
+              -3.0814879110195774e-32,
+              0.0
+            ],
+            [
+              6.12323399573677e-17,
+              0.4999999999999998,
+              0.8660254037844389,
+              0.0
+            ],
+            [
+              -1.0605752387249072e-16,
+              -0.8660254037844389,
+              0.4999999999999998,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        }
+      ],
+      "omitted_geometry_nodes": [],
+      "modifications": [
+        "Geometry-only conversion from upstream glTF/GLB to binary little-endian PLY, containing only vertex positions and triangle indices.",
+        "Extract exactly the selected complete object node(s); preserve static scene-node world transforms, original coordinate scale, and surface shape.",
+        "Weld only vertices whose transformed float64 positions are exactly identical (Open3D remove_duplicated_vertices); no tolerance-based merging.",
+        "Omit textures, materials, UVs, vertex colors, normals, cameras, lights, rigging, and animations.",
+        "Do not normalize, center, rescale, simplify, remesh, fill holes, deform, or repair surfaces. Retain every source triangle of the selected object(s)."
+      ],
+      "normalization_applied": false,
+      "geometry_only": true,
+      "notes": [
+        "Photogrammetry scan of an orange; no procedural substitute.",
+        "Upstream prose spells the original creator zandreamer; its legal notices and metadata spell the creator zamdreamer. Both spellings are retained here.",
+        "Original Sketchfab source: https://sketchfab.com/3d-models/orange-774bc66d11c24855bf722e35249fddf7"
+      ],
+      "geometry": {
+        "vertices_before_exact_weld": 24138,
+        "vertices": 20418,
+        "triangles": 40836,
+        "bounds": [
+          [
+            -0.008429992944002151,
+            -0.00806628814895524,
+            -0.0025138535384378706
+          ],
+          [
+            0.0073140156455338,
+            0.009289828832559794,
+            0.00942650778440211
+          ]
+        ],
+        "connected_components": 1,
+        "is_watertight": true,
+        "is_edge_manifold_without_boundary": true,
+        "is_vertex_manifold": true,
+        "is_self_intersecting": false,
+        "is_orientable": true,
+        "is_winding_consistent": true,
+        "boundary_or_nonmanifold_edges": 0,
+        "signed_volume": 5.373706158777364e-07,
+        "source_unique_vertex_coordinates_preserved_exactly": true,
+        "source_selected_triangle_count_preserved": true,
+        "ply_roundtrip_coordinates_and_indices_exact": true,
+        "sdf_smoke_test": {
+          "engine": "Open3D CPU RaycastingScene.compute_signed_distance, nsamples=5",
+          "sample_order": [
+            "largest_face_inward_offset",
+            "largest_face_outward_offset",
+            "beyond_bounding_box"
+          ],
+          "query_coordinates": [
+            [
+              -0.00374596961773932,
+              0.002325568813830614,
+              -0.00047557050129398704
+            ],
+            [
+              -0.00374615378677845,
+              0.002325615147128701,
+              -0.0004758610448334366
+            ],
+            [
+              0.023058023303747177,
+              0.026645945385098457,
+              0.021366870030760765
+            ]
+          ],
+          "signed_distances": [
+            -1.735613182063389e-07,
+            1.7351757719552552e-07,
+            0.032425083220005035
+          ],
+          "passed": true
+        }
+      }
+    },
+    {
+      "id": "fox",
+      "title": "Fox",
+      "path": "samples/raw/fox.ply",
+      "sha256": "1df63c8dcf9517d100a89a30053401f7687bb5cc54862554af4c63c1c6c6dd04",
+      "bytes": 14895,
+      "source_url": "https://github.com/KhronosGroup/glTF-Sample-Assets/tree/8f492390ddc7a2ae221a1369ef560589cf8c70fb/Models/Fox",
+      "license_spdx": "CC0-1.0 AND CC-BY-4.0",
+      "full_license_texts": [
+        "licenses/CC0-1.0.txt",
+        "licenses/CC-BY-4.0.txt"
+      ],
+      "authors": [
+        {
+          "name": "PixelMannen",
+          "role": "Model",
+          "copyright_year": "2014",
+          "copyright_holder": "Public",
+          "license_spdx": "CC0-1.0"
+        },
+        {
+          "name": "tomkranis",
+          "role": "Rigging & Animation",
+          "copyright_year": "2014",
+          "copyright_holder": "tomkranis",
+          "license_spdx": "CC-BY-4.0"
+        },
+        {
+          "name": "@AsoboStudio and @scurest",
+          "role": "Conversion to glTF",
+          "copyright_year": "2017",
+          "copyright_holder": "@AsoboStudio and @scurest",
+          "license_spdx": "CC-BY-4.0"
+        }
+      ],
+      "source_files": [
+        {
+          "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/8f492390ddc7a2ae221a1369ef560589cf8c70fb/Models/Fox/glTF-Binary/Fox.glb",
+          "sha256": "d97044e701822bac5a62696459b27d7b375aada5de8574ed4362edbba94771f7",
+          "bytes": 162852
+        }
+      ],
+      "upstream_provenance_files": [
+        {
+          "path": "licenses/upstream/Models/Fox/README.md",
+          "source_url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/8f492390ddc7a2ae221a1369ef560589cf8c70fb/Models/Fox/README.md",
+          "sha256": "cf767a7943b12f3af0ea14a1b18947a45ed7a03c3e722678df33854d97df0f88",
+          "modified": false,
+          "license_spdx": "CC-BY-4.0",
+          "attribution": "KhronosGroup/glTF-Sample-Assets contributors; original authors and notices retained in the copied files."
+        },
+        {
+          "path": "licenses/upstream/Models/Fox/LICENSE.md",
+          "source_url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/8f492390ddc7a2ae221a1369ef560589cf8c70fb/Models/Fox/LICENSE.md",
+          "sha256": "9ddaa2edd6a8f72117eec9709d38cd7d284f61f77752d342c32c828e61f78eae",
+          "modified": false,
+          "license_spdx": "CC-BY-4.0",
+          "attribution": "KhronosGroup/glTF-Sample-Assets contributors; original authors and notices retained in the copied files."
+        },
+        {
+          "path": "licenses/upstream/Models/Fox/metadata.json",
+          "source_url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/8f492390ddc7a2ae221a1369ef560589cf8c70fb/Models/Fox/metadata.json",
+          "sha256": "1d888d832b5eb2a32a461ae6d5e2bc00f925e3a571c1447842466d2061800604",
+          "modified": false,
+          "license_spdx": "CC-BY-4.0",
+          "attribution": "KhronosGroup/glTF-Sample-Assets contributors; original authors and notices retained in the copied files."
+        }
+      ],
+      "source_gltf_asset": {
+        "copyright": "CC-BY 4.0 Model by PixelMannen https://opengameart.org/content/fox-and-shiba and @tomkranis https://sketchfab.com/3d-models/low-poly-fox-by-pixelmannen-animated-371dea88d7e04a76af5763f2a36866bc and @AsoboStudio with @scurest https://github.com/KhronosGroup/glTF-Sample-Models/pull/150#issuecomment-406300118",
+        "version": "2.0"
+      },
+      "selected_nodes": [
+        {
+          "node": "fox",
+          "geometry": "fox1",
+          "world_transform": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        }
+      ],
+      "omitted_geometry_nodes": [],
+      "modifications": [
+        "Geometry-only conversion from upstream glTF/GLB to binary little-endian PLY, containing only vertex positions and triangle indices.",
+        "Extract exactly the selected complete object node(s); preserve static scene-node world transforms, original coordinate scale, and surface shape.",
+        "Weld only vertices whose transformed float64 positions are exactly identical (Open3D remove_duplicated_vertices); no tolerance-based merging.",
+        "Omit textures, materials, UVs, vertex colors, normals, cameras, lights, rigging, and animations.",
+        "Do not normalize, center, rescale, simplify, remesh, fill holes, deform, or repair surfaces. Retain every source triangle of the selected object(s)."
+      ],
+      "normalization_applied": false,
+      "geometry_only": true,
+      "notes": [
+        "Artist-created low-poly character; no procedural substitute.",
+        "Static unanimated bind-pose vertex geometry; joint weights, skinning, and animation are omitted, not sampled or evaluated.",
+        "Conservatively retain CC-BY-4.0 attribution for rigging and glTF conversion in addition to the CC0-1.0 base model; these are component licenses, not an OR choice.",
+        "The upstream mesh spans approximately 154.72 coordinate units; it has not been heuristically rescaled."
+      ],
+      "geometry": {
+        "vertices_before_exact_weld": 1728,
+        "vertices": 290,
+        "triangles": 576,
+        "bounds": [
+          [
+            -12.592718124389648,
+            -0.12174476683139801,
+            -88.09500122070312
+          ],
+          [
+            12.592718124389648,
+            78.90718841552734,
+            66.62486267089844
+          ]
+        ],
+        "connected_components": 1,
+        "is_watertight": true,
+        "is_edge_manifold_without_boundary": true,
+        "is_vertex_manifold": true,
+        "is_self_intersecting": false,
+        "is_orientable": true,
+        "is_winding_consistent": true,
+        "boundary_or_nonmanifold_edges": 0,
+        "signed_volume": 66487.74611395433,
+        "source_unique_vertex_coordinates_preserved_exactly": true,
+        "source_selected_triangle_count_preserved": true,
+        "ply_roundtrip_coordinates_and_indices_exact": true,
+        "sdf_smoke_test": {
+          "engine": "Open3D CPU RaycastingScene.compute_signed_distance, nsamples=5",
+          "sample_order": [
+            "largest_face_inward_offset",
+            "largest_face_outward_offset",
+            "beyond_bounding_box"
+          ],
+          "query_coordinates": [
+            [
+              -10.7905912399292,
+              44.167518615722656,
+              3.0796353816986084
+            ],
+            [
+              -10.79367733001709,
+              44.16730880737305,
+              3.0796759128570557
+            ],
+            [
+              37.77815246582031,
+              157.93612670898438,
+              221.3447265625
+            ]
+          ],
+          "signed_distances": [
+            -0.0015466114273294806,
+            0.001546864048577845,
+            189.08343505859375
+          ],
+          "passed": true
+        }
+      }
+    },
+    {
+      "id": "glass_hurricane_candle_holder",
+      "title": "Glass Hurricane Candle Holder (Glass Object Only)",
+      "path": "samples/raw/glass_hurricane_candle_holder.ply",
+      "sha256": "bdda31c3e21bcb9a6f49c3bd2d3c74a0a43fe46efc5e21bc8e476d005bf000b8",
+      "bytes": 61297,
+      "source_url": "https://github.com/KhronosGroup/glTF-Sample-Assets/tree/8f492390ddc7a2ae221a1369ef560589cf8c70fb/Models/GlassHurricaneCandleHolder",
+      "license_spdx": "CC-BY-4.0",
+      "full_license_texts": [
+        "licenses/CC-BY-4.0.txt"
+      ],
+      "authors": [
+        {
+          "name": "Eric Chadwick",
+          "role": "Model and textures",
+          "copyright_year": "2021",
+          "copyright_holder": "Wayfair, LLC",
+          "license_spdx": "CC-BY-4.0"
+        }
+      ],
+      "source_files": [
+        {
+          "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/8f492390ddc7a2ae221a1369ef560589cf8c70fb/Models/GlassHurricaneCandleHolder/glTF-Binary/GlassHurricaneCandleHolder.glb",
+          "sha256": "add23791ee6f5f550b94a21232a323720c92c20d280f4f7d19cf954234f0b7b8",
+          "bytes": 2705400
+        }
+      ],
+      "upstream_provenance_files": [
+        {
+          "path": "licenses/upstream/Models/GlassHurricaneCandleHolder/README.md",
+          "source_url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/8f492390ddc7a2ae221a1369ef560589cf8c70fb/Models/GlassHurricaneCandleHolder/README.md",
+          "sha256": "4ff0a0a82ed28be8c22a01de0ffba18cbed58c77be0d0bd8b9ff0fb0f04541b2",
+          "modified": false,
+          "license_spdx": "CC-BY-4.0",
+          "attribution": "KhronosGroup/glTF-Sample-Assets contributors; original authors and notices retained in the copied files."
+        },
+        {
+          "path": "licenses/upstream/Models/GlassHurricaneCandleHolder/LICENSE.md",
+          "source_url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/8f492390ddc7a2ae221a1369ef560589cf8c70fb/Models/GlassHurricaneCandleHolder/LICENSE.md",
+          "sha256": "d50585e467a3910d95e9b0a08347d476ec2204d4e0966b95beee61832041ecf9",
+          "modified": false,
+          "license_spdx": "CC-BY-4.0",
+          "attribution": "KhronosGroup/glTF-Sample-Assets contributors; original authors and notices retained in the copied files."
+        },
+        {
+          "path": "licenses/upstream/Models/GlassHurricaneCandleHolder/metadata.json",
+          "source_url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/8f492390ddc7a2ae221a1369ef560589cf8c70fb/Models/GlassHurricaneCandleHolder/metadata.json",
+          "sha256": "31894e084b4f7ea27617a667896a27155c83e60d2072a5356420476fb489b447",
+          "modified": false,
+          "license_spdx": "CC-BY-4.0",
+          "attribution": "KhronosGroup/glTF-Sample-Assets contributors; original authors and notices retained in the copied files."
+        }
+      ],
+      "source_gltf_asset": {
+        "version": "2.0",
+        "copyright": "(C) 2023, Wayfair LLC. License: CC BY 4.0 International",
+        "generator": "Model and textures by Eric Chadwick. Modeled in 3ds Max, exported with babylon.js glTF exporter, hand-edited in VSCode with glTF Tools"
+      },
+      "selected_nodes": [
+        {
+          "node": "GlassHurricaneCandleHolder-glass",
+          "geometry": "GlassHurricaneCandleHolder-glass",
+          "world_transform": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -1.4142136284256424e-07,
+              -0.9999999999999901,
+              0.0
+            ],
+            [
+              0.0,
+              0.9999999999999901,
+              -1.4142136284256424e-07,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        }
+      ],
+      "omitted_geometry_nodes": [
+        "GlassHurricaneCandleHolder-opaque"
+      ],
+      "modifications": [
+        "Geometry-only conversion from upstream glTF/GLB to binary little-endian PLY, containing only vertex positions and triangle indices.",
+        "Extract exactly the selected complete object node(s); preserve static scene-node world transforms, original coordinate scale, and surface shape.",
+        "Weld only vertices whose transformed float64 positions are exactly identical (Open3D remove_duplicated_vertices); no tolerance-based merging.",
+        "Omit textures, materials, UVs, vertex colors, normals, cameras, lights, rigging, and animations.",
+        "Do not normalize, center, rescale, simplify, remesh, fill holes, deform, or repair surfaces. Retain every source triangle of the selected object(s)."
+      ],
+      "normalization_applied": false,
+      "geometry_only": true,
+      "notes": [
+        "Artist-created glass holder; no procedural substitute.",
+        "Only the complete glass object node is extracted. The separate opaque candle/wick/scene-prop node is omitted; no part of the selected glass shell is removed.",
+        "The upstream source includes Khronos/glTF logo notices. No textures, logos, or trademarks are distributed in the geometry-only PLY; the full upstream trademark notice is retained for provenance, not as a trademark grant."
+      ],
+      "geometry": {
+        "vertices_before_exact_weld": 1380,
+        "vertices": 1218,
+        "triangles": 2432,
+        "bounds": [
+          [
+            -0.09516754001379013,
+            0.09550225365482588,
+            -0.09516750378262748
+          ],
+          [
+            0.09516754001379013,
+            0.3065757939853332,
+            0.09516749428856433
+          ]
+        ],
+        "connected_components": 1,
+        "is_watertight": true,
+        "is_edge_manifold_without_boundary": true,
+        "is_vertex_manifold": true,
+        "is_self_intersecting": false,
+        "is_orientable": true,
+        "is_winding_consistent": true,
+        "boundary_or_nonmanifold_edges": 0,
+        "signed_volume": 0.00049855881816351,
+        "source_unique_vertex_coordinates_preserved_exactly": true,
+        "source_selected_triangle_count_preserved": true,
+        "ply_roundtrip_coordinates_and_indices_exact": true,
+        "sdf_smoke_test": {
+          "engine": "Open3D CPU RaycastingScene.compute_signed_distance, nsamples=5",
+          "sample_order": [
+            "largest_face_inward_offset",
+            "largest_face_outward_offset",
+            "beyond_bounding_box"
+          ],
+          "query_coordinates": [
+            [
+              0.005979311186820269,
+              0.1802513599395752,
+              0.08947266638278961
+            ],
+            [
+              0.00597971398383379,
+              0.1802523285150528,
+              0.08947674930095673
+            ],
+            [
+              0.2855026125907898,
+              0.5176493525505066,
+              0.28550249338150024
+            ]
+          ],
+          "signed_distances": [
+            -2.109506340275402e-06,
+            2.1059936443634797e-06,
+            0.37547004222869873
+          ],
+          "passed": true
+        }
+      }
+    },
+    {
+      "id": "teacup",
+      "title": "Diffuse Transmission Teacup (Cup Object Only)",
+      "path": "samples/raw/teacup.ply",
+      "sha256": "4c52ddd54599e404373105661ddda9e6e5c48e7002915858319a260ba485c6ad",
+      "bytes": 416650,
+      "source_url": "https://github.com/KhronosGroup/glTF-Sample-Assets/tree/8f492390ddc7a2ae221a1369ef560589cf8c70fb/Models/DiffuseTransmissionTeacup",
+      "license_spdx": "CC0-1.0",
+      "full_license_texts": [
+        "licenses/CC0-1.0.txt"
+      ],
+      "authors": [
+        {
+          "name": "Polyhaven.com, and Eric Chadwick",
+          "role": "Models and Textures",
+          "copyright_year": "2023",
+          "copyright_holder": "Public domain",
+          "license_spdx": "CC0-1.0"
+        }
+      ],
+      "source_files": [
+        {
+          "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/8f492390ddc7a2ae221a1369ef560589cf8c70fb/Models/DiffuseTransmissionTeacup/glTF-Binary/DiffuseTransmissionTeacup.glb",
+          "sha256": "d4f567186fea262819aac6664cb9d7cef7f4600406038046771a69e10363935b",
+          "bytes": 4795028
+        }
+      ],
+      "upstream_provenance_files": [
+        {
+          "path": "licenses/upstream/Models/DiffuseTransmissionTeacup/README.md",
+          "source_url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/8f492390ddc7a2ae221a1369ef560589cf8c70fb/Models/DiffuseTransmissionTeacup/README.md",
+          "sha256": "1249d1700d80f49c1de9614f2ff3fc6160a9aa9dbcd3231af33799b0c6279716",
+          "modified": false,
+          "license_spdx": "CC-BY-4.0",
+          "attribution": "KhronosGroup/glTF-Sample-Assets contributors; original authors and notices retained in the copied files."
+        },
+        {
+          "path": "licenses/upstream/Models/DiffuseTransmissionTeacup/LICENSE.md",
+          "source_url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/8f492390ddc7a2ae221a1369ef560589cf8c70fb/Models/DiffuseTransmissionTeacup/LICENSE.md",
+          "sha256": "17a3116c1cd430aa6de9b26dae8827ed0eb5fbc5a58645a700ac25f2ee7b1ef7",
+          "modified": false,
+          "license_spdx": "CC-BY-4.0",
+          "attribution": "KhronosGroup/glTF-Sample-Assets contributors; original authors and notices retained in the copied files."
+        },
+        {
+          "path": "licenses/upstream/Models/DiffuseTransmissionTeacup/metadata.json",
+          "source_url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/8f492390ddc7a2ae221a1369ef560589cf8c70fb/Models/DiffuseTransmissionTeacup/metadata.json",
+          "sha256": "52c17438560674bdbf2ce1b88f708d2ec76c560c451208a9c380c7f270efca77",
+          "modified": false,
+          "license_spdx": "CC-BY-4.0",
+          "attribution": "KhronosGroup/glTF-Sample-Assets contributors; original authors and notices retained in the copied files."
+        }
+      ],
+      "source_gltf_asset": {
+        "copyright": "CC0 public domain, model sourced from https://polyhaven.com/a/tea_set_01, edited by Eric Chadwick.",
+        "generator": "Edited in 3ds Max 2024.1, exported with Satoshi Hayashi glTF exporter 1.42, edited in Visual Studio Code 1.83 with glTF Tools 2.4.",
+        "version": "2.0"
+      },
+      "selected_nodes": [
+        {
+          "node": "tea_cup",
+          "geometry": "tea_cup",
+          "world_transform": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              8.457805961370468e-06
+            ],
+            [
+              0.0,
+              1.0,
+              -4.371138828673793e-08,
+              0.0
+            ],
+            [
+              0.0,
+              4.371138828673793e-08,
+              1.0,
+              -0.00030597392469644547
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        }
+      ],
+      "omitted_geometry_nodes": [
+        "tea_saucer"
+      ],
+      "modifications": [
+        "Geometry-only conversion from upstream glTF/GLB to binary little-endian PLY, containing only vertex positions and triangle indices.",
+        "Extract exactly the selected complete object node(s); preserve static scene-node world transforms, original coordinate scale, and surface shape.",
+        "Weld only vertices whose transformed float64 positions are exactly identical (Open3D remove_duplicated_vertices); no tolerance-based merging.",
+        "Omit textures, materials, UVs, vertex colors, normals, cameras, lights, rigging, and animations.",
+        "Do not normalize, center, rescale, simplify, remesh, fill holes, deform, or repair surfaces. Retain every source triangle of the selected object(s)."
+      ],
+      "normalization_applied": false,
+      "geometry_only": true,
+      "notes": [
+        "Existing Polyhaven/Eric Chadwick cup model; no procedural substitute.",
+        "Only the complete tea_cup object node, including its handle, is extracted. The separate tea_saucer node is omitted; no part of the selected cup is removed."
+      ],
+      "geometry": {
+        "vertices_before_exact_weld": 49944,
+        "vertices": 8324,
+        "triangles": 16648,
+        "bounds": [
+          [
+            -0.05317095899954438,
+            0.002442632835866787,
+            -0.07941566262610085
+          ],
+          [
+            0.05318787833675742,
+            0.06970596543140904,
+            0.052873442165167754
+          ]
+        ],
+        "connected_components": 1,
+        "is_watertight": true,
+        "is_edge_manifold_without_boundary": true,
+        "is_vertex_manifold": true,
+        "is_self_intersecting": false,
+        "is_orientable": true,
+        "is_winding_consistent": true,
+        "boundary_or_nonmanifold_edges": 0,
+        "signed_volume": 9.656455750366582e-05,
+        "source_unique_vertex_coordinates_preserved_exactly": true,
+        "source_selected_triangle_count_preserved": true,
+        "ply_roundtrip_coordinates_and_indices_exact": true,
+        "sdf_smoke_test": {
+          "engine": "Open3D CPU RaycastingScene.compute_signed_distance, nsamples=5",
+          "sample_order": [
+            "largest_face_inward_offset",
+            "largest_face_outward_offset",
+            "beyond_bounding_box"
+          ],
+          "query_coordinates": [
+            [
+              -0.0067587606608867645,
+              0.004709164146333933,
+              -0.0016637635417282581
+            ],
+            [
+              -0.006758702918887138,
+              0.004706518724560738,
+              -0.0016637520166113973
+            ],
+            [
+              0.15954671800136566,
+              0.13696929812431335,
+              0.18516254425048828
+            ]
+          ],
+          "signed_distances": [
+            -1.3232710216470878e-06,
+            1.3228054740466177e-06,
+            0.20314373075962067
+          ],
+          "passed": true
+        }
+      }
+    }
+  ],
+  "rejected_full_scene_candidates": [
+    {
+      "upstream_name": "Duck",
+      "reason": "SCEA shared-source license, not a CC0/CC-BY asset; excluded before geometry download."
+    },
+    {
+      "upstream_name": "Avocado",
+      "scope": "Full scene geometry, before object selection",
+      "is_watertight": false,
+      "is_self_intersecting": true,
+      "boundary_or_nonmanifold_edges": 38,
+      "reason": "Full scene not suitable as an unmodified watertight SDF example. Where noted above, a complete watertight object node is retained instead of scene props."
+    },
+    {
+      "upstream_name": "WaterBottle",
+      "scope": "Full scene geometry, before object selection",
+      "is_watertight": false,
+      "is_self_intersecting": true,
+      "boundary_or_nonmanifold_edges": 264,
+      "reason": "Full scene not suitable as an unmodified watertight SDF example. Where noted above, a complete watertight object node is retained instead of scene props."
+    },
+    {
+      "upstream_name": "BarramundiFish",
+      "scope": "Full scene geometry, before object selection",
+      "is_watertight": false,
+      "is_self_intersecting": true,
+      "boundary_or_nonmanifold_edges": 0,
+      "reason": "Full scene not suitable as an unmodified watertight SDF example. Where noted above, a complete watertight object node is retained instead of scene props."
+    },
+    {
+      "upstream_name": "ToyCar",
+      "scope": "Full scene geometry, before object selection",
+      "is_watertight": false,
+      "is_self_intersecting": true,
+      "boundary_or_nonmanifold_edges": 3842,
+      "reason": "Full scene not suitable as an unmodified watertight SDF example. Where noted above, a complete watertight object node is retained instead of scene props."
+    },
+    {
+      "upstream_name": "GlassHurricaneCandleHolder",
+      "scope": "Full scene geometry, before object selection",
+      "is_watertight": false,
+      "is_self_intersecting": true,
+      "boundary_or_nonmanifold_edges": 4,
+      "reason": "Full scene not suitable as an unmodified watertight SDF example. Where noted above, a complete watertight object node is retained instead of scene props."
+    },
+    {
+      "upstream_name": "SpecularSilkPouf",
+      "scope": "Full scene geometry, before object selection",
+      "is_watertight": false,
+      "is_self_intersecting": true,
+      "boundary_or_nonmanifold_edges": 1000,
+      "reason": "Full scene not suitable as an unmodified watertight SDF example. Where noted above, a complete watertight object node is retained instead of scene props."
+    },
+    {
+      "upstream_name": "ScatteringSkull",
+      "scope": "Full scene geometry, before object selection",
+      "is_watertight": false,
+      "is_self_intersecting": true,
+      "boundary_or_nonmanifold_edges": 6,
+      "reason": "Full scene not suitable as an unmodified watertight SDF example. Where noted above, a complete watertight object node is retained instead of scene props."
+    },
+    {
+      "upstream_name": "TrafficCone",
+      "scope": "Full scene geometry, before object selection",
+      "is_watertight": false,
+      "is_self_intersecting": true,
+      "boundary_or_nonmanifold_edges": 184,
+      "reason": "Full scene not suitable as an unmodified watertight SDF example. Where noted above, a complete watertight object node is retained instead of scene props."
+    },
+    {
+      "upstream_name": "DiffuseTransmissionTeacup",
+      "scope": "Full scene geometry, before object selection",
+      "is_watertight": false,
+      "is_self_intersecting": true,
+      "boundary_or_nonmanifold_edges": 60,
+      "reason": "Full scene not suitable as an unmodified watertight SDF example. Where noted above, a complete watertight object node is retained instead of scene props."
+    },
+    {
+      "upstream_name": "IridescenceAbalone",
+      "scope": "Full scene geometry, before object selection",
+      "is_watertight": false,
+      "is_self_intersecting": true,
+      "boundary_or_nonmanifold_edges": 0,
+      "reason": "Full scene not suitable as an unmodified watertight SDF example. Where noted above, a complete watertight object node is retained instead of scene props."
+    }
+  ]
+}

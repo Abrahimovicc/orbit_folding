@@ -1,0 +1,71 @@
+{
+  "png": "assets/orbit_consistency.png",
+  "gif": "assets/orbit_consistency.gif",
+  "metadata": "assets/orbit_consistency.json",
+  "sample_id": "fox",
+  "source_path": "samples/raw/fox.ply",
+  "source_url": "https://github.com/KhronosGroup/glTF-Sample-Assets/tree/8f492390ddc7a2ae221a1369ef560589cf8c70fb/Models/Fox",
+  "license_spdx": "CC0-1.0 AND CC-BY-4.0",
+  "authors": [
+    {
+      "name": "PixelMannen",
+      "role": "Model",
+      "copyright_year": "2014",
+      "copyright_holder": "Public",
+      "license_spdx": "CC0-1.0"
+    },
+    {
+      "name": "tomkranis",
+      "role": "Rigging & Animation",
+      "copyright_year": "2014",
+      "copyright_holder": "tomkranis",
+      "license_spdx": "CC-BY-4.0"
+    },
+    {
+      "name": "@AsoboStudio and @scurest",
+      "role": "Conversion to glTF",
+      "copyright_year": "2017",
+      "copyright_holder": "@AsoboStudio and @scurest",
+      "license_spdx": "CC-BY-4.0"
+    }
+  ],
+  "source_sha256": "1df63c8dcf9517d100a89a30053401f7687bb5cc54862554af4c63c1c6c6dd04",
+  "frames": 96,
+  "gif_bytes": 9614583,
+  "gif_dimensions": [
+    1920,
+    640
+  ],
+  "requested_frames": 96,
+  "seed": 2026,
+  "display_points": 8192,
+  "full_observation_points": 16384,
+  "renderer": "open3d",
+  "supersample": 3,
+  "palette": [
+    [
+      0.12,
+      0.33,
+      0.66
+    ],
+    [
+      0.74,
+      0.36,
+      0.12
+    ],
+    [
+      0.02,
+      0.5,
+      0.46
+    ]
+  ],
+  "jitter_sigma_model_units": 0.0,
+  "jitter_clip_bounds_model_units": [
+    -0.0,
+    0.0
+  ],
+  "folded_pointwise_max_abs_model_units": 8.049116928532385e-16,
+  "overlay_markers": "Complementary canonical-x halves: A blue, B copper. No fitted display alignment.",
+  "camera": "Shared fixed-scale perspective camera, 30-degree FOV; full 360-degree z orbit",
+  "caveat": "Real licensed sampled geometry. Geometric repeatability, not learned reconstruction or generation."
+}

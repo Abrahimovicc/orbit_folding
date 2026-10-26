@@ -1,0 +1,124 @@
+{
+  "format": "orbit_folding.baseline_validation.v1",
+  "date": "2026-10-25",
+  "scope": "Checkpoint compatibility and bounded functionality tests, not converged baseline quality.",
+  "original_implementation_parity": {
+    "torch": "2.7.0+cu128",
+    "vq": {
+      "all_active_weights_strictly_loaded": true,
+      "indices_equal": true,
+      "quantized_planes_max_abs": 0.0,
+      "hard_decode_max_abs": 0.0
+    },
+    "categorical": {
+      "all_active_weights_exact": true,
+      "logits_max_abs": 0.0,
+      "predictions_equal": true,
+      "shape": [
+        1,
+        128,
+        128
+      ]
+    }
+  },
+  "gpu_runs": [
+    {
+      "run": "vq_gpu_verified",
+      "task": "tokenizer",
+      "prior_type": null,
+      "torch": "2.11.0+cu128",
+      "device": "cuda",
+      "world_size": 1,
+      "optimizer_updates": 2,
+      "config_sha256": "f084f520965e266c348e2f57a45b99ae967139912ed58acc7dbfa471a3179f91",
+      "training_samples": 4,
+      "validation_samples": 2,
+      "last_recorded_objective": 304.8084716796875,
+      "validation_selection_metric": "uniform_sdf_mae",
+      "best_checkpoint_written": true
+    },
+    {
+      "run": "categorical_gpu",
+      "task": "prior",
+      "prior_type": "categorical",
+      "torch": "2.11.0+cu128",
+      "device": "cuda",
+      "world_size": 1,
+      "optimizer_updates": 2,
+      "config_sha256": "2246e2e9e2c75b5013d3a707a8c8e613228d4e77c3f977757d882f74ca4e045b",
+      "training_samples": 4,
+      "validation_samples": 2,
+      "last_recorded_objective": 2.8220043182373047,
+      "validation_selection_metric": "hidden_ce",
+      "best_checkpoint_written": true
+    },
+    {
+      "run": "vq_full_gpu",
+      "task": "tokenizer",
+      "prior_type": null,
+      "torch": "2.11.0+cu128",
+      "device": "cuda",
+      "world_size": 1,
+      "optimizer_updates": 1,
+      "config_sha256": "55690ebeec7d030aa3180e3f411b560f4b8fd76771a583a798c08332f70f3515",
+      "training_samples": 4,
+      "validation_samples": 2,
+      "last_recorded_objective": 134.98779296875,
+      "validation_selection_metric": "uniform_sdf_mae",
+      "best_checkpoint_written": true
+    },
+    {
+      "run": "categorical_full_gpu",
+      "task": "prior",
+      "prior_type": "categorical",
+      "torch": "2.11.0+cu128",
+      "device": "cuda",
+      "world_size": 1,
+      "optimizer_updates": 1,
+      "config_sha256": "a34eb36d301fc2db371876c45431c426cffc353e32fcd34b78cd43437aa0b671",
+      "training_samples": 4,
+      "validation_samples": 2,
+      "last_recorded_objective": 8.387951850891113
+    }
+  ],
+  "vq_cache": {
+    "format": "orbit_folding.index_cache.v1",
+    "dtype": "int64",
+    "layout": "HW",
+    "codebook_size": 16,
+    "token_shape": [
+      8,
+      8
+    ],
+    "num_samples": 8,
+    "split_counts": {
+      "train": 4,
+      "val": 2,
+      "test": 2
+    }
+  },
+  "decoded_field_evaluation": {
+    "attempted_samples": 2,
+    "completed_field_evaluations": 2,
+    "mesh_status_counts": {
+      "categorical": {
+        "no_isosurface": 2
+      },
+      "oracle": {
+        "no_isosurface": 2
+      }
+    },
+    "scope": "Short-run fields are not converged; successful field evaluation does not imply a valid or accurate mesh."
+  },
+  "lfq_regression": {
+    "checks": 48,
+    "matches_reported_precision": true,
+    "scope": "New evaluation of 512 original test token fields with the unchanged matched bit-prior weights."
+  },
+  "remaining_limits": [
+    "Full baseline convergence and paper-level quality have not been rerun.",
+    "Full raw-geometry stress and decoded-boundary mesh benchmarks have not been regenerated.",
+    "CUDA/NCCL multi-GPU hardware is not tested; two-process CPU/Gloo execution is tested.",
+    "Weights remain local and unpublished; original benchmark geometry is not bundled."
+  ]
+}

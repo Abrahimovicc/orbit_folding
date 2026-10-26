@@ -1,0 +1,16 @@
+# Geometric Orbit Representatives for Unaligned 3D Tokenization
+# Chair of Multimodal Machine Learning, ScaDS.AI Dresden/Leipzig
+# Contact: Xiang Chen <xiang.chen@uni-leipzig.de>
+# SPDX-License-Identifier: MIT
+include README.md LICENSE CITATION.cff THIRD_PARTY_NOTICES.md pyproject.toml
+recursive-include configs *.yaml
+recursive-include docs *.md *.json
+recursive-include licenses *.txt
+recursive-include data *.json *.md *.txt *.ply
+recursive-include assets *.gif *.png *.json *.jsonl *.md *.txt
+recursive-include tools *.py
+recursive-include applications *.py *.md
+recursive-include tests *.py
+prune data/samples/processed
+prune outputs
+global-exclude __pycache__ *.py[cod]

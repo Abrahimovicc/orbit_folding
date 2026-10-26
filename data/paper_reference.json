@@ -1,0 +1,16 @@
+{
+  "format": "orbit_folding.paper_reference.v1",
+  "scope": "Published fixed-mask prior and state-space tables; not a full training reproduction.",
+  "protocol": "paper-fixed-bernoulli-v1",
+  "samples": 512,
+  "seed": 20260511,
+  "batch_size": 16,
+  "mask_device": "cpu",
+  "rows": [
+    {"mask_ratio": 0.1, "masked_cells": 838448, "bce": "0.0529", "bit_accuracy_percent": "97.72", "token_exact_percent": "80.58", "confidence": "0.9558"},
+    {"mask_ratio": 0.25, "masked_cells": 2097244, "bce": "0.0558", "bit_accuracy_percent": "97.60", "token_exact_percent": "79.90", "confidence": "0.9529"},
+    {"mask_ratio": 0.5, "masked_cells": 4192288, "bce": "0.0642", "bit_accuracy_percent": "97.23", "token_exact_percent": "78.01", "confidence": "0.9454", "uncertain_percent": "11.74", "hard_wrong_percent": "2.77", "uncertain_mse_reduction_percent": "30.3", "hard_wrong_mse_reduction_percent": "45.9", "thin_proxy_mse_reduction_percent": "30.0", "edge_mse_reduction_percent": "30.0"},
+    {"mask_ratio": 0.75, "masked_cells": 6289885, "bce": "0.0850", "bit_accuracy_percent": "96.33", "token_exact_percent": "73.85", "confidence": "0.9288", "uncertain_percent": "15.19", "hard_wrong_percent": "3.67", "uncertain_mse_reduction_percent": "30.4", "hard_wrong_mse_reduction_percent": "45.7", "thin_proxy_mse_reduction_percent": "30.4", "edge_mse_reduction_percent": "31.2"},
+    {"mask_ratio": 0.9, "masked_cells": 7549838, "bce": "0.2809", "bit_accuracy_percent": "89.58", "token_exact_percent": "37.88", "confidence": "0.6470", "uncertain_percent": "69.77", "hard_wrong_percent": "10.42", "uncertain_mse_reduction_percent": "19.9", "hard_wrong_mse_reduction_percent": "57.9", "thin_proxy_mse_reduction_percent": "33.1", "edge_mse_reduction_percent": "33.5"}
+  ]
+}
