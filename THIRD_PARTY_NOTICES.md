@@ -42,7 +42,8 @@ The animation is rendered from the licensed Fox geometry. Its data attribution
 continues to apply to the derived visualization. No institutional logo or
 third-party trademark is licensed by the code's MIT grant.
 
-Affiliation logos are unmodified institutional marks, used for attribution.
+Affiliation logos identify the authors' institutions. The Leipzig dark-mode
+contrast variant changes only its monochrome colour.
 Their source links and ownership scope are in [assets/logos/](assets/logos/README.md).
 
-[Back to Main README](README.md#license-and-contact)
+[Back to Main README](README.md#license)

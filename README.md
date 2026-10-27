@@ -5,8 +5,18 @@
 # Geometric Orbit Representatives for Unaligned 3D Tokenization
 
 <p align="center">
+  <!-- Replace the PDF status with its official link once the paper is available. -->
+  <strong>Paper PDF:</strong> Coming soon &nbsp;&middot;&nbsp; <a href="#citation">BibTeX</a>
+</p>
+
+<p align="center">
   <a href="https://scads.ai/"><img src="assets/logos/scads-ai.png" height="42" alt="ScaDS.AI Dresden/Leipzig"></a>&nbsp;&nbsp;
-  <a href="https://www.uni-leipzig.de/en/"><img src="assets/logos/leipzig-university.png" height="42" alt="Leipzig University"></a>&nbsp;&nbsp;
+  <a href="https://www.uni-leipzig.de/en/">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="assets/logos/leipzig-university-dark.png">
+      <img src="assets/logos/leipzig-university.png" height="42" alt="Leipzig University">
+    </picture>
+  </a>&nbsp;&nbsp;
   <a href="https://www.ntu.edu.sg/"><img src="assets/logos/ntu.png" height="42" alt="Nanyang Technological University"></a>&nbsp;&nbsp;
   <a href="https://icgi.no/"><img src="assets/logos/icgi.png" height="42" alt="Institute for Cancer Genetics and Informatics"></a>&nbsp;&nbsp;
   <a href="https://www.singaporetech.edu.sg/"><img src="assets/logos/sit.png" height="42" alt="Singapore Institute of Technology"></a>
@@ -298,10 +308,7 @@ pytest -q -m distributed  # two CPU processes
 }
 ```
 
-## License And Contact
+## License
 
 Original code: [MIT](LICENSE). Sample data and affiliation logos retain their
 owners' rights; see [third-party notices](THIRD_PARTY_NOTICES.md).
-
-Chair of Multimodal Machine Learning, ScaDS.AI Dresden/Leipzig.
-Contact: [Xiang Chen](mailto:xiang.chen@uni-leipzig.de).

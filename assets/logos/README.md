@@ -18,4 +18,10 @@ No conference logo or endorsement is implied.
 | Institute for Cancer Genetics and Informatics | [Official website asset](https://icgi.no/-/media/ICGI/ICGI_images/ICGI-logo-full-name.png) |
 | Singapore Institute of Technology | [Institutional partner listing](https://ihrp.sg/partner-profile/singapore-institute-of-technology-sit/) |
 
-[Back to Main README](../../README.md#license-and-contact)
+The original transparent images are retained without added backgrounds or
+padding. The Leipzig University mark additionally has a white-on-transparent
+contrast variant, `leipzig-university-dark.png`, selected in dark mode through
+the README's `<picture>` element. Its outline and alpha channel match the
+original black mark; the other institutions' marks are unchanged.
+
+[Back to Main README](../../README.md#license)
